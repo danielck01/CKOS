@@ -31,15 +31,22 @@ title: CKOS Expansion Kanban
 
 ## 🔵 Agora — F0 Convergência Documental
 
-> **BORDA DURA DA F0 (PMO 2026-06-02):** A F0 contém EXATAMENTE: GATEs 0-5 + reconciliação de fronteira + Doc 11 candidate (ponte F0→F1). **Nada mais entra na F0.**
-> **Condição de saída:** GATE 5 (arquivo 03) aprovado pelo Founder → fecha F0, abre F1. **Data-alvo: 2026-06-09 (confirmar).**
-> **Explicitamente FORA da F0** (paralelo com F1, nunca antes): Docs 29-34, joias do DNA, Vault Operating Loop, Session Fan-In recorrente.
-> Caminho crítico restante = **1 item**: aprovação Founder do GATE 5.
+> **F0 — FOCO REPRIORIZADO (Founder, 2026-06-02):** a convergência agora prioriza **consolidar as 3 camadas** (canônico ↔ study ↔ upgrade) ANTES de construir backend. Sinal:ruído = **1:35** (42 canônico : ~1.450 resto). GATE 5 spec pronta, mas **em espera** até a consolidação reduzir o ruído.
+> **F0 contém:** GATEs 0-5 (feitos) + reconciliação + **Consolidação L1-L4** (foco atual) + Doc 11 candidate.
+> **Saída da F0:** vault consolidado + GATE 5 decidido. **Fora da F0:** Docs 29-34, Vault Loop, Fan-In recorrente.
 
-- [ ] GATE 5 — Spec do Backend MVP thin-slice (arquivo 03) #F0 #gate **[SPEC PRONTA + FAN-IN ✅ — AGUARDA APROVAÇÃO FOUNDER]**
+- [ ] CONSOLIDAÇÃO das 3 camadas — colapsar fragmentação 1:35 #F0 #FX **[EM EXECUÇÃO — 510 arq reorganizados]**
+  - **Plano:** `04_CONSOLIDATION_EXECUTION_PLAN.md` · Decisões D1-D4 ✅
+  - **L1 ✅** Miriam (100) → `000_PROJECTS/` (commit 9aae8c3)
+  - **L2 ✅** Brain (410) → `000_KNOWLEDGE_BASE/` (commit afc61d0)
+  - **L3 (próximo — ANÁLISE, não move):** UPGRADE reconciliação com promoção AGRESSIVA (comparar espelho vs canônico, puxar o melhor via patch candidate)
+  - **L4:** DNA vault + SUPERAGENT (benchmark externo — mapear estudo de tradução do DNA antes) + dups UI/UX
+  - **Mecanismo validado:** git mv preserva links (wikilinks por nome) + commit por lote reversível
+- [ ] GATE 5 — Spec do Backend MVP thin-slice (arquivo 03) #F0 #gate **[SPEC PRONTA + FAN-IN ✅ — EM ESPERA até consolidação]**
   - **Arquivo:** `03_BACKEND_MVP_THIN_SLICE_PLAN.md` (Codex2 criou; fan-in Claude ✅ 2026-06-02)
   - **Fan-in:** 16 seções, backend puro, event log central, RLS/tenant desde S1, 9 AQs. Doc 12 + secret handling adicionados no fan-in.
   - **Pendência única:** decisão Founder (aprovar = fecha F0, abre F1; é gate, não auto-aprovável)
+  - **Pacote de decisão:** `GATE5_FOUNDER_DECISION_PACKAGE.md` (go/no-go, 9 AQs, o que libera/bloqueia)
 - [ ] Doc 11 RAG schema — patch CANDIDATE (proposta, não aplicação) #F0 #runtime
   - **Depende de:** arquivo 03 (GATE 5) — sem ele vira over-engineering
   - **Prompt pronto:** `000_ROADMAPS/12_PROMPTS/08_PROMPT_CODEX_DOC11_RAG_SCHEMA_PATCH_CANDIDATE.md`

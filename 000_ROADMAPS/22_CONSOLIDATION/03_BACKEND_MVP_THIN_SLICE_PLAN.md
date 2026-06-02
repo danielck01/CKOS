@@ -279,4 +279,23 @@ Ordem recomendada: S1 event ingress -> S4 event log hardening -> S2/S3 intellige
 | Over-engineering | Temporal, catalogo de agentes ou RAG completo entram no MVP | Voltar ao thin slice: 1 intencao, 4 agentes, 1 decisao, 1 evidencia, 1 memoria. |
 | GATE 5 lido como aprovado | Planejamento vira permissao de build | Repetir que Founder approval e passo separado. |
 
+# 17. Refinacao da ordem (Codex + Founder, 2026-06-02)
+
+> **Frase-guia: primeiro o trilho governado, depois a inteligencia.**
+
+Ordem de construcao refinada — **objetos e eventos antes de agentes**:
+
+```txt
+Project Kernel -> Briefing Intake -> Notes/Documents -> Event Log
+  -> Work Order -> Artifact/Release -> RAG textual (source-aware) -> Agentes leves
+```
+
+- **Dogfooding:** o primeiro caso de uso do CKOS e desenvolver o proprio CKOS. O primeiro Work Order real pode ser um lote da consolidacao (ex: L3 UPGRADE), executado dentro do runtime quando ele existir. (Hoje ja fazemos isso a mao via gates/locks/releases — o runtime so automatiza o que ja funciona manualmente.)
+- **Source-aware antes de RAG completo:** salvar docs/notas com metadata -> busca textual/chunking -> embeddings. Alinha com Doc 28.
+- **Agentes por ultimo:** o primeiro "agente" e um botao ("gerar diagnostico", "gerar Work Order", "revisar lacunas"), nao automacao autonoma.
+- **Criterio de sucesso brutalmente simples:** pegar um briefing novo e gerar uma decisao/artefato rastreavel em **< 10 minutos**.
+- **Ressalva PMO (cockpit vs sem-UI):** este arquivo manda backend puro. Um cockpit minimo (read-only sobre o event log: Projeto/Briefing/Notas/WO/Artifacts/Timeline) pode entrar como **janela de observacao** para tornar o slice visivel — nunca como UI rica nem como ponto de partida. Decidir quando F1 abrir.
+
+Esta refinacao melhora §9/§14 e vale quando o GATE 5 for aprovado. **Nao altera o status: F1 segue em espera ate a consolidacao avancar.**
+
 Checkout release esperado desta sessao: arquivo 03 criado, registry atualizado, GATE 5 preparado para fan-in, sem aprovacao Founder e sem implementacao.
