@@ -17,7 +17,8 @@
       "Bash(git mv *)",
       "Bash(git commit -q -m 'consolidacao L1: Miriam -> 000_PROJECTS \\(D3\\)' -m 'Projeto de cliente real movido de 000_UPGRADE para pasta de projetos dedicada. Primeiro lote da consolidacao. Reversivel via git. *)",
       "Bash(git commit -q -m 'consolidacao L2: Brain -> 000_KNOWLEDGE_BASE \\(D1\\)' -m 'Knowledge base de dominio \\(psicologia, metodologia, areas de expertise\\) segregada do study de arquitetura. Tesouro preservado com estrutura intacta; alimenta RAG/Doc 28. Reversivel via git. *)",
-      "Bash(git commit -q -m 'consolidacao: registrar L1/L2 + refinacao ordem F1 \\(Codex\\)' -m '- kanban/registry: L1 Miriam + L2 Brain registrados *)"
+      "Bash(git commit -q -m 'consolidacao: registrar L1/L2 + refinacao ordem F1 \\(Codex\\)' -m '- kanban/registry: L1 Miriam + L2 Brain registrados *)",
+      "Bash(git commit -q -m 'consolidacao: handoff L3 reconciliacao de Agentes para proxima sessao' -m 'Prompt de continuacao \\(cold-start\\) para reconciliar UPGRADE/03_AGENT_CIVILIZATION vs Doc 03. *)"
     ]
   }
 }
