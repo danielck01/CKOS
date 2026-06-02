@@ -1,0 +1,65 @@
+📁 CKCompanyVault
+├── 00_⚙️_SISTEMA
+│   ├── Overview.md
+│   ├── Tags.md
+│   ├── Propriedades.md
+│   └── EstruturaCanvas.md
+├── 01_🧠_METODOLOGIA
+│   ├── Sentir.md
+│   ├── Pensar.md
+│   ├── Criar.md
+│   ├── Conectar.md
+│   └── Framework_Visual.md
+├── 02_📊_FERRAMENTAS
+│   ├── Base_da_Marca.md
+│   ├── Momento_da_Marca.md
+│   ├── Persona.md
+│   ├── Posicionamento.md
+│   ├── Mandala_de_Marca.md
+│   ├── Painel_Semantico.md
+│   ├── SWOT.md
+│   └── Briefing_Estrategico.md
+├── 03_🧬_AGENTES
+│   ├── Humanos/
+│   │   ├── Daniel (tecnologia / branding / ceo CK
+).md
+│   │   ├── Daniel_Veras (História / Filosofia).md
+│   │   └── Luana_Res (sociologia)ende.md
+│   ├── IA/
+│   │   ├── FILO.md
+│   │   ├── NEURA.md
+│   │   ├── SOCIA.md
+│   │   ├── STORY.md
+│   │   └── DATTA.md
+├── 04_🌐_SUBMARCAS
+│   ├── Goddess_Fitwear.md
+│   ├── Neurock.md
+│   ├── iMetrick.md
+│   └── PowerCK.md
+├── 05_🎬_CKPLAY
+│   ├── Takes/
+│   │   ├── Cinematografia.md
+│   │   ├── Narração.md
+│   │   └── Estilo_Visual.md
+│   ├── Categorias/
+│   │   ├── Heroína.md
+│   │   └── Exploradora.md
+├── 06_📅_CALENDÁRIOS
+│   ├── Editorial.md
+│   ├── Campanhas.md
+│   └── Desafios_Semanais.md
+├── 07_📚_BIBLIOTECA
+│   ├── Referências_Filosóficas.md
+│   ├── Neurobranding.md
+│   ├── Toolkit_Livros.md
+│   └── PDFs/
+└── 08_📎_TEMPLATES
+    ├── Nota_Simples.md
+    ├── Ferramenta_Padrão.md
+    ├── Kanban.md
+    ├── Mapa_Mental.md
+    ├── Campanha.md
+    ├── Calendário_Estratégico.md
+    └── CKPlay_Template.md
+
+

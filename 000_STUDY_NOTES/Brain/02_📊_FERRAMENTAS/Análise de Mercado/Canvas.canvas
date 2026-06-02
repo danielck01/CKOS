@@ -1,0 +1,31 @@
+{
+	"nodes":[
+		{"id":"mercado","type":"group","label":"Panorama do Mercado","position":{"x":0,"y":0}},
+		{"id":"tamanho","type":"text","text":"Tamanho do Mercado","position":{"x":20,"y":40}},
+		{"id":"tendencias","type":"text","text":"Tendências","position":{"x":20,"y":80}},
+		{"id":"barreiras","type":"text","text":"Barreiras","position":{"x":20,"y":120}},
+		
+		{"id":"competidores","type":"group","label":"Análise Competitiva","position":{"x":300,"y":0}},
+		{"id":"diretos","type":"text","text":"Concorrentes Diretos","position":{"x":320,"y":40}},
+		{"id":"indiretos","type":"text","text":"Concorrentes Indiretos","position":{"x":320,"y":80}},
+		
+		{"id":"consumidor","type":"group","label":"Análise do Consumidor","position":{"x":600,"y":0}},
+		{"id":"perfil","type":"text","text":"Perfil Demográfico","position":{"x":620,"y":40}},
+		{"id":"comportamento","type":"text","text":"Comportamento","position":{"x":620,"y":80}},
+		{"id":"jornada","type":"text","text":"Jornada do Cliente","position":{"x":620,"y":120}},
+		
+		{"id":"oportunidades","type":"group","label":"Oportunidades e Ameaças","position":{"x":0,"y":300}},
+		{"id":"ops","type":"text","text":"Oportunidades Identificadas","position":{"x":20,"y":340}},
+		{"id":"ameacas","type":"text","text":"Ameaças Potenciais","position":{"x":20,"y":380}},
+		
+		{"id":"vantagens","type":"group","label":"Vantagens Competitivas","position":{"x":300,"y":300}},
+		{"id":"diferenciais","type":"text","text":"Diferenciais","position":{"x":320,"y":340}},
+		{"id":"posicionamento","type":"text","text":"Posicionamento","position":{"x":320,"y":380}}
+	],
+	"edges":[
+		{"source":"mercado","target":"competidores","label":"influencia"},
+		{"source":"competidores","target":"consumidor","label":"impacta"},
+		{"source":"consumidor","target":"oportunidades","label":"gera"},
+		{"source":"oportunidades","target":"vantagens","label":"define"}
+	]
+}

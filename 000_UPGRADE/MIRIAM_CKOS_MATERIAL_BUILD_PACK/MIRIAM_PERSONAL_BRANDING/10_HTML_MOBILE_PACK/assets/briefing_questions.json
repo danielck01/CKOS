@@ -1,0 +1,77 @@
+{
+  "project": "Miriam Personal Branding Juridico",
+  "mode": "CKOS AI-first Briefing Vivo",
+  "status": "simulation_only",
+  "questions": [
+    {
+      "id": "objetivo_90_dias",
+      "category": "intent",
+      "question": "Qual e o objetivo primario de Miriam nos proximos 90 dias?",
+      "why_now": "Define se o sistema prioriza autoridade, captacao, parceria, educacao ou reposicionamento.",
+      "classification_after_answer": ["fact", "decision", "validation_needed"]
+    },
+    {
+      "id": "oab_status",
+      "category": "legal",
+      "question": "Qual e a situacao da inscricao na OAB e a seccional?",
+      "why_now": "Sem isso, a linguagem publica e a bio ficam bloqueadas.",
+      "classification_after_answer": ["fact", "risk"]
+    },
+    {
+      "id": "perfil_atual",
+      "category": "trust_architecture",
+      "question": "O perfil atual e pessoal, profissional ou misto?",
+      "why_now": "Ajuda a decidir perfil novo, rebranding ou arquitetura hibrida.",
+      "classification_after_answer": ["fact", "risk", "decision_dependency"]
+    },
+    {
+      "id": "arquitetura_perfil",
+      "category": "decision",
+      "question": "Qual arquitetura parece mais segura para testar?",
+      "why_now": "Separa confianca, algoritmo e reputacao antes de escolher nome/bio.",
+      "classification_after_answer": ["hypothesis", "decision_pending"]
+    },
+    {
+      "id": "area_penal",
+      "category": "domain",
+      "question": "Quais territorios penais Miriam quer validar primeiro?",
+      "why_now": "Evita conteudo generico e reduz risco de temas sensiveis cedo demais.",
+      "classification_after_answer": ["preference", "risk", "validation_needed"]
+    },
+    {
+      "id": "exposicao",
+      "category": "format",
+      "question": "Qual nivel de exposicao Miriam sustenta com seguranca?",
+      "why_now": "Define se a experiencia visual deve favorecer video, carrossel, texto ou bastidores.",
+      "classification_after_answer": ["constraint", "risk"]
+    },
+    {
+      "id": "prova_autoridade",
+      "category": "evidence",
+      "question": "Quais provas reais de autoridade podem ser usadas sem inflar curriculo?",
+      "why_now": "Impede autoridade artificial e fortalece confianca cognitiva.",
+      "classification_after_answer": ["fact", "evidence"]
+    },
+    {
+      "id": "limites_publicos",
+      "category": "ethics",
+      "question": "Quais temas ou formatos estao proibidos publicamente?",
+      "why_now": "Define limites antes de qualquer pauta ou prompt visual.",
+      "classification_after_answer": ["constraint", "blocked_action"]
+    },
+    {
+      "id": "qa_revisor",
+      "category": "approval",
+      "question": "Quem revisa conteudos sensiveis antes da publicacao?",
+      "why_now": "Conteudo juridico publico precisa de gate humano quando houver risco.",
+      "classification_after_answer": ["approval_gate", "risk"]
+    },
+    {
+      "id": "roi_metric",
+      "category": "roi",
+      "question": "Qual metrica de ROI importa sem prometer clientes?",
+      "why_now": "Mede progresso por confianca, clareza e aprendizado, nao por promessa comercial.",
+      "classification_after_answer": ["decision", "metric"]
+    }
+  ]
+}

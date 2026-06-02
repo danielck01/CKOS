@@ -1,0 +1,100 @@
+---
+tags: [#engenharia_de_prompt, #ferramenta, #branding, #ckcompany]
+tipo: engenharia
+submarca: ckcompany
+agente: FILO, LIA, SOCIA, NEURA, STORY
+---
+
+# 🧩 Engenharia de Prompt – Ferramenta 1: "Essência da Marca"
+
+## 🆕 Nome Atualizado: "Essência da Marca"
+Inspirado por fundamentos de filosofia (identidade e propósito), psicologia (valores e motivações), neurociência (memória de marca) e storytelling (unicidade narrativa).
+
+---
+
+## 🎯 OBJETIVO DA FERRAMENTA
+Compreender a essência viva da marca: por que ela existe, o que a torna única e como isso se manifesta no tempo e na consciência coletiva. É a gênese simbólica que alimenta todas as decisões futuras.
+
+---
+
+## 🧠 ÁREAS ENVOLVIDAS
+- Filosofia (identidade, verdade, propósito)
+- Psicologia (valores, público, arquétipo latente)
+- Neurobranding (lembrança, reconhecimento, diferenciação cognitiva)
+- Storytelling (unicidade e narrativa da origem)
+- Sociologia (legado cultural e relevância social)
+
+---
+
+## 🧠 AGENTES RECOMENDADOS
+- [[FILO]] – essência filosófica da marca
+- [[NEURA]] – conexão emocional e diferencial neural
+- [[SOCIA]] – função social e narrativa coletiva
+- [[STORY]] – construção do mito fundacional
+- [[LIA]] – comportamento simbólico do público
+
+---
+
+## 📂 ESTRUTURA DE PASTA A SER GERADA
+```
+📁 1.1.1 Essência da Marca
+├── README.md ← explicação da ferramenta (este arquivo)
+├── Template_Resposta.md ← perguntas para preenchimento da essência
+├── Mapa.md ← mapa mental hierárquico compatível com plugin
+├── Canvas.canvas ← cards estruturais
+```
+
+---
+
+## 📑 CAMPOS E PROPRIEDADES
+```yaml
+submarca: personalizável
+etapa: 1.1.1
+nível: estratégico
+agente: FILO, LIA, SOCIA, NEURA, STORY
+tags: [#ferramenta, #essência, #marca, #filosofia, #neurobranding]
+```
+
+---
+
+## 🧭 INSTRUÇÕES PARA VIBECODING
+Use esse prompt para gerar a pasta e seus arquivos internos:
+
+### 📤 Prompt Claude 3.7
+```plaintext
+Crie a estrutura abaixo no formato Obsidian Markdown:
+
+Pasta: "1.1.1 Essência da Marca"
+Arquivos:
+1. README.md → contendo o objetivo, áreas envolvidas, agentes recomendados, instruções de uso, e propriedades YAML
+2. Template_Resposta.md → perguntas de preenchimento:
+   - O que nos torna únicos?
+   - Qual a nossa razão de existir?
+   - Qual é a verdade que defendemos?
+   - Que legado queremos deixar?
+   - Para quem somos essenciais? Por quê?
+   - O que representamos nesse tempo histórico?
+3. Mapa.md → com hierarquia:
+   # Essência da Marca
+   ## Propósito
+   ### Missão
+   ### Visão
+   ## Diferencial Cognitivo
+   ## Voz Filosófica
+   ## Legado Cultural
+4. Canvas.canvas com estrutura de cards para propósito, diferencial, arquétipo latente, temporalidade, público essencial.
+
+Utilize campos YAML como:
+---
+tags: [#ferramenta, #essência, #marca]
+submarca: personalizável
+agente: FILO, NEURA, LIA
+etapa: 1.1.1
+---
+
+Compatibilize com plugins do Obsidian: mapa mental, canvas, datablocks.
+```
+
+---
+
+Deseja que eu continue com a engenharia da próxima ferramenta (ex: "Momento da Marca") no mesmo modelo?

@@ -1,0 +1,124 @@
+---
+tags: [#engenharia_de_prompt, #ferramenta, #arquétipo, #psicologia, #branding]
+tipo: engenharia
+submarca: ckcompany
+agente: FILO, LIA, NEURA, STORY
+---
+
+# 🎭 Engenharia de Prompt – Ferramenta: "Análise Arquetípica"
+
+## 🎯 OBJETIVO DA FERRAMENTA
+Analisar e desenvolver a personalidade arquetípica da marca, integrando psicologia junguiana com estratégia de branding para criar conexões emocionais profundas e autênticas.
+
+---
+
+## 🧠 ÁREAS ENVOLVIDAS
+- Psicologia Analítica (arquétipos junguianos)
+- Branding Estratégico (identidade de marca)
+- Neurociência (conexão emocional)
+- Storytelling (narrativa arquetípica)
+
+---
+
+## 🧠 AGENTES RECOMENDADOS
+- [[LIA]] – análise psicológica e arquetípica
+- [[FILO]] – essência e propósito
+- [[NEURA]] – ressonância emocional
+- [[STORY]] – narrativa arquetípica
+
+---
+
+## 📂 ESTRUTURA DE PASTA
+```
+📁 Análise Arquetípica
+├── README.md ← explicação da ferramenta
+├── Template_Resposta.md ← framework de análise
+├── Mapa.md ← mapa mental hierárquico
+├── Canvas.canvas ← canvas de visualização
+```
+
+---
+
+## 📑 CAMPOS E PROPRIEDADES
+```yaml
+submarca: personalizável
+etapa: 1.2.1
+nível: estratégico
+agente: LIA, FILO, NEURA, STORY
+tags: [#ferramenta, #arquétipo, #psicologia, #branding]
+```
+
+---
+
+## 🧭 FRAMEWORK DE ANÁLISE
+
+### 1. Diagnóstico Arquetípico
+AVALIE:
+- Força do arquétipo principal [0-10]
+- Clareza de expressão [0-10]
+- Consistência narrativa [0-10]
+- Ressonância emocional [0-10]
+
+### 2. Mapeamento Psicológico
+IDENTIFIQUE:
+- Arquétipo dominante
+- Arquétipos secundários
+- Padrões comportamentais
+- Motivações profundas
+
+### 3. Análise de Manifestação
+QUANTIFIQUE:
+- Expressão arquetípica
+- Impacto emocional
+- Conexão com público
+- ROI comportamental
+
+### 4. Estratégia de Desenvolvimento
+DESENVOLVA:
+- Framework narrativo
+- Sistema expressivo
+- Modelo comportamental
+- Plano de ativação
+
+### 5. Métricas de Avaliação
+MONITORE:
+- Reconhecimento arquetípico
+- Engajamento emocional
+- Força da personalidade
+- Consistência expressiva
+
+---
+
+## 🔄 CONEXÕES ESTRATÉGICAS
+
+### Links Bidirecionais
+- [[Arquétipo]] ↔ [[Identidade]]
+- [[Persona]] ↔ [[Comportamento]]
+- [[Narrativa]] ↔ [[Expressão]]
+- [[Emoção]] ↔ [[Engajamento]]
+
+### Tags Funcionais
+- #arquétipo_dominante
+- #padrão_comportamental
+- #expressão_marca
+- #conexão_emocional
+
+---
+
+## 📊 OUTPUTS ESPERADOS
+
+1. Perfil Arquetípico Completo
+2. Framework Comportamental
+3. Sistema de Expressão
+4. Plano de Ativação
+5. Métricas de Avaliação
+
+---
+
+## 🤖 INSTRUÇÕES PARA IA
+
+1. Analise o DNA atual da marca
+2. Identifique padrões arquetípicos
+3. Desenvolva framework expressivo
+4. Crie sistema de manifestação
+5. Estabeleça métricas de sucesso

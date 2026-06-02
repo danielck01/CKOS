@@ -1,0 +1,102 @@
+---
+tags: [#engenharia_de_prompt, #ferramenta, #branding, #ckcompany]
+tipo: engenharia
+submarca: ckcompany
+agente: STORY, LIA, SOCIA, NEURA
+---
+
+# 🧩 Engenharia de Prompt – Ferramenta 3: "Linguagem Viva da Marca"
+
+## 🆕 Nome Atualizado: "Linguagem Viva da Marca"
+Antes conhecida como "Nuvem de Palavras", esta ferramenta foi renomeada para enfatizar seu papel na construção de uma linguagem dinâmica e autêntica da marca.
+
+---
+
+## 🎯 OBJETIVO DA FERRAMENTA
+Mapear e desenvolver o vocabulário único da marca: suas expressões-chave, tom de voz, narrativas recorrentes e padrões linguísticos que criam conexão emocional com o público e reforçam sua identidade verbal.
+
+---
+
+## 🧠 ÁREAS ENVOLVIDAS
+- Storytelling (narrativas e expressões-chave)
+- Psicologia (linguagem emocional e gatilhos)
+- Neurociência (processamento linguístico e memória)
+- Sociologia (contexto cultural e tendências verbais)
+- Linguística (semântica e evolução verbal)
+
+---
+
+## 🧠 AGENTES RECOMENDADOS
+- [[STORY]] – construção narrativa e storytelling
+- [[LIA]] – análise comportamental e linguística
+- [[SOCIA]] – contexto cultural e tendências
+- [[NEURA]] – impacto neural e memória verbal
+
+---
+
+## 📂 ESTRUTURA DE PASTA A SER GERADA
+```
+📁 1.1.3 Linguagem Viva da Marca
+├── README.md ← explicação da ferramenta (este arquivo)
+├── Template_Resposta.md ← perguntas para mapeamento linguístico
+├── Mapa.md ← mapa mental hierárquico compatível com plugin
+├── Canvas.canvas ← cards para visualização do universo verbal
+```
+
+---
+
+## 📑 CAMPOS E PROPRIEDADES
+```yaml
+submarca: personalizável
+etapa: 1.1.3
+nível: estratégico
+agente: STORY, LIA, SOCIA, NEURA
+tags: [#ferramenta, #linguagem, #marca, #storytelling, #neurobranding]
+```
+
+---
+
+## 🧭 INSTRUÇÕES PARA VIBECODING
+Use esse prompt para gerar a pasta e seus arquivos internos:
+
+### 📤 Prompt Claude 3.5
+```plaintext
+Crie a estrutura abaixo no formato Obsidian Markdown:
+
+Pasta: "1.1.3 Linguagem Viva da Marca"
+Arquivos:
+1. README.md → contendo o objetivo, áreas envolvidas, agentes recomendados, instruções de uso, e propriedades YAML
+2. Template_Resposta.md → perguntas de preenchimento:
+   - Quais são as palavras-chave que definem nossa marca?
+   - Como nosso público se expressa sobre nós?
+   - Que expressões queremos ser lembrados?
+   - Qual é nosso tom de voz característico?
+   - Que narrativas são recorrentes?
+   - Como nossa linguagem evolui com o tempo?
+3. Mapa.md → com hierarquia:
+   # Linguagem Viva da Marca
+   ## Vocabulário Essencial
+   ### Palavras-Chave
+   ### Expressões Únicas
+   ## Tom de Voz
+   ### Personalidade Verbal
+   ### Gatilhos Emocionais
+   ## Evolução Linguística
+   ### Tendências Verbais
+   ### Adaptações Culturais
+4. Canvas.canvas com estrutura de cards para palavras-chave, expressões, tom de voz, narrativas e evolução temporal.
+
+Utilize campos YAML como:
+---
+tags: [#ferramenta, #linguagem, #marca]
+submarca: personalizável
+agente: STORY, LIA, SOCIA, NEURA
+etapa: 1.1.3
+---
+
+Compatibilize com plugins do Obsidian: mapa mental, canvas, datablocks.
+```
+
+---
+
+Deseja que eu continue com a próxima ferramenta da metodologia?

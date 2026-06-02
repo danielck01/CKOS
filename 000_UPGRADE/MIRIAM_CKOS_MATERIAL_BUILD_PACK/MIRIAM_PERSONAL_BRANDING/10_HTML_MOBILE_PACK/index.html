@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CKOS Briefing Vivo - Miriam</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero panel" id="topo">
+      <div class="hero-backdrop visual-slot" data-slot="hero_mood"></div>
+      <div class="topbar">
+        <span class="brand">CKOS + Branddock</span>
+        <span class="pill danger">High risk</span>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Projeto Miriam</p>
+        <h1>Briefing Vivo para autoridade penal com etica.</h1>
+        <p class="lede">Uma experiencia mobile para simular intencao, contexto, perguntas, QA, fontes, ROI e gates antes de qualquer estrategia final.</p>
+      </div>
+      <div class="commandbar" aria-label="Commandbar CKOS">
+        <label for="intentInput">Intencao curta</label>
+        <div class="command-input">
+          <input id="intentInput" value="Criar projeto para perfil juridico de advogada penal recem-formada">
+          <button id="runIntent" type="button">Simular</button>
+        </div>
+        <div class="command-meta">
+          <span>Policy: CKOS-LEGAL-ADV-001</span>
+          <span>Credits: 18-42</span>
+        </div>
+      </div>
+    </section>
+
+    <nav class="dock" aria-label="Navegacao">
+      <a href="#briefing">Briefing</a>
+      <a href="#artefatos">Artifacts</a>
+      <a href="#qa">QA</a>
+      <a href="#roi">ROI</a>
+    </nav>
+
+    <section class="status-grid">
+      <article class="mini-card">
+        <span class="label">Stage</span>
+        <strong id="stageLabel">Pre-strategy</strong>
+        <small>Sem tom, bio, calendario ou HTML final.</small>
+      </article>
+      <article class="mini-card">
+        <span class="label">Gate</span>
+        <strong>PMO + Metacognik</strong>
+        <small>Etica vence crescimento.</small>
+      </article>
+      <article class="mini-card">
+        <span class="label">Output</span>
+        <strong>Mobile pack</strong>
+        <small>Prototipo inicial para teste.</small>
+      </article>
+    </section>
+
+    <section class="panel" id="contexto">
+      <div class="section-head">
+        <p class="eyebrow">Contexto atual</p>
+        <h2>O sistema ainda esta perguntando, nao decidindo.</h2>
+      </div>
+      <div class="timeline">
+        <div><span>1</span><p>Intencao recebida e classificada como personal branding juridico.</p></div>
+        <div><span>2</span><p>Risco alto: OAB, penal, reputacao, genero e plataformas.</p></div>
+        <div><span>3</span><p>Fontes locais existem, mas respostas reais da Miriam ainda faltam.</p></div>
+        <div><span>4</span><p>Proxima saida segura: evidence map + matriz de riscos eticos.</p></div>
+      </div>
+    </section>
+
+    <section class="panel" id="briefing">
+      <div class="section-head">
+        <p class="eyebrow">Briefing Vivo</p>
+        <h2>Uma pergunta necessaria por rodada.</h2>
+      </div>
+      <div class="progress-card">
+        <div>
+          <span class="label">Progresso simulado</span>
+          <strong id="progressText">0 de 10 respostas</strong>
+        </div>
+        <div class="progress-track"><span id="progressBar"></span></div>
+      </div>
+      <div id="questionStack" class="question-stack"></div>
+    </section>
+
+    <section class="panel" id="artefatos">
+      <div class="section-head">
+        <p class="eyebrow">Artifacts</p>
+        <h2>O que o CKOS pode gerar sem pular gates.</h2>
+      </div>
+      <div class="artifact-grid">
+        <button class="artifact-card active" data-artifact="evidence" type="button">
+          <span>01</span>
+          <strong>Source Evidence Map</strong>
+          <small>Fonte, insight, risco, decisao.</small>
+        </button>
+        <button class="artifact-card" data-artifact="risk" type="button">
+          <span>02</span>
+          <strong>Matriz de Risco</strong>
+          <small>OAB, reputacao, linguagem.</small>
+        </button>
+        <button class="artifact-card" data-artifact="briefing" type="button">
+          <span>03</span>
+          <strong>Response Memory</strong>
+          <small>Fato, hipotese, gap, decisao.</small>
+        </button>
+        <button class="artifact-card" data-artifact="pmo" type="button">
+          <span>04</span>
+          <strong>PMO Audit</strong>
+          <small>Escopo, custo, ordem, bloqueios.</small>
+        </button>
+      </div>
+      <div class="artifact-preview" id="artifactPreview"></div>
+    </section>
+
+    <section class="panel visual-panel" id="moodboard">
+      <div class="section-head">
+        <p class="eyebrow">UI/UX reference</p>
+        <h2>Mobile, glass, cards e narrativa interativa.</h2>
+      </div>
+      <div class="mood-grid">
+        <div class="mood-card visual-slot" data-slot="commandbar_ai"><span>Commandbar AI</span></div>
+        <div class="mood-card visual-slot" data-slot="mobile_widgets"><span>Mobile widgets</span></div>
+        <div class="mood-card visual-slot" data-slot="phone_screens"><span>Phone flow</span></div>
+        <div class="mood-card visual-slot" data-slot="red_phone_symbol"><span>Decision calls</span></div>
+      </div>
+      <p class="note">Substituir slots por CDN quando os links forem aprovados.</p>
+    </section>
+
+    <section class="panel" id="qa">
+      <div class="section-head">
+        <p class="eyebrow">QA + Policies</p>
+        <h2>Bloqueios antes de estrategia publica.</h2>
+      </div>
+      <div class="checklist">
+        <label><input type="checkbox" checked disabled> Sem promessa juridica.</label>
+        <label><input type="checkbox" checked disabled> Sem captacao agressiva.</label>
+        <label><input type="checkbox" checked disabled> Sem HTML final de marca.</label>
+        <label><input type="checkbox" checked disabled> Revisao humana exigida para claims OAB.</label>
+        <label><input type="checkbox" checked disabled> Fontes separadas de hipoteses.</label>
+      </div>
+    </section>
+
+    <section class="panel" id="roi">
+      <div class="section-head">
+        <p class="eyebrow">ROI simulado</p>
+        <h2>Confianca antes de alcance.</h2>
+      </div>
+      <div class="roi-card">
+        <div class="meter"><span id="roiMeter"></span></div>
+        <div>
+          <strong>ROI hypothesis</strong>
+          <p>Reduzir risco e aumentar clareza de autoridade antes de investir em conteudo, benchmark ou lancamento.</p>
+        </div>
+      </div>
+      <div class="cost-list">
+        <span>Leitura local: 2-5 creditos</span>
+        <span>Evidence map: 8-15 creditos</span>
+        <span>Matriz etica: 8-18 creditos</span>
+        <span>Benchmark externo: 20-60 creditos</span>
+      </div>
+    </section>
+
+    <section class="panel" id="proximos">
+      <div class="section-head">
+        <p class="eyebrow">Next safe action</p>
+        <h2>Coletar a resposta real de Miriam.</h2>
+      </div>
+      <p class="next-question" id="nextQuestion">Qual e o objetivo primario de Miriam nos proximos 90 dias?</p>
+      <button class="primary-action" id="exportSummary" type="button">Gerar resumo local</button>
+      <pre id="summaryOutput" class="summary-output" aria-live="polite"></pre>
+    </section>
+  </main>
+
+  <script src="assets/cdn-image-map.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

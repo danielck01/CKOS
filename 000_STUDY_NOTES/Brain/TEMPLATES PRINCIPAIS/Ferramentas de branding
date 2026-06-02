@@ -1,0 +1,113 @@
+---
+tags: [#mapa_mental, #metodologia, #ckcompany]
+tipo: mapa_mental
+submarca: ckcompany
+---
+
+# 🧠 Mapa Mental: Metodologia CKCompany
+
+## SENTIR – Conexão Emocional
+### Objetivo
+- Acessar os sentidos profundos da marca
+### Ferramentas Relacionadas
+- [[1.1.1 Base da Marca]]
+- [[1.1.2 Momento da Marca]]
+- [[1.1.3 Nuvem de Palavras]]
+
+## PENSAR – Compreensão Estratégica
+### Objetivo
+- Definir posicionamento, entregas e diferenciais
+### Ferramentas
+- [[1.2 Entregas]]
+- [[1.3 Jornadas]]
+- [[1.4 Competidores]]
+- [[1.5 Desafios e Insights]]
+- [[1.6 Posicionamento]]
+
+## CRIAR – Síntese Representativa
+### Objetivo
+- Traduzir a essência da marca visual e conceitualmente
+### Ferramentas
+- [[2.1 Persona]]
+- [[2.2 Arquétipo]]
+- [[3 Briefing Estratégico]]
+- [[4.1 Mandala de Marca]]
+- [[4.2 Painel Semântico]]
+- [[4.3 Painel de Inspiração]]
+
+## CONECTAR – Ações, Experiência e Performance
+### Objetivo
+- Ativar, escalar e avaliar a presença viva da marca
+### Ferramentas
+- [[Campanhas]]
+- [[Calendário Editorial]]
+- [[CKPlay]]
+
+## 📎 Links Estratégicos
+- [[Mapa Mental Ferramentas por Área]]
+- [[Kanban de Ferramentas CK]]
+- [[Pipeline Interno de Ferramentas]]
+
+---
+
+## 📦 Prompt - Gerar Estrutura Completa do Vault CKCompany
+
+### 🔧 Objetivo do Prompt
+Gerar automaticamente, com base em engenharia de sistema, um vault replicável da CKCompany no Obsidian, estruturado com foco em branding estratégico e IA.
+
+### 📤 Prompt Claude 3.5:
+```plaintext
+Crie a estrutura completa de um vault no formato Obsidian Markdown (.md) com base na seguinte metodologia:
+
+1. Cada ferramenta deve estar em uma pasta com:
+ - Um arquivo principal explicando a ferramenta
+ - Um template em branco para resposta do usuário
+ - Um canvas (link simbólico)
+ - Um mapa mental em nota hierárquica
+
+2. As categorias são:
+ - 1.1 Marca (Base da Marca, Momento da Marca, Nuvem de Palavras)
+ - 1.2 Entregas
+ - 1.3 Jornadas (Usuário, Produto, Pontos de Contato)
+ - 1.4 Competidores
+ - 1.5 Desafios e Insights
+ - 1.6 Posicionamento
+ - 2.1 Persona
+ - 2.2 Arquétipo
+ - 3 Briefing
+ - 4.1 Mandala de Marca
+ - 4.2 Painel Semântico
+ - 4.3 Painel de Inspiração
+ - Campanhas, Calendário, CKPlay
+
+3. Dentro de cada pasta:
+ - `README.md` com explicação da ferramenta, propriedade `submarca`, agente responsável, e como usá-la
+ - `Template_Resposta.md` com perguntas de preenchimento
+ - `Mapa.md` com árvore hierárquica de tópicos para plugin de mapa mental
+ - `Canvas.canvas` com placeholders de cards
+
+4. Crie também as pastas gerais:
+ - 📁 Ferramentas
+ - 📁 Mapas Mentais
+ - 📁 Kanban CK
+ - 📁 CKPlay Biblioteca
+ - 📁 Referências (livros, autores, links)
+ - 📁 Usuário (respostas, planejamento, tarefas)
+
+5. Use tags e campos como:
+ - `tags: [#ferramenta, #ckcompany, #branding, #template]`
+ - `submarca:` (personalizável pelo usuário)
+ - `agente:` (FILO, NEURA, SOCIA, LIA...)
+
+Gere a estrutura no formato Markdown, compatível com Obsidian.
+```
+
+### ✅ Resultado Esperado
+- Vault replicável e personalizável por usuário final
+- Aplicável por Claude 3.5 para gerar estrutura em lote
+- Totalmente compatível com o plugin de mapa mental
+- Organização estratégica por método CKCompany
+
+---
+
+Deseja que eu agora aplique esse mesmo formato e crie os prompts de engenharia individuais por ferramenta a partir de "Base da Marca"?

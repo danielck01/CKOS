@@ -1,0 +1,926 @@
+---
+title: Session Registry - P1.7
+system_id: session_registry_p1_7_20260528
+layer: auxiliary
+phase: 000_ROADMAPS
+category: session_registry
+status: auxiliary
+version: 1.0.0
+owner: pmo_ckos
+responsible_agent: codex
+reviewers:
+  - founder
+  - pmo_ckos
+  - metacognik
+approval_required:
+  - founder
+  - pmo_ckos
+confidence: unverified
+provenance_status: unverified
+source_tool: codex
+created_at: 2026-05-28
+version_note: "v1.0.0 — promoted after PMO/Metacognik audit of P1.7."
+purpose: Register simultaneous CKOS documentation sessions without granting canonical or implementation authority.
+inputs:
+  - 000_ROADMAPS/README.md
+  - 000_ROADMAPS/ck_memory.md
+  - 000_ROADMAPS/ck_agent_handoffs.md
+  - 000_ROADMAPS/ROADMAP_ROUTING_MATRIX.md
+outputs:
+  - active session registry
+  - checkout lock visibility
+  - session conflict prevention
+framework: Multi-session auxiliary governance for Codex, Claude, Antigravity and future specialist chats.
+edge_cases:
+  - parallel sessions editing the same files
+  - study session mistaken for implementation permission
+  - Antigravity started without Founder-approved gate
+  - low-context agent writing outside checkout scope
+metrics:
+  - every writing session declares required fields
+  - zero canonical documents created from this registry
+  - zero implementation actions authorized by this registry
+related_notes:
+  - 000_ROADMAPS/MULTI_SESSION_EXECUTION_POLICY.md
+  - 000_STUDY_NOTES/12_SESSION_GATES/01_ANTIGRAVITY_STUDY_MODE_GATE.md
+tags:
+  - sessions
+  - checkout_lock
+  - multi_agent
+  - auxiliary
+---
+
+# Session Registry - P1.7
+
+## Status
+
+Version note: v1.0.0 — promoted after PMO/Metacognik audit of P1.7.
+
+This registry is auxiliary governed memory. It is not canonical, does not authorize implementation, does not create docs 26-34 and does not start UI/UX, backend, runtime work, real agents or Antigravity.
+
+## Required Fields For Every Future Session
+
+Every CKOS session that writes, studies, audits, plans or prepares handoff material must declare:
+
+| field | required meaning |
+|---|---|
+| `session_id` | Unique identifier for the session. |
+| `session_type` | One of the approved session types in `MULTI_SESSION_EXECUTION_POLICY.md`. |
+| `agent` | Codex, Claude, Antigravity, PMO, Founder, CEO Agent or specialist. |
+| `scope` | Folders and files allowed and forbidden by checkout lock. |
+| `status` | `planned`, `active`, `blocked`, `released`, `cancelled` or `superseded`. |
+| `started_at` | Date/time or date when the session starts. |
+| `expected_outputs` | Explicit deliverables authorized for the session. |
+| `estimated_cost` | Expected CKC/token/time/tool cost or `low`, `medium`, `high`, `unknown`. |
+| `intelligence_level` | `low`, `medium`, `high` or `highest`, with reason. |
+
+No future session may write if any required field is missing.
+
+## Active And Recent Sessions
+
+| session_id | task_id | session_type | agent | scope | status | started_at | expected_outputs | estimated_cost | intelligence_level |
+|---|---|---|---|---|---|---|---|---|---|
+| S-P1-7-CODEX-20260528-001 | P1.7_MULTI_SESSION_EXECUTION_POLICY_20260528 | execution | codex | `000_ROADMAPS/`, `000_STUDY_NOTES/12_SESSION_GATES/`, root auxiliary maps listed in checkout lock | released | 2026-05-28 | Session registry, multi-session policy, Antigravity Study Mode gate, auxiliary memories/maps updated | medium | high |
+| S-P1-7-1-CODEX-20260528-001 | ROADMAPS_P1_7_1_MEMORY_REFRESH_20260528 | memory_refresh | codex | P1.7.1 allowed files only, including `ARCHITECTURE_PATCH_REPORT.md` lock | released | 2026-05-28 | Version bump, mandatory policy phrase, active `ck_memory.md`, auxiliary map refresh and patch report registration | low | high |
+| S-P1-19-ANTIGRAVITY-20260528-001 | UIUX_VISUAL_REFERENCE_STUDY_20260528 | design_study | antigravity | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `CKOS_FILETREE_MAP.md`, `CKOS_FOLDER_MEMORY.md`, `CKOS_VAULT_MAP_REFRESH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | released | 2026-05-28 | UI/UX Study Notes, active ck_memory.md created, auxiliary maps and folder memory updated | low | high |
+| S-P1-19-ANTIGRAVITY-20260528-002 | UIUX_AUDIT_PATCH_20260528 | design_study | antigravity | `000_STUDY_NOTES/10_UIUX_STUDIES/`, maps, roadmaps | released | 2026-05-28 | UI/UX Audit Patch completed, Stream and Whitelabel notes created, Pulse refs replaced | low | high |
+| S-P1-19-ANTIGRAVITY-20260528-003 | UIUX_OPERATIONAL_PATTERNS_STUDY_20260528 | design_study | antigravity | `000_STUDY_NOTES/10_UIUX_STUDIES/`, maps, roadmaps | released | 2026-05-28 | 5 new UI/UX study notes created (09-13), maps and folder memories updated | low | high |
+| S-P1-19-ANTIGRAVITY-20260528-004 | UIUX_STUDY_COMPLETION_20260528 | design_study | antigravity | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md` | released | 2026-05-28 | 10 new study files created (14-23), ck_memory updated, locks registered | low | high |
+| S-P1-19-ANTIGRAVITY-20260528-005 | UIUX_AUDIT_ALIGNMENT_20260528 | design_study | antigravity | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md` | released | 2026-05-28 | Gaps from PMO/Metacognik audit aligned across notes 02, 05, 10, 15, 23 | low | high |
+| S-P1-19-ANTIGRAVITY-20260528-006 | UIUX_STUDY_CONSOLIDATION_INDEX_20260528 | design_study | antigravity | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md` | released | 2026-05-28 | Master Index, Review Report, ck_memory update | low | high |
+| S-P1-19-ANTIGRAVITY-20260528-007 | UIUX_STUDY_CORRECTION_PATCH_20260528 | design_study | antigravity | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md` | released_with_required_external_audit | 2026-05-28 | Correct Note 02, Note 05, Candidates 1/9, Review Report, SESSION_REGISTRY risks | low | high |
+| S-P1-19-ANTIGRAVITY-20260528-008 | UIUX_STUDY_CORRECTION_PATCH_V2_20260528 | design_study | antigravity | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md` | released_with_required_external_audit | 2026-05-28 | Apply PL-01 to PL-04 patches, add Candidate 14, align YAML and headings | low | high |
+| S-P1-19-ANTIGRAVITY-20260528-009 | UIUX_CANONICAL_CANDIDATE_TRIAGE_20260528 | design_study | antigravity | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md` | released_with_required_external_audit | 2026-05-28 | Execute triage for 14 candidates, write triage report, update ck_memory | low | high |
+| S-P1-19-ANTIGRAVITY-20260529-010 | UIUX_CANONICAL_CANDIDATE_TRIAGE_V2_20260529 | design_study | antigravity | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md` | released_with_required_external_audit | 2026-05-29 | Comprehensive re-execution of triage for 14 candidates with deep canonical cross-referencing, superseding session 009 shallow report | low | high |
+| S-P1-19-ANTIGRAVITY-20260528-010 | UIUX_P1_11_LIGHT_PATCHES_20260528 | design_study | antigravity | `000_STUDY_NOTES/10_UIUX_STUDIES/` - light patches pos-auditoria P1.11, `000_ROADMAPS/SESSION_REGISTRY.md` | released_with_required_external_audit | 2026-05-28 | Apply PL-01 to PL-06 precision patches in triage report and ck_memory | low | high |
+| S-P1-19-PMO-20260528-011 | UIUX_P1_11_1_PMO_CLOSURE_NOTE_20260528 | documentation_governance | pmo_ckos | `000_STUDY_NOTES/10_UIUX_STUDIES/ck_memory.md`, `000_STUDY_NOTES/10_UIUX_STUDIES/UIUX_STUDY_REVIEW_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | released | 2026-05-28 | Register P1.11.1 PMO closure note and next-step governance | low | high |
+| S-P1-26-PMO-20260529-001 | DOC26_CONNECTORS_MCP_INTEGRATIONS_ARCHITECTURE_CREATION | canonical_patch | pmo_ckos | Create `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`; update permitted maps/indexes only | released_with_required_external_audit | 2026-05-29 | Create canonical Doc 26 for connectors, MCP and integrations architecture; no implementation | low | highest |
+| S-P1-26-PMO-20260529-002 | DOC26_P1_A_TO_P1_F_AUDIT_LIGHT_PATCH_20260529 | canonical_patch | pmo_ckos | Patch `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md` v1.0.0 to v1.0.1; update traceability only | released_with_required_external_audit | 2026-05-29 | Apply PMO/Metacognik required light patches P1-A to P1-F; no implementation | low | highest |
+| S-P1-26-PMO-20260529-003 | DOC26_L01_L02_AUDIT_LIGHT_PATCH_20260529 | canonical_patch | pmo_ckos | Patch `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md` v1.0.1 to v1.0.2; update traceability only | released_with_required_external_audit | 2026-05-29 | Apply PMO/Metacognik required light patches L-01 and L-02; no implementation | low | highest |
+| S-P1-26-PMO-20260530-004 | DOC26_L01_L09_AUDIT_LIGHT_PATCH_20260530 | canonical_patch | pmo_ckos | Patch `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md` v1.0.2 with L-01 to L-09; update traceability only | released_with_required_external_audit | 2026-05-30 | Apply PMO/Metacognik required light patches L-01 to L-09 in Doc 26 only; no implementation | low | highest |
+| S-P1-26-PMO-20260531-005 | DOC26_v1_0_3_TRACEABILITY_PATCH_20260530 | canonical_patch | pmo_ckos | Patch `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md` v1.0.2 to v1.0.3; reconcile L-03 to L-09 traceability in registry/report; declare P26-2 open schema decisions | released_with_required_external_audit | 2026-05-31 | Reconcile L-03 to L-09 traceability, bump Doc 26 to v1.0.3, declare P26-2 open modeling decisions; no implementation | low | highest |
+| S-P1-26-CODEX-20260531-006 | DOC26_PATCH_A_LIGHT_GOVERNANCE_20260531 | canonical_patch | codex/pmo_ckos | Patch Doc 26 v1.0.3 to v1.0.4 and update `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md`; no Doc 27; no Study Layer 13; no implementation | released_with_required_external_audit | 2026-05-31 | Apply PL-01, PL-02, PL-04, PL-05 light governance patches after external audit; register lock/release | low | high |
+| S-P1-13-CODEX-20260530-001 | STUDY13_AI_FIRST_PROJECT_OPERATING_SYSTEM_CREATION_20260530 | study | codex | Create `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/`; update allowed study/root maps only | released_with_required_external_audit | 2026-05-30 | Create Study Layer 13 with controls and notes 01-14; no canonical docs or implementation | medium | high |
+| S-P1-13-PMO-20260531-002 | STUDY13_WORK_ORCHESTRATION_CONTINUATION_20260531 | study | pmo_ckos/codex | Create notes 16-19 in `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/`; update `ck_memory.md` and this registry only | released_with_required_external_audit | 2026-05-31 | Create smart questions, Cognik/Metacognik orchestration, note/RAG governance and Founder control study notes; no canonical docs or implementation | low | medium-high |
+| S-P1-13-CODEX-20260531-003 | STUDY13_PROVENANCE_RECONCILIATION_20260531 | study | codex/pmo_ckos | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/README.md`, `ck_memory.md`, `000_ROADMAPS/SESSION_REGISTRY.md` only | released_with_required_external_audit | 2026-05-31 | Reconcile Study Layer 13 operational reading for notes 01-21; mark notes 15-21 as existing_artifact_reconciled; no creation claims for old notes | low | high |
+| S-P1-13-WINDSURF-20260601-001 | MULTI_MODEL_COMMAND_AND_PROMPT_DISPATCH_BOARD_STUDY_20260601 | study | windsurf | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/23_MULTI_MODEL_COMMAND_AND_PROMPT_DISPATCH_BOARD_STUDY.md`, `ck_memory.md`, `ck_tasks.md` | released | 2026-06-01 | Create note 23 with role map, session protocols, BRA triggers, wait/block/approval rules, 2-machine operation, minimum prompts, intelligence levels, session validity, anti-chaos rules, mini-roadmap; update memory and tasks | low | medium-high |
+| S-P1-13-CODEX-20260531-004 | STUDY13_MULTI_SESSION_ROADMAP_SPRINT_BOARD_20260531 | study | codex/pmo_ckos | Create `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/22_MULTI_SESSION_EXECUTION_ROADMAP_AND_SPRINT_BOARD_STUDY.md`; update `ck_memory.md`, `ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` only | released_with_required_external_audit | 2026-05-31 | Create study-only operational roadmap for Codex, Claude, Trae and ChatGPT PMO coordination before Doc 27; no canonical docs or implementation | low | high |
+| S-P1-13-WINDSURF-20260601-005 | STUDY13_LOCAL_PMO_MULTI_MODEL_CONTROL_ROOM_20260601 | study | windsurf/pmo_local | Create current `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/26_LOCAL_PMO_MULTI_MODEL_CONTROL_ROOM_STUDY.md` (index-reconciled from former duplicate `23_LOCAL...`); update `ck_memory.md`, `ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` only | released_with_required_external_audit | 2026-06-01 | Create study-only local PMO multi-model control room for simultaneous Codex 1/2, Claude Code 1/2, Antigravity, Claude Design and Founder sessions; Windsurf as local PMO of support; no backend, no canonical docs, no Doc 27, no implementation | low | high |
+| S-P1-14-CODEX-20260601-001 | STUDY14_PAPERCLIP_REGULARIZATION_20260601 | study | codex | `000_STUDY_NOTES/14_PAPERCLIP_AGENT_OPERATING_MODEL/`, `000_ROADMAPS/SESSION_REGISTRY.md` only | released_with_required_external_audit | 2026-06-01 | Regularize Study Layer 14 YAML/status/index/tasks, create Paperclip-to-CKOS translation matrix, and preserve study-only boundary; no Doc 27, no canonical docs, no implementation | low | medium-high |
+| S-P1-13-CODEX-20260601-006 | STUDY13_DOC27_SCOPE_RECONCILIATION_GATE_20260601 | study | codex_2 | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/24_DOC27_SCOPE_RECONCILIATION_AND_GATE_PROPOSAL_STUDY.md`, `ck_memory.md`, `ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` only | released_with_required_external_audit | 2026-06-01 | Create study-only reconciliation between Study Layer 13, Study Layer 14 and Doc 26 for future Doc 27 scope; no Doc 27, no canonical docs, no implementation | low | high |
+| S-P1-13-WINDSURF-20260601-007 | STUDY13_LOCAL_OPERATOR_CONTROL_ROOM_AUTONOMOUS_DISPATCH_20260601 | study | windsurf | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/25_LOCAL_OPERATOR_CONTROL_ROOM_AND_AUTONOMOUS_DISPATCH_STUDY.md`, `ck_memory.md`, `ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` only | released | 2026-06-01 | Create study-only local operator control room and autonomous dispatch for Founder to operate Claude, Codex, Antigravity/Gemini and Windsurf with minimal contact; no Doc 27, no canonical docs, no implementation | low | medium-high |
+| S-P1-26-CLAUDE-20260601-001 | DOC26_v1_0_4_EXTERNAL_AUDIT_20260601 | audit | claude_sonnet_4_6 | Doc 26 v1.0.4, SESSION_REGISTRY.md, MULTI_SESSION_EXECUTION_POLICY.md, MASTER_MAP.md, DEPENDENCY_MAP.md, ARCHITECTURE_PATCH_REPORT.md (read-only) | released_with_required_formal_approvals | 2026-06-01 | External audit of Doc 26 v1.0.4 confirming integrity, L-01 to L-09 applied, PL-01/PL-02/PL-04/PL-05 applied, no implementation disguised, vendors substitutable, all governance controls present; identified PL-03, PL-07, PL-08-NOVO as light patches in governance docs; Doc 27 gate remains blocked with conditional release | low | highest |
+| S-P1-26-CODEX-20260601-002 | GOVERNANCE_PATCHES_PL03_PL07_PL08_NOVO_20260601 | canonical_patch | codex | `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md` lines 230-231, `00_SYSTEM_GOVERNANCE/00_DEPENDENCY_MAP.md` line 100, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | released | 2026-06-01 | Apply PL-03, PL-07, PL-08-NOVO governance map patches; update patch report; register checkout lock/release; no implementation | low | high |
+| S-P1-27-CLAUDE-20260601-001 | DOC27_ECOSYSTEM_READINESS_AUDIT_20260601 | audit | claude_sonnet_4_6 | SESSION_REGISTRY.md, MULTI_SESSION_EXECUTION_POLICY.md, Doc 26 v1.0.4, Layer 13 Note 24, Layer 13 Note 25, Layer 14 Note 07, Layer 13 directory (read-only) | released | 2026-06-01 | READ-ONLY audit of Doc 27 readiness; verdict OPEN_WITH_LIGHT_PATCHES; identified M-1 (ordinal collision), M-2 (sections list); BRA packet issued for Codex study-only patches | low | highest |
+| S-P1-13-CLAUDE-20260531-001 | STUDY_LAYER_13_AUDIT_20260531 | audit | claude_opus_4_8 | Study Layer 13 notes 01-22 + controls (read-only) | released | 2026-05-31 | READ-ONLY audit of Study Layer 13; verdict APROVADO_COM_PATCHES_LEVES; identified PO-01 scope correction (CEO Agent in 3 files, not 2); BRA packet issued for PMO fan-in | low | highest |
+| S-P1-27-CLAUDE-20260601-002 | STUDY_LAYER_DOC27_READINESS_AUDIT_20260601 | audit | claude_sonnet_4_6 | Layer 13 (notes 15-19, 21-25) + Layer 14 (notes 05-07) (read-only) | released | 2026-06-01 | READ-ONLY audit of Study Layer 13/14 for Doc 27 readiness; verdict OPEN_WITH_CONDITIONS; identified 6 mandatory patches (PATCH-OBR-1..6); BRA packet issued for PMO fan-in | low | highest |
+| S-P1-13-CODEX-20260601-009 | STUDY13_14_GATE_CLEANUP_20260601 | study_cleanup | codex_1 | Allowed Study Layer 13/14 cleanup files plus `000_ROADMAPS/SESSION_REGISTRY.md`; rename duplicate `23_LOCAL...` to `26_LOCAL...`; no Doc 27; no docs 28-34; no canonical docs; no governance files; no implementation | released_with_required_external_audit | 2026-06-01 | Apply mandatory cleanup from Claude 1/2 audits: ordinal reconciliation, task vs Work Order boundary, Doc 11 identifier warnings, BRA/context_pack boundary, auxiliary-operational classification, Paperclip tier wording; register that Doc 27 was not created | low | high |
+| S-P1-13-CODEX-20260601-008 | STUDY13_DOC27_PRE_GATE_SCOPE_SECTION_LIST_PATCH_20260601 | study | codex_2 | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/24_DOC27_SCOPE_RECONCILIATION_AND_GATE_PROPOSAL_STUDY.md`, `ck_memory.md`, `ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` only | released_with_required_external_audit | 2026-06-01 | Update note 24 with explicit allowed Doc 27 sections, forbidden Doc 27 sections and Doc 27 gate conditions; update memory/tasks; register lock/release; no Doc 27 created | low | high |
+| S-P1-27-CODEX-20260601-001 | DOC27_AI_FIRST_WORK_ORDERS_AND_MULTI_SESSION_ORCHESTRATION_CREATION_20260601 | canonical_patch | codex | Create `07_EVOLUTION_SYSTEM/27_AI_FIRST_WORK_ORDERS_AND_MULTI_SESSION_ORCHESTRATION_ARCHITECTURE.md`; update only `000_ROADMAPS/SESSION_REGISTRY.md`, `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md`, `00_SYSTEM_GOVERNANCE/00_DEPENDENCY_MAP.md`, `ARCHITECTURE_PATCH_REPORT.md`; no Docs 01-26 edits; no Docs 28-34; no Study Layer edits; no implementation | released_with_required_external_audit | 2026-06-01 | Create canonical Doc 27 as documentation-only architecture for AI-first Work Orders and multi-session orchestration; register maps/report and checkout release | low | highest |
+| S-P1-27-CODEX-20260601-002 | DOC27_LIGHT_PATCH_DATE_AND_GATE_TRACEABILITY_20260601 | canonical_patch | codex | Apply LP-1 date reconciliation and LP-2 gate traceability to Doc 27 creation records; allowed files: `07_EVOLUTION_SYSTEM/27_AI_FIRST_WORK_ORDERS_AND_MULTI_SESSION_ORCHESTRATION_ARCHITECTURE.md`, `000_ROADMAPS/SESSION_REGISTRY.md`, `ARCHITECTURE_PATCH_REPORT.md`; no content rewrite of sections 1-23; no LP-3 | released_with_required_external_audit | 2026-06-01 | Reconcile Doc 27 creation date to 2026-06-01 and cite gate-chain lock/release evidence in patch report; register release | low | high |
+| S-P1-27-CODEX-20260601-003 | DOC27_FORMAL_SIGNOFF_RECORDING_20260601 | canonical_patch | codex | Record Founder/PMO and Metacognik formal sign-off for Doc 27 in Doc 27, `ARCHITECTURE_PATCH_REPORT.md`, and `000_ROADMAPS/SESSION_REGISTRY.md`; no LP-3; no target-doc patches; no implementation | released_as_formal_signoff_recording | 2026-06-01 | Mark Doc 27 approved documentally, record formal sign-off and release | low | high |
+| S-P1-GATE1-CLAUDE-20260602-002 | GATE1_VAULT_LOOP_AND_DEDUP_ROADMAP_INTEGRATION_20260602 | execution | claude_opus_4_8 | `000_ROADMAPS/22_CONSOLIDATION/CKOS_EXPANSION_KANBAN.md`, `000_ROADMAPS/22_CONSOLIDATION/CKOS_MASTER_EXPANSION_ROADMAP.md`, `000_ROADMAPS/SESSION_REGISTRY.md` only; no canonical docs 01-27; de-numbering NOT executed (backlog only); no implementation | released | 2026-06-02 | Founder-authorized write continuing read-only audit S-P1-GATE1-CLAUDE-20260601-001: add Vault Operating Loop (FX process-layer card), Session Fan-In F0 card, F6 heartbeat precursor link, GATE 1 sub-items Patch A (par 19) + Patch B (par 18) as backlog, reserve Doc 29 gated + flag Doc 30 dup | low | high |
+| S-P1-GATE1-CODEX-20260602-001 | GATE1_STRUCTURAL_PATCHES_ABC_20260602 | canonical_patch | codex | `05_IMPLEMENTATION_SYSTEM/19_CLAUDE_CODEX_ANTIGRAVITY_EXECUTION_PROTOCOL.md`, `05_IMPLEMENTATION_SYSTEM/19_CLAUDE_CODEX_EXECUTION_PROTOCOL.md`, `02_EXECUTION_SYSTEM/06_SKILLS_REGISTRY.md`, `05_IMPLEMENTATION_SYSTEM/18_RESEARCH_PROTOCOL_FOR_MANUS.md`, `05_IMPLEMENTATION_SYSTEM/21_SELF_EVOLVING_SYSTEM.md`, `000_ROADMAPS/SESSION_REGISTRY.md`; documentation only; no code/backend/UI/runtime | released | 2026-06-02 | Patches A, B and C applied; Builder Subagents ported to canonical Doc 19; research-pack-generation expanded; superseded docs archived with superseded_by; checkout lock/release registered | low | high |
+| S-P1-GATE3-CODEX-20260602-001 | GATE3_DOC28_NOTES_RAG_KNOWLEDGE_CREATION | canonical_patch | codex | Create `07_EVOLUTION_SYSTEM/28_NOTES_RAG_AND_KNOWLEDGE_ARCHITECTURE.md`; update `ARCHITECTURE_PATCH_REPORT.md`, `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md`, `00_SYSTEM_GOVERNANCE/00_DEPENDENCY_MAP.md`, `000_ROADMAPS/SESSION_REGISTRY.md`; no code/backend/UI/runtime/migrations; docs 01-27 read-only | released_with_required_external_audit | 2026-06-02 | Doc 28 created as canonical draft for Notes/RAG/Knowledge; maps and patch report updated; Doc 11 schema changes kept as suggestions inside Doc 28 | medium | highest |
+| S-P1-GATE4-CODEX2-20260602-001 | GATE4_CONTROL_ROOM_RUNBOOK_UPDATE_20260602 | canonical_patch | codex_2 | `000_ROADMAPS/22_CONSOLIDATION/01_MULTI_SESSION_CONTROL_ROOM_RUNBOOK.md`, `000_ROADMAPS/SESSION_REGISTRY.md`; auxiliary runbook update only; no canonical docs 01-28; no `ARCHITECTURE_PATCH_REPORT.md`; no implementation | released | 2026-06-02 | Update Control Room runbook to v1.1.0 post-Docs 26/27 and post-GATE 1; register lock/release; preserve no-runtime boundary | low | high |
+| S-P1-GATE34-CLAUDE-20260602-003 | GATE3_GATE4_FANIN_AUDIT_20260602 | audit | claude_opus_4_8 | Read-only fan-in of `07_EVOLUTION_SYSTEM/28_...` + `01_MULTI_SESSION_CONTROL_ROOM_RUNBOOK.md`; write only to `CKOS_EXPANSION_KANBAN.md`, `CKOS_MASTER_EXPANSION_ROADMAP.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | released | 2026-06-02 | Fan-in APPROVED — GATE 3 (Doc 28) ✅: secs 1-20, boundary table §2.2, namespace pre-condition §3/§7, §18 no DDL, 10 AQs honest; GATE 4 (Runbook v1.1) ✅: tool map, fan-in protocol, session types, F0-F7 snapshot. Follow-ups logged: 7 Doc 11 patch suggestions + 10 AQs pending; light update runbook canonical refs 01-27→01-28 | low | high |
+| S-P1-RECONCILE-CLAUDE-20260602-004 | CANONICAL_BOUNDARY_RECONCILE_01_28_20260602 | execution | claude_opus_4_8 | Founder-authorized scope expansion: `000_ROADMAPS/MULTI_SESSION_EXECUTION_POLICY.md`, `000_ROADMAPS/22_CONSOLIDATION/00_CKOS_CONSOLIDATION_MAP_AND_GAP_AUDIT.md`, `000_ROADMAPS/22_CONSOLIDATION/CKOS_MASTER_EXPANSION_ROADMAP.md`, `000_ROADMAPS/22_CONSOLIDATION/01_MULTI_SESSION_CONTROL_ROOM_RUNBOOK.md`, `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | released | 2026-06-02 | Reconcile LIVE canonical-boundary declarations to 01-28 after Docs 26/27/28 created via gates; PRESERVE GATE 0 historical "01-27" records via reconciliation notes (não reescrita); fix MASTER_MAP line "28-34"→"29-34"; no canonical content edits beyond boundary statements | low | high |
+| S-P1-GATE5FANIN-CLAUDE-20260602-005 | GATE5_FANIN_GIT_INIT_DOC12_F0_HARDBORDER_20260602 | execution | claude_opus_4_8 | Founder-authorized: fan-in arquivo 03; `git init` core (.gitignore + baseline); Doc 12 adendo no arquivo 03; borda dura F0 em kanban + master roadmap; SESSION_REGISTRY | released | 2026-06-02 | Fan-in GATE 5 APPROVED (16 secs, backend puro, RLS/event log OK); git init no core (1763 files staged, paperclip_study + node_modules ignored, baseline commit); Doc 12 + secret_refs + AQ-G5-09 added to arquivo 03; F0 hard border (GATEs 0-5 only, saída = Founder GATE 5, data-alvo 2026-06-09); calibrei o parecer de trends (gap de segurança era menor que alegado) | medium | high |
+| S-P1-GATE5-CODEX2-20260602-001 | GATE5_BACKEND_MVP_THIN_SLICE_SPEC_20260602 | planning | codex_2 | Create `000_ROADMAPS/22_CONSOLIDATION/03_BACKEND_MVP_THIN_SLICE_PLAN.md`; update `000_ROADMAPS/SESSION_REGISTRY.md`; planning only; no canonical docs 01-28 edits; no Doc 28 edits; no roadmap/kanban fan-in writes; no implementation | released | 2026-06-02 | Backend-pure thin-slice spec created for Founder GATE 5 review; S1-S6 mapped; Doc 28 dependencies deferred; Doc 11 patch suggestions and AQs recorded; GATE 5 not approved | low-medium | high |
+
+## Checkout Lock Index
+
+| lock_id | task_id | holder | session_type | allowed_scope | forbidden_scope | release_required | status |
+|---|---|---|---|---|---|---|---|
+| LOCK-P1-GATE5FANIN-CLAUDE-20260602-005 | GATE5_FANIN_GIT_INIT_DOC12_F0_HARDBORDER_20260602 | claude_opus_4_8 | execution | arquivo 03 (Doc 12 adendo), CKOS_EXPANSION_KANBAN, CKOS_MASTER_EXPANSION_ROADMAP, SESSION_REGISTRY, .gitignore, git repo init | conteúdo canônico 01-28 além do adendo, ARCHITECTURE_PATCH_REPORT, histórico/locks liberados, implementação runtime | yes | released |
+| LOCK-P1-GATE5-CODEX2-20260602-001 | GATE5_BACKEND_MVP_THIN_SLICE_SPEC_20260602 | codex_2 | planning | `000_ROADMAPS/22_CONSOLIDATION/03_BACKEND_MVP_THIN_SLICE_PLAN.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | canonical docs 01-28, Doc 28 edits, roadmap/kanban fan-in files (`000_ROADMAPS/22_CONSOLIDATION/CKOS_EXPANSION_KANBAN.md`, `000_ROADMAPS/22_CONSOLIDATION/CKOS_MASTER_EXPANSION_ROADMAP.md`), `ARCHITECTURE_PATCH_REPORT.md`, `00_SYSTEM_GOVERNANCE/`, backend, UI, API, database, migrations, MCP, webhook, n8n, real agents, runtime automations, files outside allowed scope, move/rename/delete operations | yes | released |
+| LOCK-P1-RECONCILE-CLAUDE-20260602-004 | CANONICAL_BOUNDARY_RECONCILE_01_28_20260602 | claude_opus_4_8 | execution | policy, consolidation map, master expansion roadmap, control room runbook, `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md`, SESSION_REGISTRY.md — boundary statements only | conteúdo canônico 01-28, ARCHITECTURE_PATCH_REPORT, registros históricos/changelogs/locks liberados, implementação | yes | released |
+| LOCK-P1-GATE1-CLAUDE-20260602-002 | GATE1_VAULT_LOOP_AND_DEDUP_ROADMAP_INTEGRATION_20260602 | claude_opus_4_8 | execution | `000_ROADMAPS/22_CONSOLIDATION/CKOS_EXPANSION_KANBAN.md`, `000_ROADMAPS/22_CONSOLIDATION/CKOS_MASTER_EXPANSION_ROADMAP.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | canonical docs 01-27, docs 28-34, `ARCHITECTURE_PATCH_REPORT.md`, executing any de-numbering, UI/backend/API/runtime, move/rename/delete | yes | released |
+| LOCK-P1-GATE1-CODEX-20260602-001 | GATE1_STRUCTURAL_PATCHES_ABC_20260602 | codex | canonical_patch | `05_IMPLEMENTATION_SYSTEM/19_CLAUDE_CODEX_ANTIGRAVITY_EXECUTION_PROTOCOL.md`, `05_IMPLEMENTATION_SYSTEM/19_CLAUDE_CODEX_EXECUTION_PROTOCOL.md`, `02_EXECUTION_SYSTEM/06_SKILLS_REGISTRY.md`, `05_IMPLEMENTATION_SYSTEM/18_RESEARCH_PROTOCOL_FOR_MANUS.md`, `05_IMPLEMENTATION_SYSTEM/21_SELF_EVOLVING_SYSTEM.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | `05_IMPLEMENTATION_SYSTEM/18_RESEARCH_PROTOCOL.md`, `07_EVOLUTION_SYSTEM/25_SELF_EVOLVING_SYSTEM_ARCHITECTURE.md`, `06_BUSINESS_SYSTEMS/21_ROI_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `00_SYSTEM_GOVERNANCE/`, docs 28-34, UI/backend/API/runtime/migrations, move/rename/delete operations, de-numbering | yes | released |
+| LOCK-P1-GATE3-CODEX-20260602-001 | GATE3_DOC28_NOTES_RAG_KNOWLEDGE_CREATION | codex | canonical_patch | `07_EVOLUTION_SYSTEM/28_NOTES_RAG_AND_KNOWLEDGE_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md`, `00_SYSTEM_GOVERNANCE/00_DEPENDENCY_MAP.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-27 content edits, docs 29-34, `01_THINKING_SYSTEM/05_MEMORY_AND_CONTEXT_ARCHITECTURE.md`, `05_IMPLEMENTATION_SYSTEM/18_RESEARCH_PROTOCOL.md`, `03_RUNTIME_SYSTEM/11_DATA_MODEL_AND_PERSISTENCE.md`, `000_STUDY_NOTES/`, UI/backend/API/runtime/migrations/workers, move/rename/delete operations | yes | released_with_required_external_audit |
+| LOCK-P1-GATE4-CODEX2-20260602-001 | GATE4_CONTROL_ROOM_RUNBOOK_UPDATE_20260602 | codex_2 | canonical_patch | `000_ROADMAPS/22_CONSOLIDATION/01_MULTI_SESSION_CONTROL_ROOM_RUNBOOK.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | canonical docs 01-28, `ARCHITECTURE_PATCH_REPORT.md`, `00_SYSTEM_GOVERNANCE/`, `000_ROADMAPS/22_CONSOLIDATION/CKOS_EXPANSION_KANBAN.md`, `000_ROADMAPS/22_CONSOLIDATION/CKOS_MASTER_EXPANSION_ROADMAP.md`, backend, UI, API, database, migrations, MCP server, webhook, JSON n8n, real agents, runtime automations, files outside allowed scope, move/rename/delete operations | yes | released |
+| LOCK-P1-7-CODEX-20260528-001 | P1.7_MULTI_SESSION_EXECUTION_POLICY_20260528 | codex | execution | Files and folders listed in Founder-approved P1.7 checkout lock | Canonical folders, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, docs 01-25, docs 26-34, implementation surfaces | yes | released |
+| LOCK-P1-7-1-CODEX-20260528-001 | ROADMAPS_P1_7_1_MEMORY_REFRESH_20260528 | codex | memory_refresh | Files listed in the P1.7.1 checkout lock, including `ARCHITECTURE_PATCH_REPORT.md` | docs canonicos 01-25, docs 26-34, Business Systems 21-24, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, `000_UPLOADS/`, `000_UPGRADE/`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | yes | released |
+| LOCK-P1-19-ANTIGRAVITY-20260528-001 | UIUX_VISUAL_REFERENCE_STUDY_20260528 | antigravity | design_study | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `CKOS_FILETREE_MAP.md`, `CKOS_FOLDER_MEMORY.md`, `CKOS_VAULT_MAP_REFRESH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | yes | released |
+| LOCK-P1-19-ANTIGRAVITY-20260528-002 | UIUX_AUDIT_PATCH_20260528 | antigravity | design_study | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md`, `000_ROADMAPS/03_FRONTEND_UIUX_ROADMAP/01_UIUX_STUDY_TO_CANONICAL_ROADMAP.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | yes | released |
+| LOCK-P1-19-ANTIGRAVITY-20260528-003 | UIUX_OPERATIONAL_PATTERNS_STUDY_20260528 | antigravity | design_study | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `CKOS_FILETREE_MAP.md`, `CKOS_FOLDER_MEMORY.md`, `CKOS_VAULT_MAP_REFRESH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | yes | released |
+| LOCK-P1-19-ANTIGRAVITY-20260528-004 | UIUX_STUDY_COMPLETION_20260528 | antigravity | design_study | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | yes | released |
+| LOCK-P1-19-ANTIGRAVITY-20260528-005 | UIUX_AUDIT_ALIGNMENT_20260528 | antigravity | design_study | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | yes | released |
+| LOCK-P1-19-ANTIGRAVITY-20260528-006 | UIUX_STUDY_CONSOLIDATION_INDEX_20260528 | antigravity | design_study | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | yes | released |
+| LOCK-P1-19-ANTIGRAVITY-20260528-007 | UIUX_STUDY_CORRECTION_PATCH_20260528 | antigravity | design_study | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | yes | released_with_required_external_audit |
+| LOCK-P1-19-ANTIGRAVITY-20260528-008 | UIUX_STUDY_CORRECTION_PATCH_V2_20260528 | antigravity | design_study | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | yes | released_with_required_external_audit |
+| LOCK-P1-19-ANTIGRAVITY-20260528-009 | UIUX_CANONICAL_CANDIDATE_TRIAGE_20260528 | antigravity | design_study | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | yes | released_with_required_external_audit |
+| LOCK-P1-19-ANTIGRAVITY-20260529-010 | UIUX_CANONICAL_CANDIDATE_TRIAGE_V2_20260529 | antigravity | design_study | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | yes | released_with_required_external_audit |
+| LOCK-P1-19-ANTIGRAVITY-20260528-010 | UIUX_P1_11_LIGHT_PATCHES_20260528 | antigravity | design_study | `000_STUDY_NOTES/10_UIUX_STUDIES/`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | yes | released_with_required_external_audit |
+| LOCK-P1-19-PMO-20260528-011 | UIUX_P1_11_1_PMO_CLOSURE_NOTE_20260528 | pmo_ckos | documentation_governance | `000_STUDY_NOTES/10_UIUX_STUDIES/ck_memory.md`, `000_STUDY_NOTES/10_UIUX_STUDIES/UIUX_STUDY_REVIEW_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/`, move/rename/delete operations | yes | released |
+| LOCK-P1-26-PMO-20260529-001 | DOC26_CONNECTORS_MCP_INTEGRATIONS_ARCHITECTURE_CREATION | pmo_ckos | canonical_patch | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`; optional permitted maps/indexes listed in task | docs 01-25, docs 27-34, UI/backend/API/migrations/banco, JSONs n8n, agentes reais, `.obsidian/`, `Memória GPT.md`, move/rename/delete operations, vendor promotion to core runtime | yes | released_with_required_external_audit |
+| LOCK-P1-26-PMO-20260529-002 | DOC26_P1_A_TO_P1_F_AUDIT_LIGHT_PATCH_20260529 | pmo_ckos | canonical_patch | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md`; README/maps only if required for traceability | docs 01-25, docs 27-34, UI/backend/API/migrations/banco, MCP server real, JSONs n8n, agentes reais, `.obsidian/`, `Memória GPT.md`, move/rename/delete operations, real patches in docs 10/11/12/13/18/24 | yes | released_with_required_external_audit |
+| LOCK-P1-26-PMO-20260529-003 | DOC26_L01_L02_AUDIT_LIGHT_PATCH_20260529 | pmo_ckos | canonical_patch | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`, `000_ROADMAPS/SESSION_REGISTRY.md`, `ARCHITECTURE_PATCH_REPORT.md` if version traceability requires | docs 01-25, docs 27-34, UI/backend/API/migrations/banco, MCP server real, webhook real, JSONs n8n, agentes reais, automacoes runtime, `.obsidian/`, `Memória GPT.md`, move/rename/delete operations, real patches in docs 10/11/12/13/18/24 | yes | released_with_required_external_audit |
+| LOCK-P1-26-PMO-20260530-004 | DOC26_L01_L09_AUDIT_LIGHT_PATCH_20260530 | pmo_ckos | canonical_patch | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-25, docs 27-34, UI/backend/API/banco/migrations, MCP server real, webhook real, JSONs n8n, agentes reais, automacoes runtime, arquivos fora do escopo, move/rename/delete operations, real patches in docs 10/11/12/13/18/24 | yes | released_with_required_external_audit |
+| LOCK-P1-26-PMO-20260531-005 | DOC26_v1_0_3_TRACEABILITY_PATCH_20260530 | pmo_ckos | canonical_patch | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-25, docs 27-34, backend, UI, APIs, banco, migrations, MCP server real, webhook real, JSON n8n, agentes reais, automacoes runtime, arquivos fora do escopo, move/rename/delete operations, resolving P26-1/P26-2/P26-3/P26-4/P26-6/P26-8 | yes | released_with_required_external_audit |
+| LOCK-P1-26-CODEX-20260531-006 | DOC26_PATCH_A_LIGHT_GOVERNANCE_20260531 | codex/pmo_ckos | canonical_patch | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-25, docs 27-34, Study Layer 13, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/*`, UI/backend/API/banco/migrations, MCP server real, webhook real, JSON n8n, agente real, automacao runtime, move/rename/delete operations | yes | released_with_required_external_audit |
+| LOCK-P1-26-CODEX-20260601-002 | GOVERNANCE_PATCHES_PL03_PL07_PL08_NOVO_20260601 | codex | canonical_patch | `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md` lines 230-231, `00_SYSTEM_GOVERNANCE/00_DEPENDENCY_MAP.md` line 100, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | canonical docs 01-26 files, docs 27-34, Study Layer 13, Study Layer 14, backend, UI, API, database, migrations, MCP server, webhook, JSON n8n, real agents, runtime automations, move/rename/delete operations | yes | released |
+| LOCK-P1-13-CODEX-20260530-001 | STUDY13_AI_FIRST_PROJECT_OPERATING_SYSTEM_CREATION_20260530 | codex | study | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/`, `000_STUDY_NOTES/README.md`, `000_STUDY_NOTES/_folder_memory.md`, `CKOS_FILETREE_MAP.md`, `CKOS_FOLDER_MEMORY.md`, `CKOS_VAULT_MAP_REFRESH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, UI/backend/API/banco/migrations, JSONs n8n, MCP server real, agentes reais, automacoes runtime, `000_UPLOADS/`, `000_UPGRADE/`, move/rename/delete operations | yes | released_with_required_external_audit |
+| LOCK-P1-13-PMO-20260531-002 | STUDY13_WORK_ORCHESTRATION_CONTINUATION_20260531 | pmo_ckos/codex | study | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/16_SMART_QUESTIONS_AND_CONTEXTUAL_INTERVENTION_STUDY.md`, `17_COGNIK_METACOGNIK_TASK_ORCHESTRATION_STUDY.md`, `18_AI_FIRST_PROJECT_NOTE_SYSTEM_AND_RAG_GOVERNANCE_STUDY.md`, `19_FOUNDER_CONTROL_APPROVAL_BATCHES_AND_AUTONOMY_LEVELS_STUDY.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, README/maps, UI/backend/API/banco/migrations, JSONs n8n, MCP server real, agentes reais, automacoes runtime, `000_UPLOADS/`, `000_UPGRADE/`, move/rename/delete operations | yes | released_with_required_external_audit |
+| LOCK-P1-13-CODEX-20260531-003 | STUDY13_PROVENANCE_RECONCILIATION_20260531 | codex/pmo_ckos | study | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/README.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, auxiliary maps, backend, UI, API, banco, migrations, JSONs n8n, real agents, runtime automations, move/rename/delete operations | yes | released_with_required_external_audit |
+| LOCK-P1-13-CODEX-20260531-004 | STUDY13_MULTI_SESSION_ROADMAP_SPRINT_BOARD_20260531 | codex/pmo_ckos | study | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/22_MULTI_SESSION_EXECUTION_ROADMAP_AND_SPRINT_BOARD_STUDY.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, auxiliary maps, backend, UI, API, banco, migrations, JSONs n8n, real agents, runtime automations, move/rename/delete operations | yes | released_with_required_external_audit |
+| LOCK-P1-13-WINDSURF-20260601-001 | MULTI_MODEL_COMMAND_AND_PROMPT_DISPATCH_BOARD_STUDY_20260601 | windsurf | study | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/23_MULTI_MODEL_COMMAND_AND_PROMPT_DISPATCH_BOARD_STUDY.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, auxiliary maps, backend, UI, API, banco, migrations, JSONs n8n, MCP server real, webhook real, real agents, runtime automations, move/rename/delete operations | yes | released |
+| LOCK-P1-13-WINDSURF-20260601-005 | STUDY13_LOCAL_PMO_MULTI_MODEL_CONTROL_ROOM_20260601 | windsurf/pmo_local | study | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/26_LOCAL_PMO_MULTI_MODEL_CONTROL_ROOM_STUDY.md` (index-reconciled from former `23_LOCAL...`), `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, auxiliary maps, `000_UPLOADS/`, `000_UPGRADE/`, backend, UI, API, banco, migrations, JSONs n8n, MCP server real, webhook real, real agents, runtime automations, move/rename/delete operations | yes | released_with_required_external_audit |
+| LOCK-P1-14-CODEX-20260601-001 | STUDY14_PAPERCLIP_REGULARIZATION_20260601 | codex | study | `000_STUDY_NOTES/14_PAPERCLIP_AGENT_OPERATING_MODEL/`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, auxiliary maps, `000_UPLOADS/`, `000_UPGRADE/`, backend, UI, API, banco, migrations, MCP server real, webhook real, JSON n8n, real agents, runtime automations, move/rename/delete operations | yes | released_with_required_external_audit |
+| LOCK-P1-13-CODEX-20260601-006 | STUDY13_DOC27_SCOPE_RECONCILIATION_GATE_20260601 | codex_2 | study | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/24_DOC27_SCOPE_RECONCILIATION_AND_GATE_PROPOSAL_STUDY.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, auxiliary maps, `000_UPLOADS/`, `000_UPGRADE/`, backend, UI, API, banco, migrations, MCP server real, webhook real, JSON n8n, real agents, runtime automations, move/rename/delete operations | yes | released_with_required_external_audit |
+| LOCK-P1-13-WINDSURF-20260601-007 | STUDY13_LOCAL_OPERATOR_CONTROL_ROOM_AUTONOMOUS_DISPATCH_20260601 | windsurf | study | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/25_LOCAL_OPERATOR_CONTROL_ROOM_AND_AUTONOMOUS_DISPATCH_STUDY.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, auxiliary maps, `000_UPLOADS/`, `000_UPGRADE/`, backend, UI, API, banco, migrations, MCP server real, webhook real, JSON n8n, real agents, runtime automations, move/rename/delete operations | yes | released |
+| LOCK-P1-13-CODEX-20260601-009 | STUDY13_14_GATE_CLEANUP_20260601 | codex_1 | study_cleanup | Layer 13 allowed cleanup files: README, ck_memory, ck_tasks, notes 15, 19, 21, 23, 24, 25, 26; Layer 14 allowed cleanup files: README, ck_memory, ck_tasks, notes 06-07; `000_ROADMAPS/SESSION_REGISTRY.md`; rename old `23_LOCAL...` to `26_LOCAL...` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, auxiliary maps, backend, UI, API, database, migrations, MCP server real, webhook real, JSON n8n, real agents, runtime automations | yes | released_with_required_external_audit |
+| LOCK-P1-13-CODEX-20260601-008 | STUDY13_DOC27_PRE_GATE_SCOPE_SECTION_LIST_PATCH_20260601 | codex_2 | study | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/24_DOC27_SCOPE_RECONCILIATION_AND_GATE_PROPOSAL_STUDY.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, auxiliary maps, `000_UPLOADS/`, `000_UPGRADE/`, backend, UI, API, banco, migrations, MCP server real, webhook real, JSON n8n, real agents, runtime automations, move/rename/delete operations | yes | released_with_required_external_audit |
+| LOCK-P1-27-CODEX-20260601-001 | DOC27_AI_FIRST_WORK_ORDERS_AND_MULTI_SESSION_ORCHESTRATION_CREATION_20260601 | codex | canonical_patch | Create `07_EVOLUTION_SYSTEM/27_AI_FIRST_WORK_ORDERS_AND_MULTI_SESSION_ORCHESTRATION_ARCHITECTURE.md`; update `000_ROADMAPS/SESSION_REGISTRY.md`, `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md`, `00_SYSTEM_GOVERNANCE/00_DEPENDENCY_MAP.md`, `ARCHITECTURE_PATCH_REPORT.md` | Docs 01-26, Docs 28-34, Study Layer 13, Study Layer 14, `00_SYSTEM_GOVERNANCE/*` outside the two allowed maps, backend, UI, API, database, migrations, MCP server real, webhook real, JSON n8n, real agents, runtime automations, slash-command runtime, autonomous dispatch runtime, move/rename/delete operations | yes | released_with_required_external_audit |
+| LOCK-P1-27-CODEX-20260601-002 | DOC27_LIGHT_PATCH_DATE_AND_GATE_TRACEABILITY_20260601 | codex | canonical_patch | `07_EVOLUTION_SYSTEM/27_AI_FIRST_WORK_ORDERS_AND_MULTI_SESSION_ORCHESTRATION_ARCHITECTURE.md`, `000_ROADMAPS/SESSION_REGISTRY.md`, `ARCHITECTURE_PATCH_REPORT.md` | Docs 01-26, Docs 28-34, Study Layer 13, Study Layer 14, `00_SYSTEM_GOVERNANCE/*`, `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md`, `00_SYSTEM_GOVERNANCE/00_DEPENDENCY_MAP.md`, backend, UI, API, database, migrations, MCP server real, webhook real, JSON n8n, real agents, runtime automations, slash-command runtime, autonomous dispatch runtime, move/rename/delete operations, Doc 27 sections 1-23 content rewrite except date/traceability references | yes | released_with_required_external_audit |
+| LOCK-P1-27-CODEX-20260601-003 | DOC27_FORMAL_SIGNOFF_RECORDING_20260601 | codex | canonical_patch | `07_EVOLUTION_SYSTEM/27_AI_FIRST_WORK_ORDERS_AND_MULTI_SESSION_ORCHESTRATION_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | Docs 01-26 except Doc 27, Docs 28-34, Study Layer 13, Study Layer 14, `00_SYSTEM_GOVERNANCE/*`, CKOS auxiliary maps, backend, UI, API, database, migrations, MCP server real, webhook real, JSON n8n, real agents, runtime automations, target docs 10/11/12/13/24 patches, move/rename/delete operations | yes | released_as_formal_signoff_recording |
+
+## Checkout Release Log
+
+| release_id | task_id | files_created | files_changed | files_not_touched | validation | risks_remaining | next_step | status |
+|---|---|---|---|---|---|---|---|---|
+| REL-P1-GATE5-CODEX2-20260602-001 | GATE5_BACKEND_MVP_THIN_SLICE_SPEC_20260602 | `000_ROADMAPS/22_CONSOLIDATION/03_BACKEND_MVP_THIN_SLICE_PLAN.md` | `000_ROADMAPS/SESSION_REGISTRY.md` | canonical docs 01-28, Doc 28 edits, roadmap/kanban fan-in files, `ARCHITECTURE_PATCH_REPORT.md`, `00_SYSTEM_GOVERNANCE/`, backend, UI, API, database, migrations, MCP, webhook, n8n, real agents, runtime automations, move/rename/delete operations | FILES_CREATED: 03_BACKEND_MVP_THIN_SLICE_PLAN.md; FILES_CHANGED: SESSION_REGISTRY.md; SUMMARY: backend-pure slice proves one intent can traverse intent resolver, Cognik, Metacognik approval, Work Order envelope, Agent Run, Event Log, evidence, memory boundary and ROI proxy; SPRINTS_MAPPED: S1-S6 mapped to docs 10/11/15, 03/04/10/13, 03/04/06/10/12, 10/11/13, 27/03/10/11, 05/21/22/28; DOC_28_DEPENDENCIES: ingestion, chunking, embeddings, retrieval policy, vector schema and RAG query details deferred to Doc 28; DOC_11_PATCH_SUGGESTIONS: Work Order physical persistence, WorkOrderScoped event fields and Doc 28 MVP refinements require future separate checkout if needed; ARCHITECTURE_QUESTIONS: AQ-G5-01 through AQ-G5-08 recorded; RISKS: UI drift, RAG duplication, invented schema, weak event log, ROI overclaim, delayed RLS, cosmetic approval and over-engineering | GATE 5 is not approved; Founder approval is still required before F1 implementation; stack choices remain reference-only; Doc 11 patches are suggestions/AQs only | Fan-in Claude: verificar que slice nao tem UI nem RAG internals; preparar GATE 5 para aprovacao Founder | released |
+| REL-P1-GATE3-CODEX-20260602-001 | GATE3_DOC28_NOTES_RAG_KNOWLEDGE_CREATION | `07_EVOLUTION_SYSTEM/28_NOTES_RAG_AND_KNOWLEDGE_ARCHITECTURE.md` | `ARCHITECTURE_PATCH_REPORT.md`, `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md`, `00_SYSTEM_GOVERNANCE/00_DEPENDENCY_MAP.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-27 content, docs 29-34, `01_THINKING_SYSTEM/05_MEMORY_AND_CONTEXT_ARCHITECTURE.md`, `05_IMPLEMENTATION_SYSTEM/18_RESEARCH_PROTOCOL.md`, `03_RUNTIME_SYSTEM/11_DATA_MODEL_AND_PERSISTENCE.md`, `000_STUDY_NOTES/`, UI/backend/API/runtime/migrations/workers, move/rename/delete operations | GATE 1 precondition observed from kanban; Doc 28 created with required frontmatter and sections 1-20; namespace as precondition recorded; Doc 05/18 boundaries explicit; Doc 11 schema changes are suggestions only; maps/report/registry updated | Requires Claude/Metacognik read-only audit; Doc 11 patches are not applied; multimodal/dims/chunk sizes and note materialization remain ARCHITECTURE_QUESTIONS | Fan-in Claude: confirmar integridade do Doc 28 e declarar GATE 3 ✅ | released_with_required_external_audit |
+| REL-P1-GATE1-CODEX-20260602-001 | GATE1_STRUCTURAL_PATCHES_ABC_20260602 | none | `05_IMPLEMENTATION_SYSTEM/19_CLAUDE_CODEX_ANTIGRAVITY_EXECUTION_PROTOCOL.md`, `05_IMPLEMENTATION_SYSTEM/19_CLAUDE_CODEX_EXECUTION_PROTOCOL.md`, `02_EXECUTION_SYSTEM/06_SKILLS_REGISTRY.md`, `05_IMPLEMENTATION_SYSTEM/18_RESEARCH_PROTOCOL_FOR_MANUS.md`, `05_IMPLEMENTATION_SYSTEM/21_SELF_EVOLVING_SYSTEM.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | `05_IMPLEMENTATION_SYSTEM/18_RESEARCH_PROTOCOL.md`, `07_EVOLUTION_SYSTEM/25_SELF_EVOLVING_SYSTEM_ARCHITECTURE.md`, `06_BUSINESS_SYSTEMS/21_ROI_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `00_SYSTEM_GOVERNANCE/`, docs 28-34, UI/backend/API/runtime/migrations, move/rename/delete/de-numbering operations | Patch A inserted Builder Subagents in canonical Doc 19 and archived superseded Doc 19; Patch B expanded `research-pack-generation` and archived Manus protocol; Patch C archived duplicate 05/21 frontmatter only; no files outside checkout scope intentionally modified | De-numbering was not executed; GATE 1 declaration still depends on Claude/PMO fan-in; Doc 28 remains blocked until explicit GATE 3 unlock | Aguardar fan-in Claude para declarar GATE 1 ✅ e desbloquear GATE 3 (Doc 28) | released |
+| REL-P1-GATE4-CODEX2-20260602-001 | GATE4_CONTROL_ROOM_RUNBOOK_UPDATE_20260602 | none | `000_ROADMAPS/22_CONSOLIDATION/01_MULTI_SESSION_CONTROL_ROOM_RUNBOOK.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | canonical docs 01-28, `ARCHITECTURE_PATCH_REPORT.md`, `00_SYSTEM_GOVERNANCE/`, `000_ROADMAPS/22_CONSOLIDATION/CKOS_EXPANSION_KANBAN.md`, `000_ROADMAPS/22_CONSOLIDATION/CKOS_MASTER_EXPANSION_ROADMAP.md`, backend, UI, API, database, migrations, MCP server, webhook, JSON n8n, real agents, runtime automations, files outside allowed scope, move/rename/delete operations | Runbook bumped to v1.1.0; tool map updated with Claude Code, Codex #1/#2, Windsurf and Antigravity; session types synced to policy; fan-in protocol and F0-F7 gate snapshot added; registry has session, lock and release. | Roadmap/Kanban were read only for this session and still require their own future checkouts if state text changes; GATE 5 backend MVP remains future and not authorized here. | Fan-in Claude para GATE 4 ✅ | released |
+| REL-P1-7-CODEX-20260528-001 | P1.7_MULTI_SESSION_EXECUTION_POLICY_20260528 | `SESSION_REGISTRY.md`, `MULTI_SESSION_EXECUTION_POLICY.md`, `12_SESSION_GATES/README.md`, `12_SESSION_GATES/_folder_memory.md`, `12_SESSION_GATES/01_ANTIGRAVITY_STUDY_MODE_GATE.md` | Auxiliary roadmaps, study notes index/memory and root auxiliary maps listed in checkout | `ARCHITECTURE_PATCH_REPORT.md`, canonical docs 01-25, docs 26-34, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, implementation/runtime folders, `000_UPLOADS/`, `000_UPGRADE/` | expected files exist; forbidden gate absent; no docs 26-34 detected; forbidden scope search clean | Antigravity still requires explicit Founder activation; PMO/Metacognik audit pending | Audit P1.7, then Founder decides future `design_study` activation or P2 lane expansion | released |
+| REL-P1-7-1-CODEX-20260528-001 | ROADMAPS_P1_7_1_MEMORY_REFRESH_20260528 | `000_STUDY_NOTES/12_SESSION_GATES/ck_memory.md` | `MULTI_SESSION_EXECUTION_POLICY.md`, `SESSION_REGISTRY.md`, `01_ANTIGRAVITY_STUDY_MODE_GATE.md`, `12_SESSION_GATES/README.md`, `12_SESSION_GATES/_folder_memory.md`, `000_STUDY_NOTES/README.md`, `000_STUDY_NOTES/_folder_memory.md`, `CKOS_FILETREE_MAP.md`, `CKOS_FOLDER_MEMORY.md`, `CKOS_VAULT_MAP_REFRESH_REPORT.md`, `ARCHITECTURE_PATCH_REPORT.md` | docs canonicos 01-25, docs 26-34, Business Systems 21-24, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, `000_UPLOADS/`, `000_UPGRADE/`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | three main files are `version: 1.0.0`; mandatory phrase exists; active `ck_memory.md` exists; `_folder_memory.md` preserved with legacy notice; patch report contains P1.7/P1.7.1; forbidden scope respected | Antigravity remains blocked; Founder decision still required for future Study Mode or P2 lanes | Founder decide se ativa Antigravity Study Mode ou abre P2 de lanes | released |
+| REL-P1-19-ANTIGRAVITY-20260528-001 | UIUX_VISUAL_REFERENCE_STUDY_20260528 | `000_STUDY_NOTES/10_UIUX_STUDIES/01_VISUAL_REFERENCE_TAXONOMY_CANVAS_OS.md`, `02_OPERATIONAL_UIUX_GRAMMAR_CKOS.md`, `03_WIDGET_STATE_MATRIX_AND_EXECUTION_FEEDBACK.md`, `04_MOBILE_COMMAND_FIRST_ERGONOMICS.md`, `05_NEURODESIGN_AND_COGNITIVE_LOAD_RULES.md`, `06_UIUX_ANTI_PATTERNS_AND_GENERIC_AI_UI_RISKS.md`, `ck_memory.md` | `CKOS_FILETREE_MAP.md`, `CKOS_FOLDER_MEMORY.md`, `CKOS_VAULT_MAP_REFRESH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | YAML valid, Study Notes complete, folder memory complete, filetree and map reports successfully updated, forbidden scope respected | None, visual recommendations ready for PMO/Founder approval before core lane creation | PMO review and Founder approval of study notes | released |
+| REL-P1-19-ANTIGRAVITY-20260528-002 | UIUX_AUDIT_PATCH_20260528 | `000_STUDY_NOTES/10_UIUX_STUDIES/07_AGENT_ACTIVITY_STREAM_UIUX_STUDY.md`, `08_WHITELABEL_TOKEN_SYSTEM_UIUX_STUDY.md` | `02_OPERATIONAL_UIUX_GRAMMAR_CKOS.md`, `03_WIDGET_STATE_MATRIX_AND_EXECUTION_FEEDBACK.md`, `04_MOBILE_COMMAND_FIRST_ERGONOMICS.md`, `05_NEURODESIGN_AND_COGNITIVE_LOAD_RULES.md`, `06_UIUX_ANTI_PATTERNS_AND_GENERIC_AI_UI_RISKS.md`, `ck_memory.md`, `000_ROADMAPS/03_FRONTEND_UIUX_ROADMAP/01_UIUX_STUDY_TO_CANONICAL_ROADMAP.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | YAML valid, Study Notes updated, Pulse refs eliminated, Stream and Whitelabel notes created, forbidden scope respected | None, study notes ready for PMO/Founder approval before core lane creation | PMO review and Founder approval of study notes | released |
+| REL-P1-19-ANTIGRAVITY-20260528-003 | UIUX_OPERATIONAL_PATTERNS_STUDY_20260528 | `000_STUDY_NOTES/10_UIUX_STUDIES/09_EXECUTION_PLAN_WIDGET_UIUX_STUDY.md`, `10_INTENT_CLARIFIER_AND_SMART_QUESTIONS_UIUX_STUDY.md`, `11_COST_CREDITS_AND_ROI_AWARE_UX_STUDY.md`, `12_APPROVAL_GATE_AND_REVERSIBILITY_UX_STUDY.md`, `13_EVIDENCE_TRUST_AND_DECISION_UIUX_STUDY.md` | `CKOS_FILETREE_MAP.md`, `CKOS_FOLDER_MEMORY.md`, `CKOS_VAULT_MAP_REFRESH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, UI/backend/API/banco/migrations, JSONs n8n, agentes reais, `.obsidian/` | YAML valid, Study Notes complete, folder memory complete, filetree and map reports successfully updated, forbidden scope respected | None, study notes ready for PMO/Founder approval before core lane creation | PMO review and Founder approval of study notes | released |
+| REL-P1-19-ANTIGRAVITY-20260528-004 | UIUX_STUDY_COMPLETION_20260528 | `14_DASHBOARD_WIDGET_SYSTEM_UIUX_STUDY.md`, `15_COMMAND_CENTER_OPERATIONAL_UX_STUDY.md`, `16_NODE_CANVAS_GRAPH_UX_STUDY.md`, `17_CHAT_GROUPS_AGENT_THREADS_UIUX_STUDY.md`, `18_ONBOARDING_PERSONALIZATION_UIUX_STUDY.md`, `19_CKSTORE_CAPABILITY_MARKETPLACE_UIUX_STUDY.md`, `20_DESIGN_SYSTEM_THEME_GOVERNANCE_UIUX_STUDY.md`, `21_MOTION_STATE_FEEDBACK_UIUX_STUDY.md`, `22_ACCESSIBILITY_REDUCED_MOTION_UIUX_STUDY.md`, `23_UIUX_CANONICAL_PATCH_CANDIDATES.md` | `000_STUDY_NOTES/10_UIUX_STUDIES/ck_memory.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, implementation/runtime folders, `000_UPLOADS/`, `000_UPGRADE/` | YAML valid, study notes finalized, ck_memory updated, no UI/React/CSS/HTML code detected, forbidden scope respected | None, visual study layer ready for PMO and Founder approval | PMO/Metacognik audit and Founder decision for lane activation | released |
+| REL-P1-19-ANTIGRAVITY-20260528-005 | UIUX_AUDIT_ALIGNMENT_20260528 | none (modified files only) | `02_OPERATIONAL_UIUX_GRAMMAR_CKOS.md`, `05_NEURODESIGN_AND_COGNITIVE_LOAD_RULES.md`, `10_INTENT_CLARIFIER_AND_SMART_QUESTIONS_UIUX_STUDY.md`, `15_COMMAND_CENTER_OPERATIONAL_UX_STUDY.md`, `23_UIUX_CANONICAL_PATCH_CANDIDATES.md`, `ck_memory.md`, `SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, implementation/runtime folders | YAML valid, ghost concept project_pulse_projection removed, neurodesign rules expanded, Command Center aligned with Doc 15, candidates list expanded, forbidden scope respected | None, visual study layer ready for final promotion gates | PMO/Metacognik audit and Founder decision for lane activation | released |
+| REL-P1-19-ANTIGRAVITY-20260528-006 | UIUX_STUDY_CONSOLIDATION_INDEX_20260528 | `README.md`, `UIUX_STUDY_REVIEW_REPORT.md` | `SESSION_REGISTRY.md`, `ck_memory.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, implementation/runtime folders | YAML valid, 10 families cover all 23 files, review report maps gaps/riscos, zero code, no canonical alteration | Risco de codificação precoce; Fadiga vestibular por excesso de micro-feedback; Vazamento temático em whitelabel; Complexidade de rollback no Approval Gate; Sobrecarga de contexto em grafos 2D; Risco de auto-homologação por executor | Submit study layer to PMO review and Founder approval | released |
+| REL-P1-19-ANTIGRAVITY-20260528-007 | UIUX_STUDY_CORRECTION_PATCH_20260528 | none (modified files only) | `02_OPERATIONAL_UIUX_GRAMMAR_CKOS.md`, `05_NEURODESIGN_AND_COGNITIVE_LOAD_RULES.md`, `23_UIUX_CANONICAL_PATCH_CANDIDATES.md`, `UIUX_STUDY_REVIEW_REPORT.md`, `ck_memory.md`, `SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, implementation/runtime folders | Checked off Note 02 markdown database ref, aligned Note 05 neurodesign count to 10, pointed Candidate 1 to Node Canvas §9, aligned Candidate 9 tables to Doc 24, removed auto-homologation from review report | Risco de codificação precoce; Fadiga vestibular por excesso de micro-feedback; Vazamento temático em whitelabel; Complexidade de rollback no Approval Gate; Sobrecarga de contexto em grafos 2D; Risco de auto-homologação por executor | Enviar relatório para PMO/Claude auditar. Não iniciar P1.11 | released_with_required_external_audit |
+| REL-DOC26-v1.0.4-AUDIT-CLAUDE1-20260601-003 | DOC26_v1_0_4_EXTERNAL_AUDIT_20260601 | none (read-only audit) | SESSION_REGISTRY.md (session registration) | Doc 26 v1.0.4, docs 01-25, docs 27-34, Study Layer 13, implementation surfaces | Doc 26 v1.0.4 integrity confirmed; L-01 to L-09 applied; PL-01/PL-02/PL-04/PL-05 applied; no implementation disguised; vendors substitutable; all governance controls present; ghost objects mitigated; P26-1 to P26-8 registered as suggestions not applied; identified PL-03, PL-07, PL-08-NOVO as light patches in governance docs; Doc 27 gate blocked with conditional release | R-01: P26-2 open modeling decisions block Doc 11 migrations [MEDIUM-HIGH]; R-02: Study Layer 13 notes 01-21 unaudited — primary Doc 27 blocker [HIGH]; R-03: Notes 15/20/21 provenance via reconciliation only [MEDIUM]; R-04: PL-03 pending — may misroute P26-5 to legacy doc 18 file [LOW-MEDIUM]; R-05: PL-08-NOVO pending — MASTER_MAP §6 shows superseded doc 19 file [LOW]; R-06: PL-07 pending — DEPENDENCY_MAP label ties to superseded doc 18 [LOW]; R-08: Formal approval Founder+Technical+Metacognik pending for Doc 26 [HIGH]; R-09: 23 connector event types not yet canonical in Doc 10 §5.3 [MEDIUM] | Single canonical_patch session applies PL-03 + PL-07 + PL-08-NOVO; then Study Layer 13 audit; then Doc 26 formal approval; then PMO defines Doc 27 scope-frame | released_with_required_formal_approvals |
+| REL-P1-19-ANTIGRAVITY-20260528-008 | UIUX_STUDY_CORRECTION_PATCH_V2_20260528 | none (modified files only) | `02_OPERATIONAL_UIUX_GRAMMAR_CKOS.md`, `23_UIUX_CANONICAL_PATCH_CANDIDATES.md`, `UIUX_STUDY_REVIEW_REPORT.md`, `SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, implementation/runtime folders | Applied PL-01 to PL-04, removed ghost references, added Candidate 14, corrected Review Report YAML and heading, updated Candidate 5 to table/event language | Risco de codificação precoce; Fadiga vestibular por excesso de micro-feedback; Vazamento temático em whitelabel; Complexidade de rollback no Approval Gate; Sobrecarga de contexto em grafos 2D; Risco de auto-homologação por executor | Enviar relatório para PMO/Claude auditar. Não iniciar P1.11 | released_with_required_external_audit |
+| REL-P1-19-ANTIGRAVITY-20260528-009 | UIUX_CANONICAL_CANDIDATE_TRIAGE_20260528 | `000_STUDY_NOTES/10_UIUX_STUDIES/UIUX_CANONICAL_CANDIDATE_TRIAGE_REPORT.md` | `000_ROADMAPS/SESSION_REGISTRY.md`, `000_STUDY_NOTES/10_UIUX_STUDIES/ck_memory.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, implementation/runtime folders | Triage report created classifying all 14 candidates, correct target for Candidate 2, Candidate 11 in study list, Candidate 13 rejected, Candidate 7 approved, folder memory bumped to 1.6.0 | Risco de codificação precoce; Fadiga vestibular por excesso de micro-feedback; Vazamento temático em whitelabel; Complexidade de rollback no Approval Gate; Sobrecarga de contexto em grafos 2D; Risco de auto-homologação por executor | Enviar relatório para PMO/Claude auditar. Não iniciar P1.12 | released_with_required_external_audit |
+| REL-P1-19-ANTIGRAVITY-20260529-010 | UIUX_CANONICAL_CANDIDATE_TRIAGE_V2_20260529 | none (overwrite of existing triage report) | `UIUX_CANONICAL_CANDIDATE_TRIAGE_REPORT.md` (v1.0.0 → v2.0.0), `ck_memory.md` (v1.6.0 → v1.7.0), `SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, implementation/runtime folders | Comprehensive triage report v2.0.0 with deep cross-referencing: 14 fichas detalhadas com base canônica consultada (Docs 10, 11, 13, 14, 15, 16, 24), 5 inconsistências registradas (INC-01, INC-05, INC-10, INC-13, INC-14), classificação confirmada por evidência textual, zero código gerado, forbidden scope respeitado | Risco de codificação precoce; Fadiga vestibular por excesso de micro-feedback; Vazamento temático em whitelabel; Complexidade de rollback no Approval Gate; Sobrecarga de contexto em grafos 2D; Risco de auto-homologação por executor; INC-13 pode vazar para agentes futuros se notas-fonte não forem corrigidas | Enviar relatório v2.0.0 para PMO/Claude auditar. Não iniciar P1.12 | released_with_required_external_audit |
+| REL-P1-19-ANTIGRAVITY-20260528-010 | UIUX_P1_11_LIGHT_PATCHES_20260528 | none | `UIUX_CANONICAL_CANDIDATE_TRIAGE_REPORT.md`, `ck_memory.md`, `SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, implementation/runtime folders | Applied PL-01 to PL-06; canonical_files_modified: none; antigravity_self_approval: false | Risco de codificacao precoce; Fadiga vestibular por excesso de micro-feedback; Vazamento tematico em whitelabel; Complexidade de rollback no Approval Gate; Sobrecarga de contexto em grafos 2D; Ambiguidade futura entre loops de conversacao e workflow; Risco de auto-homologacao por executor | Enviar patches leves para PMO/Metacognik auditar. Nao iniciar P1.12 | released_with_required_external_audit |
+| REL-P1-19-PMO-20260528-011 | UIUX_P1_11_1_PMO_CLOSURE_NOTE_20260528 | none | `ck_memory.md`, `UIUX_STUDY_REVIEW_REPORT.md`, `SESSION_REGISTRY.md` | docs canonicos 01-25, docs 26-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, `Memoria GPT.md`, implementation/runtime folders | P1.11.1 PMO closure note registered; Study Layer status preserved; implementation authority denied; canonical_files_modified: none | Risco de codificacao precoce; Risco de interpretar estudo UI/UX como source of truth canonico; UI/UX Canonical Triage exige aprovacao PMO explicita | Priorizar Doc 26 - Connectors, MCP and Integrations Architecture | released |
+| REL-P1-26-PMO-20260529-001 | DOC26_CONNECTORS_MCP_INTEGRATIONS_ARCHITECTURE_CREATION | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md` | `07_EVOLUTION_SYSTEM/00_README_EVOLUTION_SYSTEM.md`, `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md`, `00_SYSTEM_GOVERNANCE/00_DEPENDENCY_MAP.md`, `ARCHITECTURE_PATCH_REPORT.md`, `CKOS_FILETREE_MAP.md`, `CKOS_FOLDER_MEMORY.md`, `CKOS_VAULT_MAP_REFRESH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-25, docs 27-34, UI/backend/API/migrations/banco, JSONs n8n, agentes reais, `.obsidian/`, `Memoria GPT.md`, move/rename/delete operations | Doc 26 created as canonical draft; no implementation; vendors remain replaceable; patches P26-1..P26-6 suggested only | Risco de implementar conectores antes de audit; risco de vendor lock-in se adapters/fallbacks forem ignorados; risco de vazamento PII se policy/secret_ref/RLS nao forem aplicados | Claude auditar o Doc 26 | released_with_required_external_audit |
+| REL-P1-26-PMO-20260529-002 | DOC26_P1_A_TO_P1_F_AUDIT_LIGHT_PATCH_20260529 | none | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-25, docs 27-34, docs 10/11/12/13/18/24 real patches, UI/backend/API/migrations/banco, MCP server real, JSONs n8n, agentes reais, `.obsidian/`, `Memoria GPT.md`, move/rename/delete operations | Doc 26 bumped to v1.0.1; P1-A to P1-F applied in Doc 26 only; P2-A applied as safe documentation contract; no implementation | Risco de aplicar P26-1..P26-8 sem audit; risco de schema drift se future Doc 11 patch ignorar RLS/approval_policy_ref; risco de eventos connector sem type definition canonica | Claude/Metacognik auditar Doc 26 v1.0.1 | released_with_required_external_audit |
+| REL-P1-26-PMO-20260529-003 | DOC26_L01_L02_AUDIT_LIGHT_PATCH_20260529 | none | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-25, docs 27-34, docs 10/11/12/13/18/24 real patches, UI/backend/API/migrations/banco, MCP server real, webhook real, JSONs n8n, agentes reais, automacoes runtime, `.obsidian/`, `Memoria GPT.md`, move/rename/delete operations | Doc 26 bumped to v1.0.2; L-01 and L-02 applied in Doc 26 only; no implementation | Risco de abrir Doc 27 antes de auditoria externa de v1.0.2; risco de future Doc 11 patch omitir RLS em connector_events ou owner_type em secret_refs | Claude/Metacognik auditar Doc 26 v1.0.2 antes de Doc 27 | released_with_required_external_audit |
+| REL-P1-26-PMO-20260530-004 | DOC26_L01_L09_AUDIT_LIGHT_PATCH_20260530 | none | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-25, docs 27-34, docs 10/11/12/13/18/24 real patches, UI/backend/API/banco/migrations, MCP server real, webhook real, JSONs n8n, agentes reais, automacoes runtime, arquivos fora do escopo, move/rename/delete operations | Doc 26 remains v1.0.2; L-01 to L-09 applied in Doc 26 only; no implementation | Risco de L-03 a L-09 exigirem auditoria externa textual; risco de future patches em docs alvo divergirem do Doc 26 | Claude/Metacognik auditar Doc 26 v1.0.2 L-01 a L-09 antes de Doc 27 ou patches reais | released_with_required_external_audit |
+| REL-P1-26-PMO-20260531-005 | DOC26_v1_0_3_TRACEABILITY_PATCH_20260530 | none | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-25, docs 27-34, docs 10/11/12/13/18/24 real patches, backend, UI, APIs, banco, migrations, MCP server real, webhook real, JSON n8n, agentes reais, automacoes runtime, arquivos fora do escopo, move/rename/delete operations | Doc 26 bumped to v1.0.3; L-03 to L-09 explicitly reconciled in SESSION_REGISTRY and ARCHITECTURE_PATCH_REPORT; P26-2 open modeling decisions declared; no implementation; no Docs 27-34 created | P26-2 modeling decisions remain open; Doc 27 remains blocked until external audit; future Doc 11 patch may still diverge if open decisions are skipped | External audit Doc 26 v1.0.3 before opening Doc 27 or applying patches to target docs | released_with_required_external_audit |
+| REL-P1-26-CODEX-20260531-006 | DOC26_PATCH_A_LIGHT_GOVERNANCE_20260531 | none | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-25, docs 27-34, Study Layer 13, implementation/runtime surfaces, UI/backend/API/banco/migrations, MCP server real, webhook real, JSON n8n, agente real, automacao runtime, move/rename/delete operations | Doc 26 is `version: 1.0.4`; PL-01 and PL-02 appear in Doc 26; PL-04 and PL-05 appear in ARCHITECTURE_PATCH_REPORT; no Doc 27-34 created; no docs 01-25 changed by this session; Study Layer 13 not edited by this session; no implementation created | P26-1 and P26-8 remain unresolved in Doc 10; P26-2 remains open for Doc 11; Doc 27 remains blocked/liberable only conditionally; out-of-band Study Layer 13 hash drift observed during validation and not modified/reverted by this session | PMO/Founder decide whether to authorize any future target-doc patch; do not open Doc 27 from this session | released_with_required_external_audit |
+| REL-P1-26-CODEX-20260601-002 | GOVERNANCE_PATCHES_PL03_PL07_PL08_NOVO_20260601 | none | `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md`, `00_SYSTEM_GOVERNANCE/00_DEPENDENCY_MAP.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | canonical docs 01-26 files, docs 27-34, Study Layer 13, Study Layer 14, backend, UI, API, database, migrations, MCP server, webhook, JSON n8n, real agents, runtime automations, move/rename/delete operations | PL-03, PL-07 and PL-08-NOVO applied in governance maps; patch report updated; checkout lock/release registered; no implementation created | Doc 27 remains blocked until explicit future governance approval; legacy doc names remain preserved as historical/legacy references only | PMO/Founder decide any future Doc 27 checkout; do not open Doc 27 from this session | released |
+| REL-P1-13-CODEX-20260530-001 | STUDY13_AI_FIRST_PROJECT_OPERATING_SYSTEM_CREATION_20260530 | Study Layer 13 base files and notes 01-14 only, as listed in the detailed session record | `000_STUDY_NOTES/README.md`, `000_STUDY_NOTES/_folder_memory.md`, `CKOS_FILETREE_MAP.md`, `CKOS_FOLDER_MEMORY.md`, `CKOS_VAULT_MAP_REFRESH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, UI/backend/API/banco/migrations, JSONs n8n, MCP server real, agentes reais, automacoes runtime, `000_UPLOADS/`, `000_UPGRADE/`, move/rename/delete operations | Study Layer 13 base and notes 01-14 created; later notes 15-21 are not attributed to this release; no canonical docs or implementation created; forbidden scope respected | Risco de camada ampla precisar auditoria externa; risco de candidatos Doc 27 serem lidos como canon; risco de notes AI-first serem confundidas com modelo runtime aprovado | Claude/Metacognik auditar Study Layer 13 antes de Doc 27 | released_with_required_external_audit |
+| REL-P1-13-PMO-20260531-002 | STUDY13_WORK_ORCHESTRATION_CONTINUATION_20260531 | `16_SMART_QUESTIONS_AND_CONTEXTUAL_INTERVENTION_STUDY.md`, `17_COGNIK_METACOGNIK_TASK_ORCHESTRATION_STUDY.md`, `18_AI_FIRST_PROJECT_NOTE_SYSTEM_AND_RAG_GOVERNANCE_STUDY.md`, `19_FOUNDER_CONTROL_APPROVAL_BATCHES_AND_AUTONOMY_LEVELS_STUDY.md` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, README/maps, UI/backend/API/banco/migrations, JSONs n8n, MCP server real, agentes reais, automacoes runtime, `000_UPLOADS/`, `000_UPGRADE/`, move/rename/delete operations | Four study-only notes created with required YAML and 18 sections; memory and registry updated only; no canonical docs or implementation created | Risco de notas 16-19 serem lidas como autoridade canonica; autonomia e RAG metadata permanecem candidatos futuros | PMO/Metacognik auditar notes 01-19 antes de qualquer Doc 27 checkout | released_with_required_external_audit |
+| REL-P1-13-CODEX-20260531-003 | STUDY13_PROVENANCE_RECONCILIATION_20260531 | none | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/README.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, auxiliary maps, backend, UI, API, banco, migrations, JSONs n8n, real agents, runtime automations | README and ck_memory now reflect notes 01-21; notes 15-21 marked as existing_artifact_reconciled for this session; Doc 26 reference reconciled to v1.0.4 from registry traceability; no Doc 27-34 created; no implementation started | Risco de notas 15-21 serem lidas como canon; notas 20-21 exigem auditoria externa antes de qualquer uso operacional forte; Doc 27 permanece bloqueado | Claude/Metacognik auditar Study Layer 13 notes 01-21 before any Doc 27 checkout | released_with_required_external_audit |
+| REL-P1-13-CODEX-20260531-004 | STUDY13_MULTI_SESSION_ROADMAP_SPRINT_BOARD_20260531 | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/22_MULTI_SESSION_EXECUTION_ROADMAP_AND_SPRINT_BOARD_STUDY.md` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, auxiliary maps, backend, UI, API, banco, migrations, JSONs n8n, real agents, runtime automations | Note 22 created as study-only roadmap and sprint board; memory/tasks/registry updated only; Doc 27 remains blocked; no canonical docs or implementation created | Risco de roadmap ser lido como autoridade operacional forte antes de audit; risco de sessoes paralelas ignorarem registry/BRA/fan-in | Claude read-only audits Doc 26 and Study Layer 13 notes 01-22; PMO fan-in before any Doc 27 checkout | released_with_required_external_audit |
+| REL-P1-13-WINDSURF-20260601-005 | STUDY13_LOCAL_PMO_MULTI_MODEL_CONTROL_ROOM_20260601 | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/26_LOCAL_PMO_MULTI_MODEL_CONTROL_ROOM_STUDY.md` (renamed from former duplicate `23_LOCAL...`; no new concept) | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, auxiliary maps, backend, UI, API, banco, migrations, JSONs n8n, MCP server real, webhook real, real agents, runtime automations | Note 26 is the index-reconciled local PMO multi-model control room formerly numbered 23; Windsurf registered as local PMO of support, not canonical authority; pseudo-webhook treated as markdown convention only, not real backend; Paperclip used as benchmark only; Doc 27 remains blocked; no canonical docs or implementation created | Risco de control room ou pseudo-webhook serem lidos como infraestrutura real; risco de sessoes paralelas ignorarem registry/BRA/fan-in; note 26 exige auditoria externa antes de uso operacional forte; Doc 27 permanece bloqueado | Claude read-only audit of Study Layer 13 notes 01-26 and cleanup before PMO/Metacognik fan-in; no Doc 27 checkout | released_with_required_external_audit |
+| REL-P1-14-CODEX-20260601-001 | STUDY14_PAPERCLIP_REGULARIZATION_20260601 | `000_STUDY_NOTES/14_PAPERCLIP_AGENT_OPERATING_MODEL/07_PAPERCLIP_TO_CKOS_TRANSLATION_MATRIX_STUDY.md` | `000_STUDY_NOTES/14_PAPERCLIP_AGENT_OPERATING_MODEL/README.md`, `ck_memory.md`, `ck_tasks.md`, notes `01`-`06`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, auxiliary maps, backend, UI, API, banco, migrations, JSONs n8n, MCP server real, webhook real, real agents, runtime automations | Layer 14 files now carry study/draft/unverified YAML; README and memory/tasks list note 07; tasks show real audit posture; note 06 implementation wording regularized; note 07 covers mandatory concepts with forbidden interpretations; no Doc 27 or implementation created | Risco de Paperclip runtime concepts serem over-read despite guardrails; Layer 14 still requires Claude/PMO/Metacognik audit before Doc 27 scope decisions | Claude read-only audit of Study Layer 14 notes 01-07 before any Doc 27 checkout | released_with_required_external_audit |
+| REL-P1-13-CODEX-20260601-006 | STUDY13_DOC27_SCOPE_RECONCILIATION_GATE_20260601 | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/24_DOC27_SCOPE_RECONCILIATION_AND_GATE_PROPOSAL_STUDY.md` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, auxiliary maps, backend, UI, API, banco, migrations, JSONs n8n, MCP server real, webhook real, real agents, runtime automations | Note 24 created as study-only reconciliation; recommends future Doc 27 as Work Orders and Multi-Session Orchestration; splits Notes/RAG to future Doc 28 candidate scope; keeps connectors/MCP/external tools/webhooks/secret_refs in Doc 26; no Doc 27 or implementation created | Risco de candidates serem lidos como schemas/runtime; note 24 still requires Claude/PMO/Metacognik audit; Doc 27 remains blocked until explicit Founder/PMO checkout | Claude read-only audit of Study Layer 13 notes 01-26 and Study Layer 14 notes 06-07 after cleanup, then PMO fan-in before any Doc 27 checkout | released_with_required_external_audit |
+| REL-P1-13-WINDSURF-20260601-001 | MULTI_MODEL_COMMAND_AND_PROMPT_DISPATCH_BOARD_STUDY_20260601 | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/23_MULTI_MODEL_COMMAND_AND_PROMPT_DISPATCH_BOARD_STUDY.md` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, auxiliary maps, backend, UI, API, banco, migrations, JSONs n8n, MCP server real, webhook real, real agents, runtime automations | Note 23 created as study-only multi-model command and prompt dispatch board; role map, session protocols, BRA triggers, wait/block/approval rules, 2-machine operation, minimum prompts, intelligence levels, session validity, anti-chaos rules, mini-roadmap included; memory/tasks/registry updated only; Doc 27 remains blocked; no canonical docs or implementation created | Risco de dispatch board ser lido como infraestrutura real; risco de sessoes paralelas ignorarem registry/BRA/fan-in; note 23 exige auditoria externa antes de uso operacional forte; Doc 27 permanece bloqueado | Claude read-only audits Doc 26 and Study Layer 13 notes 01-26 plus cleanup; PMO fan-in before any Doc 27 checkout | released |
+| REL-P1-13-WINDSURF-20260601-007 | STUDY13_LOCAL_OPERATOR_CONTROL_ROOM_AUTONOMOUS_DISPATCH_20260601 | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/25_LOCAL_OPERATOR_CONTROL_ROOM_AND_AUTONOMOUS_DISPATCH_STUDY.md` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, auxiliary maps, backend, UI, API, banco, migrations, MCP server real, webhook real, JSON n8n, real agents, runtime automations | Note 25 created as study-only local operator control room and autonomous dispatch; Founder minimal-contact commands, machine map, session map, session validity system, local Work Order schema, BRA usage, parallelism rules, prompt generator, operational Kanban, fan-in rule, documentation strategy, next batch recommendation included; memory/tasks/registry updated only; Doc 27 remains blocked; no canonical docs or implementation created | Risco de control room ser lido como infraestrutura real; risco de sessoes paralelas ignorarem registry/BRA/fan-in; note 25 exige auditoria externa antes de uso operacional forte; Doc 27 permanece bloqueado | Claude read-only audits Doc 26 and Study Layer 13 notes 01-26 plus cleanup; PMO fan-in before any Doc 27 checkout | released |
+| REL-P1-13-CODEX-20260601-009 | STUDY13_14_GATE_CLEANUP_20260601 | none (renamed existing `23_LOCAL...` to `26_LOCAL...`; no new conceptual note) | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/README.md`, `ck_memory.md`, `ck_tasks.md`, `15_PARALLEL_WORK_ORDERS_AND_BATCH_EXECUTION_STUDY.md`, `19_FOUNDER_CONTROL_APPROVAL_BATCHES_AND_AUTONOMY_LEVELS_STUDY.md`, `21_BRA_BRIEFING_RELAY_ARCHITECTURE_STUDY.md`, `23_MULTI_MODEL_COMMAND_AND_PROMPT_DISPATCH_BOARD_STUDY.md`, `24_DOC27_SCOPE_RECONCILIATION_AND_GATE_PROPOSAL_STUDY.md`, `25_LOCAL_OPERATOR_CONTROL_ROOM_AND_AUTONOMOUS_DISPATCH_STUDY.md`, `26_LOCAL_PMO_MULTI_MODEL_CONTROL_ROOM_STUDY.md`, `000_STUDY_NOTES/14_PAPERCLIP_AGENT_OPERATING_MODEL/README.md`, `ck_memory.md`, `ck_tasks.md`, `06_CKOS_ADOPTION_CANDIDATES_FOR_DOC27_STUDY.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26; docs 27-34 including Doc 27; `00_SYSTEM_GOVERNANCE/*`; `ARCHITECTURE_PATCH_REPORT.md`; auxiliary maps; backend, UI, API, database, migrations, MCP server real, webhook real, JSON n8n, real agents, runtime automations | Mandatory study-only cleanup applied; duplicate ordinal resolved with note 23 preserved and local PMO note renamed to 26; task vs Work Order boundary reinforced; Doc 11 identifier warnings added; notes 23/25/26 marked AUXILIARY OPERATIONAL; BRA Packet vs Work Order context_pack boundary clarified; Paperclip phase wording replaced by study classification tiers; Doc 27 not created | Risco residual de leitores promoverem notas auxiliares como canon; risco de IDs de estudo serem copiados para schema sem Doc 11 patch; risco de Paperclip runtime ser over-read despite benchmarking language; Doc 27 remains blocked | Claude PMO read-only audit of this cleanup, then PMO fan-in and explicit Founder gate before any Doc 27 checkout | released_with_required_external_audit |
+| REL-P1-13-CODEX-20260601-008 | STUDY13_DOC27_PRE_GATE_SCOPE_SECTION_LIST_PATCH_20260601 | none | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/24_DOC27_SCOPE_RECONCILIATION_AND_GATE_PROPOSAL_STUDY.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | docs 01-26, docs 27-34, `00_SYSTEM_GOVERNANCE/*`, `ARCHITECTURE_PATCH_REPORT.md`, `QA_DOCUMENTATION_CHECKLIST.md`, auxiliary maps, backend, UI, API, banco, migrations, MCP server real, webhook real, JSON n8n, real agents, runtime automations | Note 24 updated with explicit allowed sections, forbidden sections and gate conditions for future Doc 27; memory/tasks/registry updated only; Doc 27 was not created; no canonical docs or implementation created | Risco de allowed list ser lida como permissionamento automatico; risco de forbidden list ser ignorada without Claude/PMO fan-in; Doc 27 remains blocked until explicit Founder/PMO checkout | Claude/PMO audit the pre-gate section list, reconcile Codex 1, Codex 2, Claude 1, Claude 2 and Windsurf support, then decide whether any Doc 27 checkout may open | released_with_required_external_audit |
+| REL-P1-27-CODEX-20260601-001 | DOC27_AI_FIRST_WORK_ORDERS_AND_MULTI_SESSION_ORCHESTRATION_CREATION_20260601 | `07_EVOLUTION_SYSTEM/27_AI_FIRST_WORK_ORDERS_AND_MULTI_SESSION_ORCHESTRATION_ARCHITECTURE.md` | `000_ROADMAPS/SESSION_REGISTRY.md`, `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md`, `00_SYSTEM_GOVERNANCE/00_DEPENDENCY_MAP.md`, `ARCHITECTURE_PATCH_REPORT.md` | Docs 01-26; Docs 28-34; Study Layer 13; Study Layer 14; `00_SYSTEM_GOVERNANCE/*` outside the two allowed maps; backend, UI, API, database, migrations, MCP server real, webhook real, JSON n8n, real agents, runtime automations, slash-command runtime, autonomous dispatch runtime, move/rename/delete operations | Doc 27 created at the correct path with required frontmatter and sections; Doc 26 referenced only; future Doc 28 cited only; Doc 11 cited only for future schema patch; maps/report updated minimally; no implementation created | Requires Claude/PMO/Metacognik/Founder audit before stronger approval; conceptual fields may need softening after audit; target docs 10/11/12/13/24 remain unpatched; creation date reconciled to 2026-06-01 by LP-1 | Claude/Metacognik read-only audit of Doc 27, then PMO fan-in before any target-doc patch candidates | released_with_required_external_audit |
+| REL-P1-27-CODEX-20260601-002 | DOC27_LIGHT_PATCH_DATE_AND_GATE_TRACEABILITY_20260601 | none | `07_EVOLUTION_SYSTEM/27_AI_FIRST_WORK_ORDERS_AND_MULTI_SESSION_ORCHESTRATION_ARCHITECTURE.md`, `000_ROADMAPS/SESSION_REGISTRY.md`, `ARCHITECTURE_PATCH_REPORT.md` | Docs 01-26; Docs 28-34; Study Layer 13; Study Layer 14; `00_SYSTEM_GOVERNANCE/*`; `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md`; `00_SYSTEM_GOVERNANCE/00_DEPENDENCY_MAP.md`; backend, UI, API, database, migrations, MCP server real, webhook real, JSON n8n, real agents, runtime automations, slash-command runtime, autonomous dispatch runtime, move/rename/delete operations; Doc 27 sections 1-23 content rewrite | LP-1 applied: Doc 27 creation date and IDs reconciled to 2026-06-01 in Doc 27, registry and patch report; LP-2 applied: patch report section 28 now cites Study Layer 13 audit, Study Layer 13/14 readiness audit, cleanup and PMO/Founder fan-in gate chain; LP-3 not applied | Doc 27 still requires formal Founder/Metacognik sign-off before stronger approval; LP-3 remains optional pending Metacognik; target docs 10/11/12/13/24 remain unpatched | Metacognik decide whether LP-3 is needed; Founder/Metacognik formal sign-off may follow if satisfied | released_with_required_external_audit |
+| REL-P1-27-CODEX-20260601-003 | DOC27_FORMAL_SIGNOFF_RECORDING_20260601 | none | `07_EVOLUTION_SYSTEM/27_AI_FIRST_WORK_ORDERS_AND_MULTI_SESSION_ORCHESTRATION_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` | Docs 01-26 except Doc 27; Docs 28-34; Study Layer 13; Study Layer 14; `00_SYSTEM_GOVERNANCE/*`; CKOS auxiliary maps; backend, UI, API, database, migrations, MCP server real, webhook real, JSON n8n, real agents, runtime automations, target docs 10/11/12/13/24 patches, move/rename/delete operations | Founder/PMO and Metacognik formal sign-off recorded; Doc 27 status set to approved; provenance set to approved_after_external_audit; confidence set to high; LP-3 recorded as not applied and dispensable; no implementation created | Docs 10/11/12/13/24 remain deferred for future checkouts; Doc 27 approval remains documentary only; future runtime/schema/UI/API work still requires separate approval | Claude PMO may verify the sign-off record read-only; future target-doc patches require separate locks | released_as_formal_signoff_recording |
+
+## P1.7.1 Memory Refresh Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-7-1-CODEX-20260528-001` |
+| `task_id` | `ROADMAPS_P1_7_1_MEMORY_REFRESH_20260528` |
+| `session_type` | `memory_refresh` |
+| `executor` | `codex` |
+| `intelligence_level` | `high` |
+| `status` | `released` |
+| `files_created` | `000_STUDY_NOTES/12_SESSION_GATES/ck_memory.md` |
+| `files_changed` | P1.7.1 allowed files only |
+| `forbidden_scope_respected` | yes |
+| `next_step` | Founder decide se ativa Antigravity Study Mode ou abre P2 de lanes |
+
+## UI/UX Audit Patch Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-19-ANTIGRAVITY-20260528-002` |
+| `task_id` | `UIUX_AUDIT_PATCH_20260528` |
+| `session_type` | `design_study` |
+| `executor` | `antigravity` |
+| `intelligence_level` | `high` |
+| `status` | `released` |
+| `files_created` | `000_STUDY_NOTES/10_UIUX_STUDIES/07_AGENT_ACTIVITY_STREAM_UIUX_STUDY.md`, `08_WHITELABEL_TOKEN_SYSTEM_UIUX_STUDY.md` |
+| `files_changed` | `02_OPERATIONAL_UIUX_GRAMMAR_CKOS.md`, `03_WIDGET_STATE_MATRIX_AND_EXECUTION_FEEDBACK.md`, `04_MOBILE_COMMAND_FIRST_ERGONOMICS.md`, `05_NEURODESIGN_AND_COGNITIVE_LOAD_RULES.md`, `06_UIUX_ANTI_PATTERNS_AND_GENERIC_AI_UI_RISKS.md`, `ck_memory.md`, `000_ROADMAPS/03_FRONTEND_UIUX_ROADMAP/01_UIUX_STUDY_TO_CANONICAL_ROADMAP.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `forbidden_scope_respected` | yes |
+| `next_step` | PMO review and Founder approval of study notes |
+
+## UI/UX Operational Patterns Study Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-19-ANTIGRAVITY-20260528-003` |
+| `task_id` | `UIUX_OPERATIONAL_PATTERNS_STUDY_20260528` |
+| `session_type` | `design_study` |
+| `executor` | `antigravity` |
+| `intelligence_level` | `high` |
+| `status` | `released` |
+| `files_created` | `000_STUDY_NOTES/10_UIUX_STUDIES/09_EXECUTION_PLAN_WIDGET_UIUX_STUDY.md`, `10_INTENT_CLARIFIER_AND_SMART_QUESTIONS_UIUX_STUDY.md`, `11_COST_CREDITS_AND_ROI_AWARE_UX_STUDY.md`, `12_APPROVAL_GATE_AND_REVERSIBILITY_UX_STUDY.md`, `13_EVIDENCE_TRUST_AND_DECISION_UIUX_STUDY.md` |
+| `files_changed` | `CKOS_FILETREE_MAP.md`, `CKOS_FOLDER_MEMORY.md`, `CKOS_VAULT_MAP_REFRESH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `forbidden_scope_respected` | yes |
+| `next_step` | PMO review and Founder approval of study notes |
+
+## UI/UX Study Completion Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-19-ANTIGRAVITY-20260528-004` |
+| `task_id` | `UIUX_STUDY_COMPLETION_20260528` |
+| `session_type` | `design_study` |
+| `executor` | `antigravity` |
+| `intelligence_level` | `high` |
+| `status` | `released` |
+| `files_created` | `000_STUDY_NOTES/10_UIUX_STUDIES/14_DASHBOARD_WIDGET_SYSTEM_UIUX_STUDY.md`, `15_COMMAND_CENTER_OPERATIONAL_UX_STUDY.md`, `16_NODE_CANVAS_GRAPH_UX_STUDY.md`, `17_CHAT_GROUPS_AGENT_THREADS_UIUX_STUDY.md`, `18_ONBOARDING_PERSONALIZATION_UIUX_STUDY.md`, `19_CKSTORE_CAPABILITY_MARKETPLACE_UIUX_STUDY.md`, `20_DESIGN_SYSTEM_THEME_GOVERNANCE_UIUX_STUDY.md`, `21_MOTION_STATE_FEEDBACK_UIUX_STUDY.md`, `22_ACCESSIBILITY_REDUCED_MOTION_UIUX_STUDY.md`, `23_UIUX_CANONICAL_PATCH_CANDIDATES.md` |
+| `files_changed` | `000_STUDY_NOTES/10_UIUX_STUDIES/ck_memory.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `forbidden_scope_respected` | yes |
+| `next_step` | PMO review and Founder approval of study notes |
+
+## UI/UX Audit Alignment Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-19-ANTIGRAVITY-20260528-005` |
+| `task_id` | `UIUX_AUDIT_ALIGNMENT_20260528` |
+| `session_type` | `design_study` |
+| `executor` | `antigravity` |
+| `intelligence_level` | `high` |
+| `status` | `released` |
+| `files_created` | none (modified files only) |
+| `files_changed` | `000_STUDY_NOTES/10_UIUX_STUDIES/02_OPERATIONAL_UIUX_GRAMMAR_CKOS.md`, `05_NEURODESIGN_AND_COGNITIVE_LOAD_RULES.md`, `10_INTENT_CLARIFIER_AND_SMART_QUESTIONS_UIUX_STUDY.md`, `15_COMMAND_CENTER_OPERATIONAL_UX_STUDY.md`, `23_UIUX_CANONICAL_PATCH_CANDIDATES.md`, `000_STUDY_NOTES/10_UIUX_STUDIES/ck_memory.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `forbidden_scope_respected` | yes |
+| `next_step` | PMO review and Founder approval of study notes |
+
+## UI/UX Study Consolidation Index Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-19-ANTIGRAVITY-20260528-006` |
+| `task_id` | `UIUX_STUDY_CONSOLIDATION_INDEX_20260528` |
+| `session_type` | `design_study` |
+| `executor` | `antigravity` |
+| `intelligence_level` | `high` |
+| `status` | `released` |
+| `files_created` | `000_STUDY_NOTES/10_UIUX_STUDIES/README.md`, `000_STUDY_NOTES/10_UIUX_STUDIES/UIUX_STUDY_REVIEW_REPORT.md` |
+| `files_changed` | `000_STUDY_NOTES/10_UIUX_STUDIES/ck_memory.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `forbidden_scope_respected` | yes |
+| `next_step` | Submit study layer to PMO review and Founder approval |
+
+## UI/UX Study Correction Patch Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-19-ANTIGRAVITY-20260528-007` |
+| `task_id` | `UIUX_STUDY_CORRECTION_PATCH_20260528` |
+| `session_type` | `design_study` |
+| `executor` | `antigravity` |
+| `intelligence_level` | `high` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | none (modified files only) |
+| `files_changed` | `02_OPERATIONAL_UIUX_GRAMMAR_CKOS.md`, `05_NEURODESIGN_AND_COGNITIVE_LOAD_RULES.md`, `23_UIUX_CANONICAL_PATCH_CANDIDATES.md`, `UIUX_STUDY_REVIEW_REPORT.md`, `ck_memory.md`, `SESSION_REGISTRY.md` |
+| `forbidden_scope_respected` | yes |
+| `next_step` | Enviar relatório para PMO/Claude auditar. Não iniciar P1.11 |
+
+## UI/UX Study Correction Patch v2 Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-19-ANTIGRAVITY-20260528-008` |
+| `task_id` | `UIUX_STUDY_CORRECTION_PATCH_V2_20260528` |
+| `session_type` | `design_study` |
+| `executor` | `antigravity` |
+| `intelligence_level` | `high` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | none (modified files only) |
+| `files_changed` | `02_OPERATIONAL_UIUX_GRAMMAR_CKOS.md`, `23_UIUX_CANONICAL_PATCH_CANDIDATES.md`, `UIUX_STUDY_REVIEW_REPORT.md`, `SESSION_REGISTRY.md` |
+| `forbidden_scope_respected` | yes |
+| `next_step` | Enviar relatório para PMO/Claude auditar. Não iniciar P1.11 |
+
+## UI/UX Canonical Candidate Triage Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-19-ANTIGRAVITY-20260528-009` |
+| `task_id` | `UIUX_CANONICAL_CANDIDATE_TRIAGE_20260528` |
+| `session_type` | `design_study` |
+| `executor` | `antigravity` |
+| `intelligence_level` | `high` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | `000_STUDY_NOTES/10_UIUX_STUDIES/UIUX_CANONICAL_CANDIDATE_TRIAGE_REPORT.md` |
+| `files_changed` | `000_STUDY_NOTES/10_UIUX_STUDIES/ck_memory.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `forbidden_scope_respected` | yes |
+| `next_step` | Enviar relatório para PMO/Claude auditar. Não iniciar P1.12 |
+
+## UI/UX P1.11 Light Patches Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-19-ANTIGRAVITY-20260528-010` |
+| `task_id` | `UIUX_P1_11_LIGHT_PATCHES_20260528` |
+| `session_type` | `design_study` |
+| `executor` | `antigravity` |
+| `intelligence_level` | `high` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | none |
+| `files_changed` | `UIUX_CANONICAL_CANDIDATE_TRIAGE_REPORT.md`, `ck_memory.md`, `SESSION_REGISTRY.md` |
+| `canonical_files_modified` | none |
+| `antigravity_self_approval` | false |
+| `risks_remaining` | Risco de codificacao precoce; Fadiga vestibular por excesso de micro-feedback; Vazamento tematico em whitelabel; Complexidade de rollback no Approval Gate; Sobrecarga de contexto em grafos 2D; Ambiguidade futura entre loops de conversacao e workflow; Risco de auto-homologacao por executor |
+| `forbidden_scope_respected` | yes |
+| `next_step` | Enviar patches leves para PMO/Metacognik auditar. Nao iniciar P1.12 |
+
+## UI/UX P1.11.1 PMO Closure Note Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-19-PMO-20260528-011` |
+| `task_id` | `UIUX_P1_11_1_PMO_CLOSURE_NOTE_20260528` |
+| `session_type` | `documentation_governance` |
+| `executor` | `pmo_ckos` |
+| `intelligence_level` | `high` |
+| `status` | `released` |
+| `files_created` | none |
+| `files_changed` | `ck_memory.md`, `UIUX_STUDY_REVIEW_REPORT.md`, `SESSION_REGISTRY.md` |
+| `canonical_files_modified` | none |
+| `architecture_patch_report_modified` | no |
+| `docs_26_34_created` | no |
+| `implementation_started` | no |
+| `pmo_decision` | UI/UX Study Layer may be used as reference material, not as implementation authority. |
+| `next_step` | Priorizar Doc 26 - Connectors, MCP and Integrations Architecture |
+
+## Doc 26 Connectors MCP Integrations Architecture Creation Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-26-PMO-20260529-001` |
+| `task_id` | `DOC26_CONNECTORS_MCP_INTEGRATIONS_ARCHITECTURE_CREATION` |
+| `session_type` | `canonical_patch` |
+| `executor` | `pmo_ckos` |
+| `intelligence_level` | `highest` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md` |
+| `files_changed` | `07_EVOLUTION_SYSTEM/00_README_EVOLUTION_SYSTEM.md`, `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md`, `00_SYSTEM_GOVERNANCE/00_DEPENDENCY_MAP.md`, `ARCHITECTURE_PATCH_REPORT.md`, `CKOS_FILETREE_MAP.md`, `CKOS_FOLDER_MEMORY.md`, `CKOS_VAULT_MAP_REFRESH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `docs_01_25_modified` | none |
+| `docs_27_34_created` | no |
+| `implementation_started` | no |
+| `n8n_jsons_touched` | no |
+| `vendor_core_promotion` | false |
+| `patches_suggested_only` | P26-1, P26-2, P26-3, P26-4, P26-5, P26-6 |
+| `risks_remaining` | Risco de implementar conectores antes de audit; risco de vendor lock-in se adapters/fallbacks forem ignorados; risco de vazamento PII se policy/secret_ref/RLS nao forem aplicados |
+| `next_step` | Claude auditar o Doc 26 antes de qualquer patch nos docs 10-13/18/24 ou abertura de docs 27-34 |
+
+## Doc 26 v1.0.1 Audit Light Patch Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-26-PMO-20260529-002` |
+| `task_id` | `DOC26_P1_A_TO_P1_F_AUDIT_LIGHT_PATCH_20260529` |
+| `session_type` | `canonical_patch` |
+| `executor` | `pmo_ckos` |
+| `intelligence_level` | `highest` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | none |
+| `files_changed` | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `doc26_version` | `1.0.1` |
+| `patches_applied_in_doc26_only` | P1-A, P1-B, P1-C, P1-D, P1-E, P1-F, P2-A |
+| `docs_10_11_12_13_18_24_modified` | no |
+| `docs_01_25_modified` | none |
+| `docs_27_34_created` | no |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `n8n_jsons_touched` | no |
+| `vendor_core_promotion` | false |
+| `risks_remaining` | Risco de aplicar P26-1..P26-8 sem audit; risco de schema drift se future Doc 11 patch ignorar RLS/approval_policy_ref; risco de eventos connector sem type definition canonica |
+| `next_step` | Claude/Metacognik auditar Doc 26 v1.0.1 |
+
+## Doc 26 v1.0.2 Audit Light Patch Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-26-PMO-20260529-003` |
+| `task_id` | `DOC26_L01_L02_AUDIT_LIGHT_PATCH_20260529` |
+| `session_type` | `canonical_patch` |
+| `executor` | `pmo_ckos` |
+| `intelligence_level` | `highest` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | none |
+| `files_changed` | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `doc26_version` | `1.0.2` |
+| `patches_applied_in_doc26_only` | L-01, L-02 |
+| `docs_10_11_12_13_18_24_modified` | no |
+| `docs_01_25_modified` | none |
+| `docs_27_34_created` | no |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `webhook_created` | no |
+| `n8n_jsons_touched` | no |
+| `risks_remaining` | Risco de abrir Doc 27 antes de auditoria externa de v1.0.2; risco de future Doc 11 patch omitir RLS em connector_events ou owner_type em secret_refs |
+| `next_step` | Claude/Metacognik auditar Doc 26 v1.0.2 antes de Doc 27 |
+
+## Doc 26 v1.0.2 L-01 to L-09 Audit Light Patch Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-26-PMO-20260530-004` |
+| `task_id` | `DOC26_L01_L09_AUDIT_LIGHT_PATCH_20260530` |
+| `session_type` | `canonical_patch` |
+| `executor` | `pmo_ckos` |
+| `intelligence_level` | `highest` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | none |
+| `files_changed` | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `doc26_version` | `1.0.2` |
+| `version_updates` | `updated_at: 2026-05-30`; `version_note` expanded to L-01 to L-09; no version bump beyond v1.0.2 |
+| `patches_applied_in_doc26_only` | L-01, L-02, L-03, L-04, L-05, L-06, L-07, L-08, L-09 |
+| `docs_10_11_12_13_18_24_modified` | no |
+| `docs_01_25_modified` | none |
+| `docs_27_34_created` | no |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `webhook_created` | no |
+| `n8n_jsons_touched` | no |
+| `runtime_automation_started` | no |
+| `risks_remaining` | Risco de L-03 a L-09 exigirem auditoria externa textual; risco de future patches em docs alvo divergirem do Doc 26; Doc 27 continua bloqueado ate audit |
+| `next_step` | Claude/Metacognik auditar Doc 26 v1.0.2 L-01 a L-09 antes de Doc 27 ou patches reais |
+
+## Doc 26 v1.0.3 Traceability Reconciliation Patch Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-26-PMO-20260531-005` |
+| `task_id` | `DOC26_v1_0_3_TRACEABILITY_PATCH_20260530` |
+| `session_type` | `canonical_patch` |
+| `executor` | `pmo_ckos` |
+| `intelligence_level` | `highest` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | none |
+| `files_changed` | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `doc26_version` | `1.0.3` |
+| `version_updates` | `version: 1.0.3`; `updated_at: 2026-05-31`; `version_note: v1.0.3 reconciles L-03 to L-09 traceability, bumps version after normative connector constraints, and declares open schema decisions for P26-2.` |
+| `traceability_reconciled` | L-03, L-04, L-05, L-06, L-07, L-08, L-09 explicitly registered in `SESSION_REGISTRY.md` and `ARCHITECTURE_PATCH_REPORT.md` as applied in Doc 26 only |
+| `p26_2_open_decisions` | `webhook_deliveries`: append-only event model or mutable status with companion table of attempts; `connector_events`: physical bridge table or derived view/read model from `events` |
+| `docs_10_11_12_13_18_24_modified` | no |
+| `docs_01_25_modified` | none |
+| `docs_27_34_created` | no |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `webhook_created` | no |
+| `n8n_jsons_touched` | no |
+| `runtime_automation_started` | no |
+| `validation` | Doc 26 is `version: 1.0.3`; L-03 to L-09 appear in registry/report; P26-2 open decisions appear in Doc 26; no Doc 27-34 created; no file outside allowed scope changed by this session |
+| `risks_remaining` | P26-2 modeling remains open; Doc 27 remains blocked until external audit; future Doc 11 patch must decide schema model before migrations |
+| `next_step` | External audit Doc 26 v1.0.3 before opening Doc 27 or applying target-doc patches |
+
+## Doc 26 v1.0.4 Light Governance Patch Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-26-CODEX-20260531-006` |
+| `task_id` | `DOC26_PATCH_A_LIGHT_GOVERNANCE_20260531` |
+| `session_type` | `canonical_patch` |
+| `executor` | `codex/pmo_ckos` |
+| `intelligence_level` | `high` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | none |
+| `files_changed` | `07_EVOLUTION_SYSTEM/26_CONNECTORS_MCP_AND_INTEGRATIONS_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `doc26_version` | `1.0.4` |
+| `version_updates` | `version: 1.0.4`; `updated_at: 2026-05-31`; `version_note: Light governance patch PL-01, PL-02, PL-04, PL-05 after external audit.` |
+| `patches_applied` | PL-01, PL-02, PL-04, PL-05 |
+| `pl_01` | Doc 26 section 9 states `connector_adapter` and `mcp_adapter` are documentary placeholders pending P26-1 in Doc 10 and are not canonical runtime components until Doc 10 is patched, audited and approved. |
+| `pl_02` | Doc 26 section 17 states the 23 connector event types require P26-8 before any runtime emits events and remain proposed types until then. |
+| `pl_04` | `ARCHITECTURE_PATCH_REPORT.md` section 26.7 now uses `connector_adapter` and `mcp_adapter` below `tool_router`, replacing the old terminology. |
+| `pl_05` | `ARCHITECTURE_PATCH_REPORT.md` section 26.10 now references `claude_doc26_audit_readonly` and `REL-DOC26-AUDIT-20260531`. |
+| `docs_01_25_modified` | none |
+| `docs_27_34_created` | no |
+| `study_layer_13_touched` | no |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `webhook_created` | no |
+| `n8n_jsons_touched` | no |
+| `runtime_automation_started` | no |
+| `validation` | Doc 26 is `version: 1.0.4`; PL-01 and PL-02 appear in Doc 26; PL-04 and PL-05 appear in `ARCHITECTURE_PATCH_REPORT.md`; no Doc 27-34 created; no docs 01-25 altered by this session; Study Layer 13 not edited by this session; no implementation created |
+| `risks_remaining` | P26-1 and P26-8 remain unresolved in Doc 10; P26-2 remains open for Doc 11; Doc 27 remains blocked/liberable only conditionally; out-of-band Study Layer 13 hash drift observed during validation and not modified/reverted by this session |
+| `next_step` | PMO/Founder decide whether to authorize any future target-doc patch. Do not open Doc 27 from this session. |
+
+## Governance Maps PL-03 PL-07 PL-08-NOVO Patch Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-26-CODEX-20260601-002` |
+| `task_id` | `GOVERNANCE_PATCHES_PL03_PL07_PL08_NOVO_20260601` |
+| `session_type` | `canonical_patch` |
+| `executor` | `codex` |
+| `intelligence_level` | `high` |
+| `status` | `released` |
+| `files_created` | none |
+| `files_changed` | `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md`, `00_SYSTEM_GOVERNANCE/00_DEPENDENCY_MAP.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `checkout_lock` | `LOCK-P1-26-CODEX-20260601-002` |
+| `checkout_release` | `REL-P1-26-CODEX-20260601-002` |
+| `patches_applied` | PL-03, PL-07, PL-08-NOVO |
+| `pl_03` | `00_MASTER_MAP.md` line 230 now references `18_RESEARCH_PROTOCOL.md` and preserves `18_RESEARCH_PROTOCOL_FOR_MANUS.md` as historical/legacy superseded. |
+| `pl_07` | `00_DEPENDENCY_MAP.md` line 100 now references `18_RESEARCH_PROTOCOL` and marks `18_RESEARCH_PROTOCOL_FOR_MANUS.md` as superseded/historical. |
+| `pl_08_novo` | `00_MASTER_MAP.md` line 231 now references `19_CLAUDE_CODEX_ANTIGRAVITY_EXECUTION_PROTOCOL.md` and preserves `19_CLAUDE_CODEX_EXECUTION_PROTOCOL.md` as historical/legacy superseded. |
+| `docs_01_26_modified` | no canonical doc files modified; only allowed governance map references to docs 18 and 19 changed |
+| `docs_27_34_created` | no |
+| `study_layer_13_touched` | no |
+| `study_layer_14_touched` | no |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `webhook_created` | no |
+| `n8n_jsons_touched` | no |
+| `runtime_automation_started` | no |
+| `forbidden_scope_respected` | yes |
+| `validation` | Governance map entries updated exactly for PL-03, PL-07 and PL-08-NOVO; `ARCHITECTURE_PATCH_REPORT.md` records the patches; `SESSION_REGISTRY.md` records active/recent session, checkout lock and checkout release; no implementation surface touched |
+| `risks_remaining` | Doc 27 remains blocked until explicit future governance approval; legacy doc names remain only as historical/legacy references |
+| `next_step` | PMO/Founder decide any future Doc 27 checkout. Do not open Doc 27 from this session. |
+
+## Study Layer 13 AI-first Project Operating System Creation Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-13-CODEX-20260530-001` |
+| `task_id` | `STUDY13_AI_FIRST_PROJECT_OPERATING_SYSTEM_CREATION_20260530` |
+| `session_type` | `study` |
+| `executor` | `codex` |
+| `intelligence_level` | `high` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/README.md`, `ck_memory.md`, `ck_tasks.md`, `ck_risks.md`, `ck_roi.md`, `ck_feedback.md`, `ck_agent_handoffs.md`, `01_PROJECT_AI_FIRST_OPERATING_MODEL.md`, `02_INTELLIGENT_QUESTION_SYSTEM_STUDY.md`, `03_BRIEFING_TO_TASKS_TRANSFORMER_STUDY.md`, `04_NOTES_AS_OPERATIONAL_MEMORY_STUDY.md`, `05_TASK_AI_FIRST_SYSTEM_STUDY.md`, `06_SUPERAGENT_AGENT_SUBAGENT_WORK_ALLOCATION_STUDY.md`, `07_PARALLEL_EXECUTION_AND_CHECKOUT_LOCK_STUDY.md`, `08_FOUNDER_APPROVAL_BATCH_CONTROL_STUDY.md`, `09_ROI_AWARE_TASKS_NOTES_AND_QUESTIONS_STUDY.md`, `10_FEEDBACK_TO_LEARNING_LOOP_STUDY.md`, `11_PROJECT_SELF_DOCUMENTATION_SYSTEM_STUDY.md`, `12_RAG_METADATA_AND_VECTOR_CATEGORY_STUDY.md`, `13_CANONICAL_PATCH_CANDIDATES_FOR_DOC27.md`, `14_ACCEPTANCE_CRITERIA_FOR_DOC27.md` |
+| `files_changed` | `000_STUDY_NOTES/README.md`, `000_STUDY_NOTES/_folder_memory.md`, `CKOS_FILETREE_MAP.md`, `CKOS_FOLDER_MEMORY.md`, `CKOS_VAULT_MAP_REFRESH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `version_updates` | none for canonical docs; Study Layer 13 files created as `version: 0.1.0`; registry lock/release updated |
+| `docs_01_26_modified` | no |
+| `docs_27_34_created` | no |
+| `architecture_patch_report_modified` | no |
+| `qa_checklist_modified` | no |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `n8n_jsons_touched` | no |
+| `runtime_automation_started` | no |
+| `forbidden_scope_respected` | yes |
+| `validation` | Study Layer 13 base files and notes 01-14 exist as this session's created scope; later notes 15-21 are not attributed to this release; expected root/study maps updated; no Doc 27-34 file created in `07_EVOLUTION_SYSTEM/`; no UI/backend/API/banco/migrations/MCP server real/JSON n8n/agentes reais/automacoes runtime created |
+| `risks_remaining` | Risco de camada ampla precisar auditoria externa; risco de candidatos Doc 27 serem interpretados como canonicos; risco de agentes futuros confundirem study notes com implementacao autorizada |
+| `next_step` | Claude/Metacognik auditar Study Layer 13 antes de Doc 27; PMO decide escopo real do Doc 27 depois da auditoria |
+
+## Study Layer 13 Work Orchestration Continuation Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-13-PMO-20260531-002` |
+| `task_id` | `STUDY13_WORK_ORCHESTRATION_CONTINUATION_20260531` |
+| `session_type` | `study` |
+| `executor` | `pmo_ckos/codex` |
+| `intelligence_level` | `medium-high` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/16_SMART_QUESTIONS_AND_CONTEXTUAL_INTERVENTION_STUDY.md`, `17_COGNIK_METACOGNIK_TASK_ORCHESTRATION_STUDY.md`, `18_AI_FIRST_PROJECT_NOTE_SYSTEM_AND_RAG_GOVERNANCE_STUDY.md`, `19_FOUNDER_CONTROL_APPROVAL_BATCHES_AND_AUTONOMY_LEVELS_STUDY.md` |
+| `files_changed` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `docs_01_26_modified` | no |
+| `docs_27_34_created` | no |
+| `architecture_patch_report_modified` | no |
+| `qa_checklist_modified` | no |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `n8n_jsons_touched` | no |
+| `runtime_automation_started` | no |
+| `forbidden_scope_respected` | yes |
+| `validation` | Notes 16-19 exist; each contains required YAML and 18 requested sections; no Doc 27-34 file created; no UI/backend/API/banco/migrations/MCP server real/JSON n8n/agentes reais/automacoes runtime created |
+| `risks_remaining` | Risco de autonomy levels, RAG metadata and Cognik/Metacognik responsibilities serem interpretados como modelo runtime aprovado antes de audit |
+| `next_step` | PMO/Metacognik auditar Study Layer 13 notes 01-19 antes de qualquer checkout de Doc 27 |
+
+## Study Layer 13 Provenance Reconciliation Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-13-CODEX-20260531-003` |
+| `task_id` | `STUDY13_PROVENANCE_RECONCILIATION_20260531` |
+| `session_type` | `study` |
+| `executor` | `codex/pmo_ckos` |
+| `intelligence_level` | `high` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | none |
+| `files_changed` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/README.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `provenance_decision` | Reconciled operational reading for notes 01-21 without claiming this session created notes 15-21. Notes 20-21 are treated as `existing_artifact_reconciled`. |
+| `doc26_reference` | Study memory reference reconciled from Doc 26 v1.0.2 to Doc 26 v1.0.4 using registry traceability only; Doc 26 was not opened or modified by this session. |
+| `docs_01_26_modified` | no |
+| `docs_27_34_created` | no |
+| `architecture_patch_report_modified` | no |
+| `auxiliary_maps_modified` | no |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `n8n_jsons_touched` | no |
+| `runtime_automation_started` | no |
+| `forbidden_scope_respected` | yes |
+| `validation` | README and ck_memory reflect notes 01-21; SESSION_REGISTRY records reconciliation only; no canonical docs, Doc 27-34, maps or runtime artifacts were created or edited. |
+| `risks_remaining` | Risco de notas 15-21 serem lidas como autoridade canonica; notas 20-21 ainda exigem auditoria externa; Doc 27 permanece bloqueado ate decisao PMO/Founder/Metacognik. |
+| `next_step` | Claude/Metacognik audit Study Layer 13 notes 01-21 before any Doc 27 checkout. |
+
+## Study Layer 13 Multi-Session Roadmap And Sprint Board Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-13-CODEX-20260531-004` |
+| `task_id` | `STUDY13_MULTI_SESSION_ROADMAP_SPRINT_BOARD_20260531` |
+| `session_type` | `study` |
+| `executor` | `codex/pmo_ckos` |
+| `intelligence_level` | `high` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/22_MULTI_SESSION_EXECUTION_ROADMAP_AND_SPRINT_BOARD_STUDY.md` |
+| `files_changed` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `boundary` | study-only; non-canonical; does not authorize Doc 27, backend, UI, API, real agents or runtime automations |
+| `current_session_map` | ChatGPT PMO coordinates/decides; Codex 1 writes controlled documentation; Codex 2 handles auxiliary patches/reconciliations; Claude 1 audits architecture; Claude 2 audits Study Layer; Trae reads only |
+| `roadmap_phases` | Fase 0 stabilization; Fase 1 Doc 26 and Study Layer audits; Fase 2 Work Orders/BRA/smart questions/notes consolidation; Fase 3 Doc 27 scope decision; Fase 4 Doc 27 draft only if approved; Fase 5 target doc patches; Fase 6 implementation only after canon |
+| `docs_01_26_modified` | no |
+| `docs_27_34_created` | no |
+| `architecture_patch_report_modified` | no |
+| `auxiliary_maps_modified` | no |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `n8n_jsons_touched` | no |
+| `runtime_automation_started` | no |
+| `forbidden_scope_respected` | yes |
+| `validation` | Note 22 exists with required YAML, boundary, session map, coordination rules, roadmap phases, Kanban, dependency table, parallel batch rules, Doc 27 open/non-open criteria, documentation/session risks, Founder next-task approval model, ROI-by-session measures and checkout release; memory/tasks/registry updated only. |
+| `risks_remaining` | Risco de note 22 ser lida como autoridade operacional forte antes de audit; risco de sessoes paralelas ignorarem registry/BRA/fan-in; Doc 27 permanece bloqueado ate auditorias externas e decisao Founder/PMO. |
+| `next_step` | Claude 1 audit Doc 26 v1.0.4 read-only; Claude 2 audit Study Layer 13 notes 01-22 read-only; PMO fan-in before any Doc 27 checkout. |
+
+## Study Layer 13 Local PMO Multi-Model Control Room Session (Index Reconciled To Note 26)
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-13-WINDSURF-20260601-005` |
+| `task_id` | `STUDY13_LOCAL_PMO_MULTI_MODEL_CONTROL_ROOM_20260601` |
+| `session_type` | `study` |
+| `executor` | `windsurf/pmo_local` |
+| `intelligence_level` | `high` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/26_LOCAL_PMO_MULTI_MODEL_CONTROL_ROOM_STUDY.md` (renamed from former duplicate `23_LOCAL...`; index reconciliation only) |
+| `files_changed` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `boundary` | study-only; non-canonical; Windsurf is local PMO of support, not canonical authority; does not authorize Doc 27, backend, UI, API, real agents or runtime automations |
+| `windsurf_role` | local PMO of support: reads context, checks locks, verifies BRA, identifies dependencies, generates prompts; recommends, never governs; does not open Doc 27 or canonize |
+| `agent_map` | Windsurf coordinates; Codex 1 writes; Codex 2 auxiliary patches; Claude Code 1 architecture audit; Claude Code 2 Study Layer audit; Antigravity design study (gated); Claude Design design audit; Founder decides |
+| `pseudo_webhook_posture` | markdown-and-discipline convention only over SESSION_REGISTRY + BRA Packet; not a real webhook, queue, event bus, API or schema; no automatic trigger/delivery/retry |
+| `paperclip_posture` | benchmark only; no Paperclip pattern copied or implemented |
+| `docs_01_26_modified` | no |
+| `docs_27_34_created` | no |
+| `architecture_patch_report_modified` | no |
+| `auxiliary_maps_modified` | no |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `n8n_jsons_touched` | no |
+| `runtime_automation_started` | no |
+| `forbidden_scope_respected` | yes |
+| `validation` | Note 26 exists with required YAML and all 25 sections plus templates (session start, operational BRA Packet, Codex executor prompt, Claude auditor prompt, Antigravity/Claude Design prompt), minimal Founder kanban and short/medium/long sprint board; Windsurf registered as local PMO of support; pseudo-webhook documented as markdown convention with explicit limits; memory/tasks/registry updated only; rename from duplicate 23 is index reconciliation only. |
+| `risks_remaining` | Risco de control room ou pseudo-webhook serem lidos como infraestrutura real; risco de sessoes paralelas ignorarem registry/BRA/fan-in; note 26 exige auditoria externa antes de uso operacional forte; Doc 27 permanece bloqueado ate auditorias externas e decisao Founder/PMO. |
+| `next_step` | Claude read-only audit of Study Layer 13 notes 01-26 and cleanup; PMO/Metacognik fan-in before any Doc 27 checkout. |
+
+## Study Layer 14 Paperclip Regularization Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-14-CODEX-20260601-001` |
+| `task_id` | `STUDY14_PAPERCLIP_REGULARIZATION_20260601` |
+| `session_type` | `study` |
+| `executor` | `codex` |
+| `intelligence_level` | `medium-high` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | `000_STUDY_NOTES/14_PAPERCLIP_AGENT_OPERATING_MODEL/07_PAPERCLIP_TO_CKOS_TRANSLATION_MATRIX_STUDY.md` |
+| `files_changed` | `000_STUDY_NOTES/14_PAPERCLIP_AGENT_OPERATING_MODEL/README.md`, `ck_memory.md`, `ck_tasks.md`, notes `01`-`06`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `boundary` | study-only; non-canonical; does not authorize Doc 27, backend, UI, API, database, migrations, MCP server real, webhook real, JSON n8n, real agents or runtime automations |
+| `regularization` | Added study/draft/unverified YAML posture to Layer 14 files; updated README/memory/tasks inventory; created note 07 translation matrix; softened dangerous implementation wording in note 06 into study-only candidate evaluation language |
+| `docs_01_26_modified` | no |
+| `docs_27_34_created` | no |
+| `system_governance_modified` | no |
+| `architecture_patch_report_modified` | no |
+| `auxiliary_maps_modified` | no |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `webhook_created` | no |
+| `n8n_jsons_touched` | no |
+| `runtime_automation_started` | no |
+| `forbidden_scope_respected` | yes |
+| `validation` | Layer 14 contains README, ck_memory, ck_tasks and notes 01-07; all markdown files carry YAML with `layer: study`, `status: draft`, `provenance_status: unverified`, `confidence: unverified`; README and ck_memory list note 07; ck_tasks shows audit pending; note 07 includes mandatory Paperclip concepts and forbidden interpretations; no Doc 27 or implementation created |
+| `risks_remaining` | Risco de Paperclip concepts serem lidos como runtime blueprint despite guardrails; note 06 and note 07 still need Claude/PMO/Metacognik audit; Doc 27 remains blocked until explicit future checkout |
+| `next_step` | Claude read-only audit of Study Layer 14 notes 01-07, then PMO/Metacognik fan-in before any Doc 27 scope decision |
+
+## Study Layer 13 Doc 27 Scope Reconciliation Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-13-CODEX-20260601-006` |
+| `task_id` | `STUDY13_DOC27_SCOPE_RECONCILIATION_GATE_20260601` |
+| `session_type` | `study` |
+| `executor` | `codex_2` |
+| `intelligence_level` | `high` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/24_DOC27_SCOPE_RECONCILIATION_AND_GATE_PROPOSAL_STUDY.md` |
+| `files_changed` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `boundary` | study-only; non-canonical; does not open Doc 27; does not authorize backend, UI, API, database, migrations, MCP server real, webhook real, JSON n8n, real agents or runtime automations |
+| `recommended_doc27_scope` | Future Doc 27 should be scoped as AI-first Work Orders and Multi-Session Orchestration Architecture: Work Orders, multi-session orchestration, task AI-first, role-based agent teams, checkout lock, BRA/session relay, Founder approval batches, ROI by task, memory update hooks, evidence and feedback loop |
+| `doc28_split` | Notes/RAG, metadata, vector categories, knowledge memory routing, embeddings and retrieval policies are deferred to future Doc 28 candidate scope |
+| `doc26_boundary` | Connectors, MCP, external tools, webhook governance and secret_refs remain in Doc 26; Doc 27 may reference but not redefine them |
+| `docs_01_26_modified` | no |
+| `docs_27_34_created` | no |
+| `system_governance_modified` | no |
+| `architecture_patch_report_modified` | no |
+| `auxiliary_maps_modified` | no |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `webhook_created` | no |
+| `n8n_jsons_touched` | no |
+| `runtime_automation_started` | no |
+| `forbidden_scope_respected` | yes |
+| `validation` | Note 24 includes study-only boundary, Doc 27 verdict, recommended scope, exclusions, Doc 28 split, Doc 26 boundary, candidate table, desambiguation, Founder gate, next sessions, BRA Packet and checkout release; memory/tasks/registry updated only; no Doc 27 or implementation created |
+| `risks_remaining` | Risco de Work Order/context_pack/BRA serem interpretados como schema, API, queue or runtime; note 24 requires Claude/PMO/Metacognik audit; Doc 27 remains blocked until explicit Founder/PMO checkout |
+| `next_step` | Claude read-only audit of Study Layer 13 notes 01-26 and Study Layer 14 notes 06-07 after cleanup, then PMO fan-in before any Doc 27 checkout |
+
+## Study Layer 13 Doc 27 Pre-Gate Scope Section List Patch Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-13-CODEX-20260601-008` |
+| `task_id` | `STUDY13_DOC27_PRE_GATE_SCOPE_SECTION_LIST_PATCH_20260601` |
+| `session_type` | `study` |
+| `executor` | `codex_2` |
+| `intelligence_level` | `high` |
+| `status` | `released_with_required_external_audit` |
+| `files_created` | none |
+| `files_changed` | `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/24_DOC27_SCOPE_RECONCILIATION_AND_GATE_PROPOSAL_STUDY.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_memory.md`, `000_STUDY_NOTES/13_AI_FIRST_PROJECT_OPERATING_SYSTEM/ck_tasks.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `checkout_lock` | `LOCK-P1-13-CODEX-20260601-008` |
+| `checkout_release` | `REL-P1-13-CODEX-20260601-008` |
+| `boundary` | patch study-only; no Doc 27 created; no docs 28-34 created; no canonical docs 01-26 edited; no governance docs or patch report edited; no implementation |
+| `pre_gate_patch` | Note 24 now lists explicit allowed Doc 27 sections, forbidden Doc 27 sections and Doc 27 gate conditions. |
+| `docs_01_26_modified` | no |
+| `docs_27_34_created` | no |
+| `system_governance_modified` | no |
+| `architecture_patch_report_modified` | no |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `webhook_created` | no |
+| `n8n_jsons_touched` | no |
+| `runtime_automation_started` | no |
+| `validation` | Required pre-gate section list added to note 24; memory and tasks record Doc 27 remains blocked; session, lock and release registered; Doc 27 was not created. |
+| `risks_remaining` | Future sessions may still confuse allowed section list with approval; Claude/PMO fan-in still required before Doc 27 checkout. |
+| `next_step` | Claude/PMO audit the pre-gate section list and reconcile Codex 1, Codex 2, Claude 1, Claude 2 and Windsurf support before any Doc 27 checkout. |
+
+## Doc 27 AI-first Work Orders And Multi-Session Orchestration Creation Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-27-CODEX-20260601-001` |
+| `task_id` | `DOC27_AI_FIRST_WORK_ORDERS_AND_MULTI_SESSION_ORCHESTRATION_CREATION_20260601` |
+| `session_type` | `canonical_patch` |
+| `executor` | `codex` |
+| `intelligence_level` | `highest` |
+| `status` | `released_with_required_external_audit` |
+| `checkout_lock` | `LOCK-P1-27-CODEX-20260601-001` |
+| `checkout_release` | `REL-P1-27-CODEX-20260601-001` |
+| `files_created` | `07_EVOLUTION_SYSTEM/27_AI_FIRST_WORK_ORDERS_AND_MULTI_SESSION_ORCHESTRATION_ARCHITECTURE.md` |
+| `files_changed` | `000_ROADMAPS/SESSION_REGISTRY.md`, `00_SYSTEM_GOVERNANCE/00_MASTER_MAP.md`, `00_SYSTEM_GOVERNANCE/00_DEPENDENCY_MAP.md`, `ARCHITECTURE_PATCH_REPORT.md` |
+| `boundary` | canonical draft documentation only; no backend, UI, API, database, migrations, MCP server real, webhook real, JSON n8n, real agents, runtime automations, slash-command runtime or autonomous dispatch runtime |
+| `doc27_scope` | AI-first Work Orders, task boundary, multi-session orchestration, BRA relay, Work Order context_pack, fan-out/fan-in audit, checkout lock/release, Founder approval batches, smart questions, Cognik/Metacognik roles, ROI, evidence/feedback/memory hooks |
+| `doc26_boundary` | referenced only for connectors, MCP, webhooks, external tools and `secret_refs`; not duplicated or patched |
+| `doc28_boundary` | cited only as future owner of Notes/RAG, metadata, vector categories, embeddings and retrieval governance; not created |
+| `doc11_boundary` | cited only for future real schema patch if Work Orders/tasks/BRA/context_pack persistence is ever approved |
+| `docs_01_26_modified` | no |
+| `docs_28_34_created` | no |
+| `study_layer_13_touched` | no |
+| `study_layer_14_touched` | no |
+| `system_governance_modified` | yes; only `00_MASTER_MAP.md` and `00_DEPENDENCY_MAP.md` minimal entries |
+| `architecture_patch_report_modified` | yes; creation registered in section 28 |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `webhook_created` | no |
+| `n8n_jsons_touched` | no |
+| `runtime_automation_started` | no |
+| `validation` | Doc 27 exists at the requested path; required sections, BRA appendix and checkout release format are present; forbidden runtime/schema/UI/backend interpretations are explicit; maps/report/registry updated; no forbidden files intentionally touched |
+| `risks_remaining` | Requires Claude/PMO/Metacognik/Founder audit; conceptual object fields may require further softening if auditors judge them too schema-like; target docs 10/11/12/13/24 remain unpatched; creation date reconciled to 2026-06-01 by LP-1 |
+| `next_step` | Claude/Metacognik read-only audit of Doc 27, then PMO fan-in before any target-doc patch candidates |
+
+## Doc 27 Light Patch Date And Gate Traceability Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-27-CODEX-20260601-002` |
+| `task_id` | `DOC27_LIGHT_PATCH_DATE_AND_GATE_TRACEABILITY_20260601` |
+| `session_type` | `canonical_patch` |
+| `executor` | `codex` |
+| `intelligence_level` | `high` |
+| `status` | `released_with_required_external_audit` |
+| `checkout_lock` | `LOCK-P1-27-CODEX-20260601-002` |
+| `checkout_release` | `REL-P1-27-CODEX-20260601-002` |
+| `files_created` | none |
+| `files_changed` | `07_EVOLUTION_SYSTEM/27_AI_FIRST_WORK_ORDERS_AND_MULTI_SESSION_ORCHESTRATION_ARCHITECTURE.md`, `000_ROADMAPS/SESSION_REGISTRY.md`, `ARCHITECTURE_PATCH_REPORT.md` |
+| `lp_1` | Date and IDs reconciled from 2026-06-02/20260602 to 2026-06-01/20260601 in Doc 27, SESSION_REGISTRY and ARCHITECTURE_PATCH_REPORT. |
+| `lp_2` | ARCHITECTURE_PATCH_REPORT section 28 now cites gate traceability from `S-P1-13-CLAUDE-20260531-001`, `S-P1-27-CLAUDE-20260601-002`, `S-P1-13-CODEX-20260601-009`, `S-P1-13-CODEX-20260601-008` and PMO/Founder fan-in. |
+| `lp_3` | not applied; remains optional pending Metacognik decision |
+| `docs_01_26_modified` | no |
+| `docs_28_34_created` | no |
+| `study_layer_13_touched` | no |
+| `study_layer_14_touched` | no |
+| `system_governance_modified` | no; master/dependency maps were not touched by this light patch |
+| `architecture_patch_report_modified` | yes; section 28 gate traceability and LP-1/LP-2 log added |
+| `implementation_started` | no |
+| `mcp_server_created` | no |
+| `webhook_created` | no |
+| `n8n_jsons_touched` | no |
+| `runtime_automation_started` | no |
+| `validation` | LP-1 and LP-2 applied; no Doc 27 sections 1-23 content rewrite; no forbidden docs or implementation surfaces touched; registry has session, lock and release. |
+| `risks_remaining` | Doc 27 still requires formal Founder/Metacognik sign-off before stronger approval; LP-3 optional softening remains for Metacognik; target docs 10/11/12/13/24 remain unpatched. |
+| `next_step` | Metacognik decide whether LP-3 is needed; Founder/Metacognik sign-off may follow if satisfied. |
+
+## Doc 27 Formal Sign-Off Recording Session
+
+| field | value |
+|---|---|
+| `session_id` | `S-P1-27-CODEX-20260601-003` |
+| `task_id` | `DOC27_FORMAL_SIGNOFF_RECORDING_20260601` |
+| `session_type` | `canonical_patch` |
+| `executor` | `codex` |
+| `intelligence_level` | `high` |
+| `status` | `released_as_formal_signoff_recording` |
+| `checkout_lock` | `LOCK-P1-27-CODEX-20260601-003` |
+| `checkout_release` | `REL-P1-27-CODEX-20260601-003` |
+| `files_created` | none |
+| `files_changed` | `07_EVOLUTION_SYSTEM/27_AI_FIRST_WORK_ORDERS_AND_MULTI_SESSION_ORCHESTRATION_ARCHITECTURE.md`, `ARCHITECTURE_PATCH_REPORT.md`, `000_ROADMAPS/SESSION_REGISTRY.md` |
+| `doc27_status` | approved documentally after Founder/PMO and Metacognik final sign-off. |
+| `metacognik_verdict` | `SIGN_OFF_APPROVED` |
+| `lp_3` | not applied; judged `DISPENSABLE_NOT_REQUIRED`. |
+| `docs_10_11_12_13_24` | deferred for future separate checkouts; no target-doc patch applied. |
+| `docs_01_26_modified` | no, except Doc 27. |
+| `docs_28_34_created` | no |
+| `study_layer_13_touched` | no |
+| `study_layer_14_touched` | no |
+| `system_governance_modified` | no |
+| `architecture_patch_report_modified` | yes; formal sign-off entry added in section 28.8. |
+| `implementation_started` | no |
+| `backend_created` | no |
+| `ui_created` | no |
+| `schema_or_api_created` | no |
+| `migration_created` | no |
+| `mcp_server_created` | no |
+| `webhook_created` | no |
+| `n8n_jsons_touched` | no |
+| `real_agents_created` | no |
+| `runtime_automation_started` | no |
+| `validation` | Doc 27 metadata set to approved, provenance set to approved_after_external_audit, confidence set to high, formal sign-off section added, report and registry record lock/release. |
+| `risks_remaining` | Approval is documentary only; runtime, schema, API, UI, backend, migration, MCP, webhook, n8n, real agent and automation work still require separate future approval. |
+| `next_step` | Claude PMO may verify this formal sign-off record read-only. Future target-doc patches or implementation work require separate locks and approvals. |
+
+## Conflict Rule
+
+If two sessions request overlapping write access, the newer session must wait unless the Founder or PMO explicitly approves a narrower scope. Parallel sessions may read the same auxiliary material, but only one session may write a given file at a time.
+
+## Release Rule
+
+At the end of a writing session, the executor must publish a checkout release with:
+
+- files_created;
+- files_changed;
+- files_not_touched;
+- validation;
+- risks_remaining;
+- next_step;
+- status.
+
+The registry may then mark the session as `released`.

@@ -1,0 +1,41 @@
+{
+	"nodes":[
+		{"id":"visao","type":"group","label":"Visão Geral","position":{"x":0,"y":0}},
+		{"id":"nome","type":"text","text":"Nome da Campanha","position":{"x":20,"y":40}},
+		{"id":"objetivos","type":"text","text":"Objetivos","position":{"x":20,"y":80}},
+		{"id":"kpis","type":"text","text":"KPIs","position":{"x":20,"y":120}},
+		
+		{"id":"publico","type":"group","label":"Público-Alvo","position":{"x":300,"y":0}},
+		{"id":"demografia","type":"text","text":"Demografia","position":{"x":320,"y":40}},
+		{"id":"comportamento","type":"text","text":"Comportamento","position":{"x":320,"y":80}},
+		
+		{"id":"estrategia","type":"group","label":"Estratégia","position":{"x":600,"y":0}},
+		{"id":"conceito","type":"text","text":"Conceito","position":{"x":620,"y":40}},
+		{"id":"formatos","type":"text","text":"Formatos","position":{"x":620,"y":80}},
+		
+		{"id":"midia","type":"group","label":"Mídia","position":{"x":0,"y":300}},
+		{"id":"digital","type":"text","text":"Digital","position":{"x":20,"y":340}},
+		{"id":"offline","type":"text","text":"Offline","position":{"x":20,"y":380}},
+		
+		{"id":"cronograma","type":"group","label":"Cronograma","position":{"x":300,"y":300}},
+		{"id":"planejamento","type":"text","text":"Planejamento","position":{"x":320,"y":340}},
+		{"id":"execucao","type":"text","text":"Execução","position":{"x":320,"y":380}},
+		{"id":"avaliacao","type":"text","text":"Avaliação","position":{"x":320,"y":420}},
+		
+		{"id":"orcamento","type":"group","label":"Orçamento","position":{"x":600,"y":300}},
+		{"id":"criacao","type":"text","text":"Criação","position":{"x":620,"y":340}},
+		{"id":"midia_invest","type":"text","text":"Mídia","position":{"x":620,"y":380}},
+		
+		{"id":"performance","type":"group","label":"Performance","position":{"x":300,"y":500}},
+		{"id":"metricas","type":"text","text":"Métricas","position":{"x":320,"y":540}},
+		{"id":"otimizacao","type":"text","text":"Otimização","position":{"x":320,"y":580}}
+	],
+	"edges":[
+		{"source":"visao","target":"publico","label":"define"},
+		{"source":"publico","target":"estrategia","label":"orienta"},
+		{"source":"estrategia","target":"midia","label":"implementa"},
+		{"source":"midia","target":"cronograma","label":"organiza"},
+		{"source":"cronograma","target":"orcamento","label":"aloca"},
+		{"source":"orcamento","target":"performance","label":"monitora"}
+	]
+}

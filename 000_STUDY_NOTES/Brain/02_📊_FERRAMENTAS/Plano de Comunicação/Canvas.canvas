@@ -1,0 +1,36 @@
+{
+	"nodes":[
+		{"id":"objetivos","type":"group","label":"Objetivos de Comunicação","position":{"x":0,"y":0}},
+		{"id":"objetivoA","type":"text","text":"Objetivo A","position":{"x":20,"y":40}},
+		{"id":"objetivoB","type":"text","text":"Objetivo B","position":{"x":20,"y":80}},
+		
+		{"id":"publicos","type":"group","label":"Públicos-Alvo","position":{"x":300,"y":0}},
+		{"id":"primario","type":"text","text":"Público Primário","position":{"x":320,"y":40}},
+		{"id":"secundario","type":"text","text":"Público Secundário","position":{"x":320,"y":80}},
+		
+		{"id":"canais","type":"group","label":"Canais de Comunicação","position":{"x":600,"y":0}},
+		{"id":"digitais","type":"text","text":"Canais Digitais","position":{"x":620,"y":40}},
+		{"id":"offline","type":"text","text":"Canais Offline","position":{"x":620,"y":80}},
+		
+		{"id":"mensagens","type":"group","label":"Mensagens-Chave","position":{"x":0,"y":300}},
+		{"id":"principal","type":"text","text":"Mensagem Principal","position":{"x":20,"y":340}},
+		{"id":"suporte","type":"text","text":"Mensagens de Suporte","position":{"x":20,"y":380}},
+		
+		{"id":"cronograma","type":"group","label":"Cronograma","position":{"x":300,"y":300}},
+		{"id":"q1","type":"text","text":"Q1","position":{"x":320,"y":340}},
+		{"id":"q2","type":"text","text":"Q2","position":{"x":320,"y":380}},
+		{"id":"q3","type":"text","text":"Q3","position":{"x":320,"y":420}},
+		{"id":"q4","type":"text","text":"Q4","position":{"x":320,"y":460}},
+		
+		{"id":"metricas","type":"group","label":"Métricas e Avaliação","position":{"x":600,"y":300}},
+		{"id":"kpis","type":"text","text":"KPIs","position":{"x":620,"y":340}},
+		{"id":"monitoramento","type":"text","text":"Monitoramento","position":{"x":620,"y":380}}
+	],
+	"edges":[
+		{"source":"objetivos","target":"publicos","label":"define"},
+		{"source":"publicos","target":"canais","label":"determina"},
+		{"source":"canais","target":"mensagens","label":"transmite"},
+		{"source":"mensagens","target":"cronograma","label":"organiza"},
+		{"source":"cronograma","target":"metricas","label":"avalia"}
+	]
+}

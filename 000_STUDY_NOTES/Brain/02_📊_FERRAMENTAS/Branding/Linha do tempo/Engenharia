@@ -1,0 +1,103 @@
+
+---
+tags: [#engenharia_de_prompt, #ferramenta, #branding, #ckcompany]
+tipo: engenharia
+submarca: ckcompany
+agente: STORY, FILO, DATTA, SOCIA
+---
+
+# 🧩 Engenharia de Prompt – Ferramenta 2: "Linha do Tempo Narrativa"
+
+## 🆕 Nome Atualizado: "Linha do Tempo Narrativa"
+Anteriormente chamada de "Momento da Marca", esta ferramenta foi renomeada para reforçar sua função como narrativa histórica estratégica da marca, combinando dados e emoção.
+
+---
+
+## 🎯 OBJETIVO DA FERRAMENTA
+Organizar e compreender a trajetória simbólica da marca: seus altos e baixos, rupturas, conquistas e momentos de virada. Revelar os padrões narrativos que sustentam sua identidade, propósito e reputação.
+
+---
+
+## 🧠 ÁREAS ENVOLVIDAS
+- Storytelling (estrutura dramática da jornada da marca)
+- Filosofia (mudanças de identidade e rupturas de ciclo)
+- Neurociência (memória de marca e picos emocionais)
+- Sociologia (contexto histórico e tendências culturais)
+- Dados (valores, marcos, indicadores de performance)
+
+---
+
+## 🧠 AGENTES RECOMENDADOS
+- [[STORY]] – estrutura e ritmo narrativo
+- [[FILO]] – rupturas de identidade e reconstruções
+- [[DATTA]] – análise de dados históricos e picos de valor
+- [[SOCIA]] – leituras culturais e contexto social
+
+---
+
+## 📂 ESTRUTURA DE PASTA A SER GERADA
+```
+📁 1.1.2 Linha do Tempo Narrativa
+├── README.md ← explicação da ferramenta (este arquivo)
+├── Template_Resposta.md ← perguntas para preenchimento histórico
+├── Mapa.md ← mapa mental hierárquico compatível com plugin
+├── Canvas.canvas ← cards para visualização linear da trajetória
+```
+
+---
+
+## 📑 CAMPOS E PROPRIEDADES
+```yaml
+submarca: personalizável
+etapa: 1.1.2
+nível: estratégico
+agente: STORY, FILO, DATTA, SOCIA
+tags: [#ferramenta, #narrativa, #marca, #história, #storytelling, #neurobranding]
+```
+
+---
+
+## 🧭 INSTRUÇÕES PARA VIBECODING
+Use esse prompt para gerar a pasta e seus arquivos internos:
+
+### 📤 Prompt Claude 3.5
+```plaintext
+Crie a estrutura abaixo no formato Obsidian Markdown:
+
+Pasta: "1.1.2 Linha do Tempo Narrativa"
+Arquivos:
+1. README.md → contendo o objetivo, áreas envolvidas, agentes recomendados, instruções de uso, e propriedades YAML
+2. Template_Resposta.md → perguntas de preenchimento:
+   - Quais foram os marcos fundamentais da trajetória da marca?
+   - Que eventos foram considerados picos de valor (positivos ou negativos)?
+   - Como esses eventos impactaram a percepção da marca?
+   - Há algum ciclo que se repete?
+   - Quais mudanças foram necessárias?
+   - Quais contextos sociais e culturais moldaram essas decisões?
+3. Mapa.md → com hierarquia:
+   # Linha do Tempo Narrativa
+   ## Passado
+   ### Primeiros Marcos
+   ### Conquistas Iniciais
+   ## Presente
+   ### Situação Atual
+   ### Desafios Atuais
+   ## Futuro
+   ### Rumos Estratégicos
+   ### Visão de Longo Prazo
+4. Canvas.canvas com estrutura de cards por década, ano ou fase: início, crescimento, ruptura, reinvenção.
+
+Utilize campos YAML como:
+---
+tags: [#ferramenta, #narrativa, #linha_do_tempo]
+submarca: personalizável
+agente: STORY, FILO, DATTA, SOCIA
+etapa: 1.1.2
+---
+
+Compatibilize com plugins do Obsidian: mapa mental, canvas, datablocks.
+```
+
+---
+
+Deseja que eu siga com a terceira ferramenta (ex: Nuvem de Palavras → "Linguagem Viva da Marca")?

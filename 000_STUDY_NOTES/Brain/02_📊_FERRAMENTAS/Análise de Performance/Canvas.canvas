@@ -1,0 +1,38 @@
+{
+	"nodes":[
+		{"id":"kpis","type":"group","label":"KPIs Principais","position":{"x":0,"y":0}},
+		{"id":"alcance","type":"text","text":"Alcance","position":{"x":20,"y":40}},
+		{"id":"engajamento","type":"text","text":"Engajamento","position":{"x":20,"y":80}},
+		{"id":"conversao","type":"text","text":"Conversão","position":{"x":20,"y":120}},
+		
+		{"id":"tendencias","type":"group","label":"Análise de Tendências","position":{"x":300,"y":0}},
+		{"id":"crescimento","type":"text","text":"Crescimento","position":{"x":320,"y":40}},
+		{"id":"sazonalidade","type":"text","text":"Sazonalidade","position":{"x":320,"y":80}},
+		{"id":"comportamento","type":"text","text":"Comportamento","position":{"x":320,"y":120}},
+		
+		{"id":"roi","type":"group","label":"ROI e Investimentos","position":{"x":600,"y":0}},
+		{"id":"canais","type":"text","text":"Por Canal","position":{"x":620,"y":40}},
+		{"id":"campanhas","type":"text","text":"Por Campanha","position":{"x":620,"y":80}},
+		
+		{"id":"oportunidades","type":"group","label":"Oportunidades","position":{"x":0,"y":300}},
+		{"id":"melhorias","type":"text","text":"Melhorias","position":{"x":20,"y":340}},
+		{"id":"acoes","type":"text","text":"Ações","position":{"x":20,"y":380}},
+		
+		{"id":"relatorios","type":"group","label":"Relatórios","position":{"x":300,"y":300}},
+		{"id":"diarios","type":"text","text":"Diários","position":{"x":320,"y":340}},
+		{"id":"semanais","type":"text","text":"Semanais","position":{"x":320,"y":380}},
+		{"id":"mensais","type":"text","text":"Mensais","position":{"x":320,"y":420}},
+		
+		{"id":"otimizacao","type":"group","label":"Otimização","position":{"x":600,"y":300}},
+		{"id":"testes","type":"text","text":"Testes A/B","position":{"x":620,"y":340}},
+		{"id":"estrategia","type":"text","text":"Estratégia","position":{"x":620,"y":380}},
+		{"id":"metas","type":"text","text":"Metas","position":{"x":620,"y":420}}
+	],
+	"edges":[
+		{"source":"kpis","target":"tendencias","label":"gera"},
+		{"source":"tendencias","target":"roi","label":"impacta"},
+		{"source":"roi","target":"oportunidades","label":"identifica"},
+		{"source":"oportunidades","target":"relatorios","label":"documenta"},
+		{"source":"relatorios","target":"otimizacao","label":"orienta"}
+	]
+}

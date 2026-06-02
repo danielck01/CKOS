@@ -1,0 +1,453 @@
+---
+tags:
+  - metodologia
+  - framework
+  - mapa-mental
+links:
+  - "[[SENTIR|SENTIR]]"
+  - "[[PENSAR|PENSAR]]"
+  - "[[CRIAR|CRIAR]]"
+  - "[[CONECTAR|CONECTAR]]"
+ferramentas:
+  - "[[02_📊_FERRAMENTAS/Branding]]"
+  - "[[02_📊_FERRAMENTAS/Análise de Mercado]]"
+  - "[[02_📊_FERRAMENTAS/Plano de Comunicação]]"
+areas_expertise:
+  - "[[01_AREAS_DE_EXPERTISE/NEUROBRANDING]]"
+  - "[[PSICOLOGIA]]"
+  - "[[01_AREAS_DE_EXPERTISE/STORYTELLING]]"
+agentes_ia:
+  - "[[04_AGENTES_IA/NEURA_Neurobranding]]"
+  - "[[04_AGENTES_IA/LIA_Psicologia]]"
+  - "[[04_AGENTES_IA/STORY_Storytelling]]"
+---
+ 
+# Mapa Mental da Metodologia CKCompany
+
+## 🌟 SENTIR
+- ### 💭 Propósito
+  - Razão de existir
+    - links: [[02_CONCEITOS_CHAVE/Propósito]], [[FILOSOFIA]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Essência]]
+  - Impacto desejado
+    - agentes: [[04_AGENTES_IA/FILO_Filosofia]], [[04_AGENTES_IA/SOCIA_Sociologia]]
+  - Valores fundamentais
+    - links: [[02_CONCEITOS_CHAVE/Identidade]], [[PSICOLOGIA]]
+  - Missão transformadora
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Visão]]
+  - Legado pretendido
+    - agentes: [[04_AGENTES_IA/FILO_Filosofia]]
+  - Contribuição social
+    - links: [[01_AREAS_DE_EXPERTISE/SOCIOLOGIA]]
+  - Visão de futuro
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Visão]]
+  - Objetivos nobres
+    - agentes: [[04_AGENTES_IA/FILO_Filosofia]]
+  - Compromisso ético
+    - links: [[FILOSOFIA]]
+
+- ### 💫 Unicidade
+  - Diferencial único
+    - links: [[02_CONCEITOS_CHAVE/Diferencial]], [[01_AREAS_DE_EXPERTISE/NEUROBRANDING]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Essência]]
+  - Atributos especiais
+    - links: [[02_CONCEITOS_CHAVE/Identidade]]
+    - agentes: [[04_AGENTES_IA/NEURA_Neurobranding]]
+  - Valor singular
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Essência]], [[02_📊_FERRAMENTAS/Análise de Mercado]]
+  - Inovação disruptiva
+    - links: [[01_AREAS_DE_EXPERTISE/NEUROBRANDING]]
+  - Vantagem competitiva
+    - ferramentas: [[02_📊_FERRAMENTAS/Análise de Mercado]]
+    - links: [[02_CONCEITOS_CHAVE/Posicionamento]]
+  - Proposta exclusiva
+    - links: [[02_CONCEITOS_CHAVE/Posicionamento]]
+    - agentes: [[04_AGENTES_IA/NEURA_Neurobranding]]
+  - Autenticidade marcante
+    - agentes: [[04_AGENTES_IA/NEURA_Neurobranding]], [[04_AGENTES_IA/STORY_Storytelling]]
+    - links: [[02_CONCEITOS_CHAVE/Identidade]]
+  - Posição de mercado
+    - links: [[02_CONCEITOS_CHAVE/Posicionamento]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Análise de Mercado]]
+  - Essência distintiva
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Essência]]
+    - agentes: [[04_AGENTES_IA/NEURA_Neurobranding]]
+
+- ### ❤️ Emoção
+  - Conexão afetiva
+    - links: [[PSICOLOGIA]], [[01_AREAS_DE_EXPERTISE/NEUROBRANDING]]
+    - agentes: [[04_AGENTES_IA/LIA_Psicologia]]
+  - Sentimentos core
+    - links: [[PSICOLOGIA]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Essência]]
+  - Experiência sensorial
+    - links: [[01_AREAS_DE_EXPERTISE/NEUROBRANDING]]
+    - agentes: [[04_AGENTES_IA/NEURA_Neurobranding]]
+  - Memória emocional
+    - links: [[PSICOLOGIA]], [[01_AREAS_DE_EXPERTISE/NEUROBRANDING]]
+  - Vínculos profundos
+    - agentes: [[04_AGENTES_IA/LIA_Psicologia]], [[04_AGENTES_IA/STORY_Storytelling]]
+  - Ressonância afetiva
+    - links: [[PSICOLOGIA]]
+  - Impacto psicológico
+    - links: [[PSICOLOGIA]]
+    - agentes: [[04_AGENTES_IA/LIA_Psicologia]]
+  - Engajamento emocional
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Essência]]
+    - agentes: [[04_AGENTES_IA/NEURA_Neurobranding]]
+  - Percepção sensível
+    - links: [[01_AREAS_DE_EXPERTISE/NEUROBRANDING]]
+    - agentes: [[04_AGENTES_IA/NEURA_Neurobranding]]
+
+- ### 🎯 Motivação
+  - Drivers internos
+    - links: [[PSICOLOGIA]]
+    - agentes: [[04_AGENTES_IA/LIA_Psicologia]]
+  - Força motriz
+    - links: [[01_AREAS_DE_EXPERTISE/NEUROBRANDING]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Essência]]
+  - Impulso criativo
+    - links: [[PSICOLOGIA]]
+    - agentes: [[04_AGENTES_IA/LIA_Psicologia]]
+  - Paixão inspiradora
+    - links: [[02_CONCEITOS_CHAVE/Propósito]]
+    - agentes: [[04_AGENTES_IA/STORY_Storytelling]]
+  - Propósito mobilizador
+    - links: [[02_CONCEITOS_CHAVE/Propósito]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Visão]]
+  - Energia vital
+    - links: [[PSICOLOGIA]]
+    - agentes: [[04_AGENTES_IA/NEURA_Neurobranding]]
+  - Determinação focada
+    - links: [[PSICOLOGIA]]
+    - agentes: [[04_AGENTES_IA/LIA_Psicologia]]
+  - Ambição construtiva
+    - links: [[02_CONCEITOS_CHAVE/Propósito]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Visão]]
+  - Vontade realizadora
+    - links: [[PSICOLOGIA]]
+    - agentes: [[04_AGENTES_IA/LIA_Psicologia]]
+
+- ### 🧠 Crenças
+  - Valores centrais
+    - links: [[02_CONCEITOS_CHAVE/Identidade]], [[FILOSOFIA]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Essência]]
+  - Princípios guia
+    - links: [[FILOSOFIA]]
+    - agentes: [[04_AGENTES_IA/FILO_Filosofia]]
+  - Filosofia da marca
+    - links: [[FILOSOFIA]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Essência]]
+  - Convicções essenciais
+    - links: [[02_CONCEITOS_CHAVE/Identidade]]
+    - agentes: [[04_AGENTES_IA/FILO_Filosofia]]
+  - Ideais norteadores
+    - links: [[FILOSOFIA]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Visão]]
+  - Paradigmas culturais
+    - links: [[01_AREAS_DE_EXPERTISE/SOCIOLOGIA]]
+    - agentes: [[04_AGENTES_IA/SOCIA_Sociologia]]
+  - Verdades fundamentais
+    - links: [[FILOSOFIA]]
+    - agentes: [[04_AGENTES_IA/FILO_Filosofia]]
+  - Pilares éticos
+    - links: [[FILOSOFIA]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Essência]]
+  - Diretrizes morais
+    - links: [[FILOSOFIA]]
+    - agentes: [[04_AGENTES_IA/FILO_Filosofia]]
+
+## 🤔 PENSAR
+- ### 📊 Diagnóstico
+  - Análise situacional
+    - links: [[02_CONCEITOS_CHAVE/Diagnóstico]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Análise de Mercado]]
+  - Avaliação de mercado
+    - links: [[02_CONCEITOS_CHAVE/Diagnóstico]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Análise de Mercado]]
+    - agentes: [[04_AGENTES_IA/DATTA_Dados]]
+  - Identificação de gaps
+    - links: [[02_CONCEITOS_CHAVE/Diagnóstico]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Análise de Mercado]]
+  - Mapeamento competitivo
+    - links: [[02_CONCEITOS_CHAVE/Posicionamento]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Análise de Mercado]]
+  - Pesquisa aprofundada
+    - links: [[DADOS]]
+    - agentes: [[04_AGENTES_IA/DATTA_Dados]]
+  - Insights estratégicos
+    - links: [[DADOS]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Análise de Mercado]]
+  - Tendências emergentes
+    - links: [[DADOS]]
+    - agentes: [[04_AGENTES_IA/DATTA_Dados]]
+  - Oportunidades latentes
+    - links: [[02_CONCEITOS_CHAVE/Diagnóstico]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Análise de Mercado]]
+  - Riscos potenciais
+    - links: [[DADOS]]
+    - agentes: [[04_AGENTES_IA/DATTA_Dados]]
+
+- ### 🎯 Posicionamento
+  - Lugar na mente
+    - links: [[02_CONCEITOS_CHAVE/Posicionamento]], [[01_AREAS_DE_EXPERTISE/NEUROBRANDING]]
+    - agentes: [[04_AGENTES_IA/NEURA_Neurobranding]]
+  - Diferenciação clara
+    - links: [[02_CONCEITOS_CHAVE/Diferencial]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Análise de Mercado]]
+  - Proposta de valor
+    - links: [[02_CONCEITOS_CHAVE/Posicionamento]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Essência]]
+  - Território da marca
+    - links: [[02_CONCEITOS_CHAVE/Posicionamento]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Análise de Mercado]]
+  - Relevância contextual
+    - links: [[01_AREAS_DE_EXPERTISE/SOCIOLOGIA]]
+    - agentes: [[04_AGENTES_IA/SOCIA_Sociologia]]
+  - Benefício central
+    - links: [[02_CONCEITOS_CHAVE/Posicionamento]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Essência]]
+  - Promessa única
+    - links: [[02_CONCEITOS_CHAVE/Diferencial]]
+    - agentes: [[04_AGENTES_IA/STORY_Storytelling]]
+  - Atributos-chave
+    - links: [[02_CONCEITOS_CHAVE/Identidade]]
+    - ferramentas: [[02_📊_FERRAMENTAS/Branding/Essência]]
+  - Percepção desejada
+    - links: [[01_AREAS_DE_EXPERTISE/NEUROBRANDING]]
+    - agentes: [[04_AGENTES_IA/NEURA_Neurobranding]]
+
+- ### 🌍 Perspectiva
+  - Visão de futuro
+  - Contexto macro
+  - Tendências relevantes
+  - Cenários possíveis
+  - Mudanças estruturais
+  - Forças globais
+  - Impactos setoriais
+  - Transformações sociais
+  - Evolução tecnológica
+
+- ### 🚀 Estratégia
+  - Direção clara
+  - Objetivos smart
+  - Plano de ação
+  - Metas mensuráveis
+  - Táticas específicas
+  - Recursos necessários
+  - Cronograma definido
+  - Indicadores-chave
+  - Marcos estratégicos
+
+- ### 🗺️ Jornada
+  - Caminho do cliente
+  - Pontos de contato
+  - Experiência completa
+  - Momentos decisivos
+  - Interações críticas
+  - Necessidades específicas
+  - Dores resolvidas
+  - Ganhos entregues
+  - Satisfação alcançada
+
+## 🎨 CRIAR
+- ### 👤 Persona
+  - Perfil detalhado
+  - Comportamentos
+  - Necessidades
+  - Desejos profundos
+  - Motivações reais
+  - Hábitos diários
+  - Estilo de vida
+  - Valores pessoais
+  - Aspirações futuras
+
+- ### 🎭 Arquétipo
+  - Personalidade
+  - Características
+  - Simbolismo
+  - Narrativa própria
+  - Essência arquetípica
+  - Valores simbólicos
+  - Atributos únicos
+  - História singular
+  - Significado profundo
+
+- ### 🎨 Visual
+  - Identidade visual
+  - Elementos gráficos
+  - Estética única
+  - Paleta cromática
+  - Tipografia exclusiva
+  - Iconografia própria
+  - Sistema visual
+  - Aplicações criativas
+  - Coerência estética
+
+- ### 🗣️ Voz
+  - Tom de comunicação
+  - Linguagem própria
+  - Expressão verbal
+  - Personalidade vocal
+  - Estilo narrativo
+  - Vocabulário específico
+  - Mensagens-chave
+  - Discurso autêntico
+  - Comunicação efetiva
+
+- ### ✨ Inspiração
+  - Referências criativas
+  - Moodboard
+  - Direção artística
+  - Tendências visuais
+  - Influências culturais
+  - Conceitos inovadores
+  - Experimentação criativa
+  - Expressão artística
+  - Inovação estética
+
+## 🤝 CONECTAR
+- ### 🎭 Ritual
+  - Experiências memoráveis
+  - Práticas significativas
+  - Conexões emocionais
+  - Momentos especiais
+  - Tradições únicas
+  - Celebrações marcantes
+  - Encontros significativos
+  - Eventos exclusivos
+  - Interações profundas
+
+- ### 💫 Pulso
+  - Frequência de contato
+  - Ritmo de comunicação
+  - Presença constante
+  - Regularidade estratégica
+  - Momentos oportunos
+  - Cadência planejada
+  - Timing perfeito
+  - Consistência temporal
+  - Periodicidade efetiva
+
+- ### 🌱 Cultura
+  - Valores vividos
+  - Práticas internas
+  - DNA da marca
+  - Comportamentos desejados
+  - Atitudes esperadas
+  - Ambiente inspirador
+  - Propósito compartilhado
+  - Identidade coletiva
+  - Essência cultural
+
+- ### 🔄 Ativação
+  - Engajamento ativo
+  - Campanhas efetivas
+  - Resultados tangíveis
+  - Ações estratégicas
+  - Iniciativas impactantes
+  - Projetos transformadores
+  - Movimentos relevantes
+  - Programas especiais
+  - Experiências únicas
+
+## 🛠️ Ferramentas Integradas
+- ### 📊 Análise
+  - Mercado
+  - Performance
+  - Resultados
+  - Comportamento
+  - Tendências
+  - Concorrência
+  - Oportunidades
+  - Riscos
+  - Indicadores
+
+- ### 🎯 Estratégia
+  - Branding
+  - Conteúdo
+  - Comunicação
+  - Posicionamento
+  - Diferenciação
+  - Inovação
+  - Crescimento
+  - Engajamento
+  - Transformação
+
+- ### 📈 Gestão
+  - Campanhas
+  - Projetos
+  - KPIs
+  - Recursos
+  - Processos
+  - Equipes
+  - Prazos
+  - Orçamentos
+  - Resultados
+
+## 🤖 Agentes IA Especializados
+- ### 🧠 NEURA
+  - Neurobranding
+  - Experiência emocional
+  - Comportamento do consumidor
+  - Gatilhos mentais
+  - Percepção sensorial
+  - Memória afetiva
+  - Decisão de compra
+  - Conexão neural
+  - Impacto psicológico
+
+- ### 📚 STORY
+  - Storytelling
+  - Narrativa de marca
+  - Construção de histórias
+  - Arcos narrativos
+  - Personagens memoráveis
+  - Conflitos e resoluções
+  - Jornada do herói
+  - Elementos dramáticos
+  - Engajamento emocional
+
+- ### 👥 SOCIA
+  - Sociologia
+  - Contexto social
+  - Tendências culturais
+  - Comportamento coletivo
+  - Influência social
+  - Dinâmicas de grupo
+  - Mudanças sociais
+  - Identidade cultural
+  - Valores societais
+
+- ### 📊 DATTA
+  - Análise de dados
+  - Performance
+  - Métricas-chave
+  - Insights analíticos
+  - Padrões comportamentais
+  - Previsões estratégicas
+  - Otimização contínua
+  - Resultados mensuráveis
+  - Tomada de decisão
+
+- ### 🎯 LIA
+  - Psicologia
+  - Comportamento
+  - Motivações humanas
+  - Processos mentais
+  - Emoções básicas
+  - Personalidade
+  - Desenvolvimento pessoal
+  - Bem-estar mental
+  - Relacionamentos
+
+- ### 💭 FILO
+  - Filosofia
+  - Propósito
+  - Ética empresarial
+  - Valores fundamentais
+  - Pensamento crítico
+  - Questionamentos essenciais
+  - Reflexão profunda
+  - Sabedoria prática
+  - Consciência social

@@ -1,0 +1,139 @@
+{
+  "name": "01 N8N como Acelerador nao Core",
+  "active": false,
+  "version": "draft-ckos-v1",
+  "meta": {
+    "objective": "Definir o papel do n8n como acelerador, não core crítico.",
+    "owner": "CKCompany / CKOS",
+    "created_for": "n8n automation design",
+    "migration_policy": "Prototype in n8n, migrate to code if critical, high-volume, payment-related, or sensitive."
+  },
+  "nodes": [
+    {
+      "id": "trigger",
+      "name": "Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "path": "/ckos/01_n8n_como_acelerador_nao_core",
+        "method": "POST",
+        "rule": ""
+      }
+    },
+    {
+      "id": "validate_input",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        260,
+        0
+      ],
+      "parameters": {
+        "conditions": "Validate required fields and project_id"
+      }
+    },
+    {
+      "id": "budget_gate",
+      "name": "Budget / Policy Gate",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        520,
+        0
+      ],
+      "parameters": {
+        "conditions": "Block if estimated_cost exceeds project budget or action requires approval"
+      }
+    },
+    {
+      "id": "execute",
+      "name": "Execute Main Action",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        780,
+        0
+      ],
+      "parameters": {
+        "url": "{{$env.CKOS_API_URL}}/internal/automation-action",
+        "method": "POST",
+        "authentication": "headerAuth",
+        "body": {
+          "project_id": "={{$json.project_id}}",
+          "workflow": "01_N8N_como_Acelerador_nao_Core",
+          "payload": "={{$json}}"
+        }
+      }
+    },
+    {
+      "id": "persist_log",
+      "name": "Persist Audit Log",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1040,
+        0
+      ],
+      "parameters": {
+        "url": "{{$env.CKOS_API_URL}}/internal/audit-log",
+        "method": "POST",
+        "body": {
+          "workflow": "01_N8N_como_Acelerador_nao_Core",
+          "status": "executed",
+          "cost_estimate": "={{$json.estimated_cost_usd || 0}}"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Budget / Policy Gate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Budget / Policy Gate": {
+      "main": [
+        [
+          {
+            "node": "Execute Main Action",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Main Action": {
+      "main": [
+        [
+          {
+            "node": "Persist Audit Log",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "project-scoped"
+  }
+}

@@ -1,0 +1,25 @@
+{
+	"nodes":[
+		{"id":"root","type":"group","label":"Linguagem Viva da Marca","position":{"x":0,"y":0}},
+		{"id":"vocabulario","type":"group","label":"Vocabulário Essencial","position":{"x":-200,"y":100}},
+		{"id":"palavras","type":"text","text":"Palavras-Chave","position":{"x":-300,"y":200}},
+		{"id":"expressoes","type":"text","text":"Expressões Únicas","position":{"x":-100,"y":200}},
+		{"id":"tom","type":"group","label":"Tom de Voz","position":{"x":0,"y":100}},
+		{"id":"personalidade","type":"text","text":"Personalidade Verbal","position":{"x":-50,"y":200}},
+		{"id":"gatilhos","type":"text","text":"Gatilhos Emocionais","position":{"x":150,"y":200}},
+		{"id":"evolucao","type":"group","label":"Evolução Linguística","position":{"x":200,"y":100}},
+		{"id":"tendencias","type":"text","text":"Tendências Verbais","position":{"x":150,"y":200}},
+		{"id":"adaptacoes","type":"text","text":"Adaptações Culturais","position":{"x":350,"y":200}}
+	],
+	"edges":[
+		{"from":"root","to":"vocabulario"},
+		{"from":"vocabulario","to":"palavras"},
+		{"from":"vocabulario","to":"expressoes"},
+		{"from":"root","to":"tom"},
+		{"from":"tom","to":"personalidade"},
+		{"from":"tom","to":"gatilhos"},
+		{"from":"root","to":"evolucao"},
+		{"from":"evolucao","to":"tendencias"},
+		{"from":"evolucao","to":"adaptacoes"}
+	]
+}

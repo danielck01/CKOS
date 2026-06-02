@@ -1,0 +1,22 @@
+# Índice do Pack CKOS
+
+- [[01_01-ckos-como-ai-first-operating-system.md]] — Fundamento — P0
+- [[02_02-ckos-vs-branddock.md]] — Fundamento — P0
+- [[03_03-arquitetura-local-para-vps.md]] — Infraestrutura — P0
+- [[04_04-project-pulse.md]] — Produto — P0
+- [[05_05-briefing-inteligente-com-nick.md]] — Produto — P0
+- [[06_06-proposal-engine.md]] — Produto Comercial — P0
+- [[07_07-agent-journey-e-runs.md]] — Multiagentes — P0
+- [[08_08-organograma-de-agentes.md]] — Multiagentes — P0
+- [[09_09-human-in-the-loop-e-aprovacoes.md]] — Governança — P0
+- [[10_10-models-costs.md]] — FinOps AI — P0
+- [[11_11-sistema-de-creditos-planos-e-pagamentos.md]] — Monetização — P0
+- [[12_12-knowledge-base-por-projeto.md]] — Arquitetura de Conhecimento — P0
+- [[13_13-decisions.md]] — Governança — P0
+- [[14_14-issues-pipeline-e-checkout-lock.md]] — Operação — P0
+- [[15_15-sprints-releases.md]] — Operação — P1
+- [[16_16-chat-operacional.md]] — UX — P0
+- [[17_17-suporte-ia-humano.md]] — Suporte — P1
+- [[18_18-seguranca-secrets-e-isolamento.md]] — Infraestrutura — P0
+- [[19_19-marketplace-de-workflows-e-docks.md]] — Monetização — P2
+- [[20_20-linguagem-para-socios-e-influenciadores.md]] — Comercial — P0

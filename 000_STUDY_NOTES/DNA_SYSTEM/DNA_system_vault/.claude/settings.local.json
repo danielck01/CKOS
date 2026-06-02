@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem \"C:\\\\Users\\\\GustavoBxx\\\\Documents\\\\CKCOMPANY\\\\CKOS\\\\CKOS_DOCUMENTATION_REVIEWED\\\\000_STUDY_NOTES\\\\DNA_SYSTEM\\\\DNA_system_vault\" -Depth 2)",
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "Bash(Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\GustavoBxx\\\\Documents\\\\CKCOMPANY\\\\CKOS\\\\CKOS_DOCUMENTATION_REVIEWED\\\\000_STUDY_NOTES\\\\DNA_SYSTEM\\\\DNA_system_vault\\\\00_GOVERNANCE\" -Recurse | ForEach-Object { $_.FullName.Replace\\(\"C:\\\\Users\\\\GustavoBxx\\\\Documents\\\\CKCOMPANY\\\\CKOS\\\\CKOS_DOCUMENTATION_REVIEWED\\\\000_STUDY_NOTES\\\\DNA_SYSTEM\\\\DNA_system_vault\\\\\", \"\"\\) })",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\GustavoBxx\\\\Documents\\\\CKCOMPANY\\\\CKOS\\\\CKOS_DOCUMENTATION_REVIEWED\\\\000_STUDY_NOTES\\\\DNA_SYSTEM\\\\DNA_system_vault\\\\00_GOVERNANCE\\\\Documentation_Standards\")",
+      "Bash(grep -rhE --include=\"*.md\" \"^\\\\s*-\\\\s*\\(founder|technical|metacognik|pmo_ckos|qa_lead|legal|builder_lead|cognik|finance_admin|Founder|Metacognik|PMO_CKOS\\)\\\\s*$\" .)",
+      "Bash(sed -E 's/^[[:space:]]*-[[:space:]]*//')",
+      "Bash(dir \"C:\\\\Users\\\\GustavoBxx\\\\Documents\\\\CKCOMPANY\\\\CKOS\\\\CKOS_DOCUMENTATION_REVIEWED\\\\000_STUDY_NOTES\\\\DNA_SYSTEM\\\\DNA_system_vault\" /b /a:d)",
+      "Bash(ls \"C:\\\\Users\\\\GustavoBxx\\\\Documents\\\\CKCOMPANY\\\\CKOS\\\\CKOS_DOCUMENTATION_REVIEWED\")"
+    ]
+  }
+}

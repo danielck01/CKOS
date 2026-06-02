@@ -1,0 +1,209 @@
+{
+  "main": {
+    "id": "0b242c91d7fd8957",
+    "type": "split",
+    "children": [
+      {
+        "id": "073055a9b3f30453",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "10ebf97967abf621",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "01_AREAS_DE_EXPERTISE/DADOS/DADOS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "DADOS"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ab582a027b826d5a",
+    "type": "split",
+    "children": [
+      {
+        "id": "ed04a7d23b386b61",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8d978ecdd2e3324d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de arquivos"
+            }
+          },
+          {
+            "id": "b8bb7a564a094feb",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Procurar"
+            }
+          },
+          {
+            "id": "b60db55a37916541",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 277.5
+  },
+  "right": {
+    "id": "445aeae395ad0d48",
+    "type": "split",
+    "children": [
+      {
+        "id": "256f65913d2c2020",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4eff8345b5a194d4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "01_AREAS_DE_EXPERTISE/DADOS/DADOS.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Links inversos para DADOS"
+            }
+          },
+          {
+            "id": "50b95883a8a7fa51",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Links de saída"
+            }
+          },
+          {
+            "id": "7effb7f816e105e1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "ab51378daff0a0b2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Sumário"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Criar nova base": false,
+      "switcher:Abrir a troca rápida": false,
+      "graph:Abrir visualização em gráfico": false,
+      "canvas:Criar novo canvas": false,
+      "daily-notes:Abrir a nota de hoje": false,
+      "templates:Inserir modelo": false,
+      "command-palette:Abrir paleta de comandos": false
+    }
+  },
+  "active": "8d978ecdd2e3324d",
+  "lastOpenFiles": [
+    "01_AREAS_DE_EXPERTISE/PSICOLOGIA/01_Referencial/Conceitos Centrais/Autoconceito/Provocações.md",
+    "00_METODOLOGIA/PENSAR/Analise_Estrategica/Prompt_Agente.md",
+    "00_METODOLOGIA/PENSAR/Analise_Estrategica/Oficial.md",
+    "00_METODOLOGIA/PENSAR/Analise_Estrategica",
+    "00_METODOLOGIA/PENSAR/Desafio/Oficial.md",
+    "00_METODOLOGIA/PENSAR/Desafio",
+    "00_METODOLOGIA/PENSAR/Tomada_Decisao_Estrategica/Prompt_Agente.md",
+    "00_METODOLOGIA/PENSAR/Tomada_Decisao_Estrategica/Oficial.md",
+    "00_METODOLOGIA/PENSAR/Tomada_Decisao_Estrategica",
+    "00_METODOLOGIA/PENSAR/Prompt_Agente_Competitivo.md",
+    "00_METODOLOGIA/PENSAR/Prompt_Agente_Diagnostico.md",
+    "02_📊_FERRAMENTAS/Branding/Barreira/Prompt_Agente.md",
+    "00_METODOLOGIA/SENTIR/SENTIR.md",
+    "01_AREAS_DE_EXPERTISE/FILOSOFIA/Fenomenologia.md",
+    "01_AREAS_DE_EXPERTISE/FILOSOFIA/Formacao_Teorica/Teorias_Realidade/Existencialismo/Existencialismo.md",
+    "01_AREAS_DE_EXPERTISE/FILOSOFIA/Formacao_Teorica/Teorias_Fundamentais/Teorias_Fundamentais.md",
+    "01_AREAS_DE_EXPERTISE/PSICOLOGIA/01_Referencial/Autores/Carl Jung/Conceitos/Individuacao.md",
+    "01_AREAS_DE_EXPERTISE/PSICOLOGIA/01_Referencial/Autores/Carl Jung/Conceitos/Anima e Animus.md",
+    "01_AREAS_DE_EXPERTISE/FILOSOFIA/Formacao_Teorica/Teorias_Fundamentais/Criticismo.md",
+    "01_AREAS_DE_EXPERTISE/FILOSOFIA/Pesquisa/Analise_Conceitual.md",
+    "Diagnostico.md",
+    "01_AREAS_DE_EXPERTISE/FILOSOFIA/Formacao_Teorica/Teorias_Fundamentais/Racionalismo.md",
+    "01_AREAS_DE_EXPERTISE/FILOSOFIA/Formacao_Teorica/Teorias_Fundamentais/Pragmatismo.md",
+    "01_AREAS_DE_EXPERTISE/FILOSOFIA/Formacao_Teorica/Teorias_Fundamentais/Fenomenologia.md",
+    "01_AREAS_DE_EXPERTISE/FILOSOFIA/Formacao_Teorica/Teorias_Fundamentais/Empirismo.md",
+    "01_AREAS_DE_EXPERTISE/FILOSOFIA/Conceitos_Estruturantes/Modelos_Analise.md",
+    "01_AREAS_DE_EXPERTISE/FILOSOFIA/Conceitos_Estruturantes/Logica_Estrutural.md",
+    "01_AREAS_DE_EXPERTISE/FILOSOFIA/Conceitos_Estruturantes/Frameworks_Conceituais.md",
+    "02_📊_FERRAMENTAS/Branding/Ciclo/2.1.3 Ciclo da Marca/Template_Resposta.md",
+    "01_AREAS_DE_EXPERTISE/PSICOLOGIA/05_Especialistas/Humano/Tainá Borges (Psicóloga)/Prompt_Modelo_Criar_Notas/Prompt_Modelo_Gerar_Notas_De_Conteúdo.txt",
+    "01_AREAS_DE_EXPERTISE/PSICOLOGIA/05_Especialistas/Humano/Tainá Borges (Psicóloga)/Prompt_Modelo_Criar_Notas",
+    "01_AREAS_DE_EXPERTISE/PSICOLOGIA/05_Especialistas/Humano/Tainá Borges (Psicóloga)/04_Interações",
+    "01_AREAS_DE_EXPERTISE/PSICOLOGIA/05_Especialistas/Humano/Tainá Borges (Psicóloga)/03_Contribuições",
+    "01_AREAS_DE_EXPERTISE/PSICOLOGIA/05_Especialistas/Humano/Tainá Borges (Psicóloga)/02_Projetos",
+    "01_AREAS_DE_EXPERTISE/PSICOLOGIA/05_Especialistas/Humano/Tainá Borges (Psicóloga)/01_Identidade",
+    "01_AREAS_DE_EXPERTISE/PSICOLOGIA/05_Especialistas/Humano/Tainá Borges (Psicóloga)"
+  ]
+}

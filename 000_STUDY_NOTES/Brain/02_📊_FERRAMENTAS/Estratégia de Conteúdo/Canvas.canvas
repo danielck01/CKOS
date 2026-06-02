@@ -1,0 +1,32 @@
+{
+	"nodes":[
+		{"id":"pilares","type":"group","label":"Pilares de Conteúdo","position":{"x":0,"y":0}},
+		{"id":"pilarA","type":"text","text":"Pilar A","position":{"x":20,"y":40}},
+		{"id":"pilarB","type":"text","text":"Pilar B","position":{"x":20,"y":80}},
+		{"id":"pilarC","type":"text","text":"Pilar C","position":{"x":20,"y":120}},
+		
+		{"id":"tom","type":"group","label":"Tom de Voz","position":{"x":300,"y":0}},
+		{"id":"personalidade","type":"text","text":"Personalidade","position":{"x":320,"y":40}},
+		{"id":"linguagem","type":"text","text":"Linguagem","position":{"x":320,"y":80}},
+		
+		{"id":"calendario","type":"group","label":"Calendário Editorial","position":{"x":600,"y":0}},
+		{"id":"frequencia","type":"text","text":"Frequência","position":{"x":620,"y":40}},
+		{"id":"temas","type":"text","text":"Temas","position":{"x":620,"y":80}},
+		
+		{"id":"formatos","type":"group","label":"Formatos de Conteúdo","position":{"x":0,"y":300}},
+		{"id":"redes","type":"text","text":"Redes Sociais","position":{"x":20,"y":340}},
+		{"id":"blog","type":"text","text":"Blog/Site","position":{"x":20,"y":380}},
+		{"id":"email","type":"text","text":"Email Marketing","position":{"x":20,"y":420}},
+		
+		{"id":"metricas","type":"group","label":"Métricas","position":{"x":300,"y":300}},
+		{"id":"engajamento","type":"text","text":"Engajamento","position":{"x":320,"y":340}},
+		{"id":"conversao","type":"text","text":"Conversão","position":{"x":320,"y":380}},
+		{"id":"roi","type":"text","text":"ROI","position":{"x":320,"y":420}}
+	],
+	"edges":[
+		{"source":"pilares","target":"tom","label":"define"},
+		{"source":"tom","target":"calendario","label":"orienta"},
+		{"source":"calendario","target":"formatos","label":"determina"},
+		{"source":"formatos","target":"metricas","label":"gera"}
+	]
+}
