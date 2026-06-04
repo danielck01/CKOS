@@ -39,7 +39,10 @@ title: CKOS Expansion Kanban
   - **Plano:** `04_CONSOLIDATION_EXECUTION_PLAN.md` · Decisões D1-D4 ✅
   - **L1 ✅** Miriam (100) → `000_PROJECTS/` (commit 9aae8c3)
   - **L2 ✅** Brain (410) → `000_KNOWLEDGE_BASE/` (commit afc61d0)
-  - **L3 (próximo — ANÁLISE, não move):** UPGRADE reconciliação com promoção AGRESSIVA (comparar espelho vs canônico, puxar o melhor via patch candidate)
+  - **L3 (EM CURSO — ANÁLISE, não move):** UPGRADE reconciliação com promoção AGRESSIVA (comparar espelho vs canônico → patch candidate)
+    - **L3-Agentes ✅** `DOC03_AGENTS_RECONCILIATION_CANDIDATE.md` (S-009): UPGRADE/03 (65 arq) = scaffold raso; canônico Doc 03 mais rico. A promover: I/O Contract (ALTA) + bundle + 11 nomes net-new (gated em skill, §1). 4 ARCHITECTURE_QUESTIONS (taxonomia commanders vs personas) = entregável central. Aplicação no Doc 03 = P1, sessão separada c/ Founder+Metacognik
+    - **L3 restante:** Skills (Doc 06 vs UPGRADE/04+DNA/17), Transformers (Doc 09 vs UPGRADE/08), Data Models (Doc 11 vs UPGRADE/11), Policies (Doc 12 vs UPGRADE/07), Tools/Connectors (Doc 26 vs UPGRADE/05/06)
+    - **L3-Onda 1 DESPACHADA (paralela, 5 sessões) 🚀** `L3_WAVE1/` — **2 Claude** (Dispatcher + Auditor que ordena×audita pro Founder) + **2 Codex** (TR-SKILLS, TR-TRANSF) + **1 Windsurf** (TR-POLICY); 3 tracks de escrita disjuntos; padrão de prompt CKOS + protocolo BRA/Q&A; **aguarda aprovação do LOTE L3-W1 (Founder)**. TR-DATAMODELS + TR-CORERUNTIME = GATE-5-atados (Onda futura)
   - **L4:** DNA vault + SUPERAGENT (benchmark externo — mapear estudo de tradução do DNA antes) + dups UI/UX
   - **Mecanismo validado:** git mv preserva links (wikilinks por nome) + commit por lote reversível
 - [ ] GATE 5 — Spec do Backend MVP thin-slice (arquivo 03) #F0 #gate **[SPEC PRONTA + FAN-IN ✅ — EM ESPERA até consolidação]**
@@ -52,6 +55,12 @@ title: CKOS Expansion Kanban
   - **Prompt pronto:** `000_ROADMAPS/12_PROMPTS/08_PROMPT_CODEX_DOC11_RAG_SCHEMA_PATCH_CANDIDATE.md`
   - **Descoberta fan-in:** tabelas RAG já existem no Doc 11 §14 → é refinamento de campos, não criação. Diff mínimo = (Doc 28 §18 ∩ MVP usa ∩ não-existe)
   - **P1 schema:** aplicação real exige aprovação Founder + Technical em sessão canonical_patch separada
+- [ ] F1 Runtime I/O Contracts — User-in + Response-out (patch CANDIDATE, não aplicação) #F0 #FX #runtime
+  - **Nota:** `F1_RUNTIME_IO_CONTRACTS_RECONCILIATION_CANDIDATE.md` — reconcilia 2 propostas Founder (User System + Cognitive Response Engine) vs canônico
+  - **Achado:** ~75% já é canônico (pipeline de resposta = Doc 10 §5.2 verbatim); net-new = 10 itens (U1-U5 + R1-R5), mais fortes U1/U2 + R1/R2
+  - **Depende de:** GATE 5 — refina o runtime que o thin-slice define; sem ele vira over-engineering
+  - **AQ-IO-1** (thin-slice começa no usuário ou no projeto?) → entra no `GATE5_FOUNDER_DECISION_PACKAGE.md`
+  - **Não entra:** visual/atmosfera (F4) · folder-trees (fragmentação) · SQL (Doc 11 gated)
 - [x] Reconciliação de fronteira canônica → 01-28 (policy, consolidation map, master roadmap, runbook, MASTER_MAP) ✅ 2026-06-02 #F0 #FX
   - **Método:** declaração viva atualizada; histórico do GATE 0 preservado via notas (não reescrito)
   - **Achado:** atualização do MASTER_MAP pelo Codex GATE 3 era parcial (linhas 41/43 desatualizadas) — corrigido
