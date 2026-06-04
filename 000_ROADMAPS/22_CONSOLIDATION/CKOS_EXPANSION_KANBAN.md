@@ -49,7 +49,7 @@ title: CKOS Expansion Kanban
   - **Arquivo:** `03_BACKEND_MVP_THIN_SLICE_PLAN.md` (Codex2 criou; fan-in Claude ✅ 2026-06-02)
   - **Fan-in:** 16 seções, backend puro, event log central, RLS/tenant desde S1, 9 AQs. Doc 12 + secret handling adicionados no fan-in.
   - **Pendência única:** decisão Founder (aprovar = fecha F0, abre F1; é gate, não auto-aprovável)
-  - **Pacote de decisão:** `GATE5_FOUNDER_DECISION_PACKAGE.md` (go/no-go, 9 AQs, o que libera/bloqueia)
+  - **Pacote de decisão:** `GATE5_FOUNDER_DECISION_PACKAGE.md` (go/no-go, **10 AQs** — AQ-IO-1 user-vs-project add 2026-06-04, grupo 🔴 trava-início)
 - [ ] Doc 11 RAG schema — patch CANDIDATE (proposta, não aplicação) #F0 #runtime
   - **Depende de:** arquivo 03 (GATE 5) — sem ele vira over-engineering
   - **Prompt pronto:** `000_ROADMAPS/12_PROMPTS/08_PROMPT_CODEX_DOC11_RAG_SCHEMA_PATCH_CANDIDATE.md`

@@ -29,11 +29,12 @@ Aprovar o GATE 5 autoriza **iniciar a construção (F1)** do thin-slice de backe
 | RLS/tenant + policy_engine + approval gate desde o S1 | Self-evolving, conectores externos, billing real |
 | ROI mínimo (proxies internos) | Docs 29-34 (paralelo, não pré-req) |
 
-## 3. As 9 decisões que precisam de resposta ANTES de codar
+## 3. As 10 decisões que precisam de resposta ANTES de codar
 
 Agrupadas por **quando** travam. Você não precisa responder todas hoje — só saber quem decide o quê.
 
 **🔴 Travam o INÍCIO (responder antes do Sprint 1):**
+- **AQ-IO-1** — **o slice começa no `user` ou no `project`?** Define se o S1 (intent ingress) carrega contexto de usuário (identidade + memória `user_id`/DNA — ver `22_CONSOLIDATION/F1_RUNTIME_IO_CONTRACTS_RECONCILIATION_CANDIDATE.md`) ou só `project`. É a tese *user-first*; **molda a forma do slice e o que o S1 ingere**. Origem: reconciliação User-in/Response-out + fan-in audit da Onda 1. → *Founder + PMO*
 - **AQ-G5-02** — job runner do MVP: pg-boss / Supabase Queues / BullMQ / Temporal? → *Technical*
 - **AQ-G5-05** — modelo/gateway inicial do `model_router` (OpenRouter é referência, não decisão)? → *Technical*
 - **AQ-G5-09** — secret store / como `agent_runs` resolvem tokens via `secret_refs` sem expor? → *Technical + Founder*
@@ -55,7 +56,9 @@ Agrupadas por **quando** travam. Você não precisa responder todas hoje — só
 
 ## 5. Recomendação PMO: **GO condicional**
 
-**GO** para autorizar a F1 — **condicionado a responder as 3 AQs de início** (job runner, modelo, secret store) antes do Sprint 1. As outras 6 podem ser resolvidas no sprint correspondente.
+**GO** para autorizar a F1 — **condicionado a responder as AQs de início** antes do Sprint 1: as 3 técnicas (job runner, modelo, secret store) **+ AQ-IO-1** (arquitetural: o slice começa no `user` ou no `project` — molda o S1). As outras 6 podem ser resolvidas no sprint correspondente.
+
+> **AQ-IO-1 é a sua decisão-âncora:** é a tese *user-first* que você levantou. Responder "user" reordena o S1 (intent carrega identidade + memória `user_id`) e sequencia o PATCH 2 (F1 U/R). Responder "project" mantém o slice do arquivo 03 como está.
 
 | | Risco |
 |---|---|
