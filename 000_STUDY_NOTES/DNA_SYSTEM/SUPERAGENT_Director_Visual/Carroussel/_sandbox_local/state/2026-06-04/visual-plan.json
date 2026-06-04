@@ -1,0 +1,190 @@
+{
+  "visual_brief": {
+    "_nota": "Em produção este briefing é decodificado por vision real das refs da marca (doc 09). Sem refs no sandbox, este é um registro tonal default declarado para o teste.",
+    "color_palette": {
+      "primary": "#EC5E26",
+      "background_dark": "#1B1411",
+      "background_light": "#F1ECE3"
+    },
+    "tonal_register": "light/mid — fundos claros cor de creme quente (~#F1ECE3). Sem slides escuros por default; o ritmo dark/light só entra se as refs pedirem.",
+    "imagery_style": "fotografia editorial 35mm, humanizada — pessoas, mãos, gesto, cena real de pequeno negócio. Nada de screenshot de app nem interface.",
+    "composition_style": "texto alinhado à esquerda, espaço negativo generoso no topo, conteúdo ancorado nos dois terços inferiores. 7 de 9 slides com imagem.",
+    "texture_finish": "grão de papel sutil. Sem brilho, sem 3D, sem glossy.",
+    "use_of_gradient": "NÃO observado — slide 8 fica em fundo sólido claro com tipografia forte.",
+    "detail_signature": "linha fina no rodapé de todos os 9 slides com data + handle, ex.: '2026.06.04 · @teste', ~12px, opacidade ~55%.",
+    "avoid": "sem emojis, sem ícones decorativos, sem estética de stock photo, sem 3D, sem reflexo glossy, sem gradiente genérico, sem rosto de IA, sem aperto de mão corporativo, sem laptop com gráfico brilhando."
+  },
+  "slides": [
+    {
+      "n": 1,
+      "funcao": "Capa",
+      "tem_imagem": true,
+      "image_role": "full-bleed background",
+      "caminho": "B",
+      "hero_url": null,
+      "image_brief": {
+        "purpose": "parar o scroll com a tensão da espera no balcão",
+        "subject": "dona de loja de bairro atrás do balcão olhando o celular, um cliente desfocado esperando em primeiro plano",
+        "composition": "plano médio, regra dos terços, dona no terço direito, espaço negativo claro no topo para a headline",
+        "lighting": "luz natural lateral de fim de tarde, sombras suaves, quente",
+        "color_treatment": "cinza-quente dessaturado com um ponto de laranja-terracota (#EC5E26) no avental ou na sacola",
+        "style": "fotografia editorial 35mm, grão fino",
+        "mood": "tensão silenciosa, urgência contida",
+        "metaphor": "o tempo de resposta correndo enquanto o cliente decide ir embora",
+        "avoid": "sem interface de celular visível, sem stock corporativo, sem sorriso posado pra câmera"
+      }
+    },
+    {
+      "n": 2,
+      "funcao": "Hook",
+      "tem_imagem": true,
+      "image_role": "foto background com overlay claro",
+      "caminho": "B",
+      "hero_url": null,
+      "image_brief": {
+        "purpose": "inquietação — a mensagem que ficou sem resposta",
+        "subject": "celular sobre o balcão à noite com a tela acesa mostrando notificação genérica, loja fechada ao fundo",
+        "composition": "close baixo no objeto, terço inferior, escuridão suave no entorno mas registro ainda claro",
+        "lighting": "única fonte quente da tela do celular contra ambiente em penumbra",
+        "color_treatment": "neutro quente com brilho terracota da tela",
+        "style": "fotografia editorial 35mm",
+        "mood": "abandono, oportunidade escapando",
+        "metaphor": "venda que chega quando ninguém está atrás do balcão",
+        "avoid": "sem texto de app legível, sem logos de plataformas"
+      }
+    },
+    {
+      "n": 3,
+      "funcao": "Mecanismo parte 1",
+      "tem_imagem": true,
+      "image_role": "image box retangular no topo",
+      "caminho": "B",
+      "hero_url": null,
+      "image_brief": {
+        "purpose": "foco analítico — o que se repete",
+        "subject": "mãos organizando pedidos de papel repetidos sobre mesa de madeira, padrão visível de repetição",
+        "composition": "overhead 90°, objetos alinhados em grade informal no terço superior",
+        "lighting": "difusa natural de janela, claridade alta",
+        "color_treatment": "creme quente, um pedido em destaque terracota",
+        "style": "fotografia editorial 35mm, still de objeto",
+        "mood": "padrão, repetição, previsibilidade",
+        "metaphor": "as mesmas perguntas chegando de novo e de novo",
+        "avoid": "sem rosto, sem tela digital"
+      }
+    },
+    {
+      "n": 4,
+      "funcao": "Mecanismo parte 2",
+      "tem_imagem": true,
+      "image_role": "tipografia grande + foto de apoio em metade do slide",
+      "caminho": "B",
+      "hero_url": null,
+      "image_brief": {
+        "purpose": "mostrar o como — ensinar uma vez, atender em todo lugar",
+        "subject": "dona ensinando algo apontando para um caderno de anotações, gesto de transmissão de conhecimento",
+        "composition": "metade direita do slide, plano médio, espaço à esquerda para tipografia",
+        "lighting": "natural lateral suave, claro",
+        "color_treatment": "neutro quente, acento terracota discreto",
+        "style": "fotografia editorial 35mm",
+        "mood": "transmissão, processo, alívio",
+        "metaphor": "o conhecimento do dono virando atendimento que não cansa",
+        "avoid": "sem robô, sem ícone de chatbot"
+      }
+    },
+    {
+      "n": 5,
+      "funcao": "Prova / Evidência",
+      "tem_imagem": true,
+      "image_role": "big stat ao lado de foto contextual",
+      "caminho": "B",
+      "hero_url": null,
+      "image_brief": {
+        "purpose": "autoridade — peso material do dado",
+        "subject": "relógio analógico simples sobre balcão de madeira ao lado de comanda, materialidade do tempo",
+        "composition": "objeto no terço inferior esquerdo, espaço para o número grande à direita",
+        "lighting": "luz dura lateral criando sombra definida, registro médio",
+        "color_treatment": "monocromático quente com ponteiro/detalhe terracota",
+        "style": "fotografia editorial 35mm, still",
+        "mood": "autoridade, urgência do relógio",
+        "metaphor": "os 5 minutos que decidem a venda",
+        "avoid": "sem gráfico digital, sem dashboard"
+      }
+    },
+    {
+      "n": 6,
+      "funcao": "Expansão / Virada",
+      "tem_imagem": true,
+      "image_role": "foto de fundo com overlay claro",
+      "caminho": "B",
+      "hero_url": null,
+      "image_brief": {
+        "purpose": "significância — o que estava em jogo o tempo todo",
+        "subject": "cliente saindo pela porta da loja visto de dentro, sino da porta em movimento",
+        "composition": "panorâmica do interior, porta no centro, profundidade",
+        "lighting": "contraluz suave da rua entrando, claro",
+        "color_treatment": "quente dessaturado, luz da rua terracota-dourada",
+        "style": "fotografia editorial 35mm",
+        "mood": "virada, percepção, o que se perde",
+        "metaphor": "o cliente que já era seu indo embora pela demora",
+        "avoid": "sem drama excessivo, sem escurecer demais"
+      }
+    },
+    {
+      "n": 7,
+      "funcao": "Aplicação prática",
+      "tem_imagem": true,
+      "image_role": "3 cards horizontais com mini-imagens",
+      "caminho": "B",
+      "hero_url": null,
+      "image_brief": {
+        "purpose": "aplicabilidade — humano, gesto, nicho diverso",
+        "subject": "tríptico: mãos em tesoura de salão / mãos repondo prateleira de loja / mãos empratando em cozinha",
+        "composition": "três quadros horizontais iguais, cada um um nicho, plano-detalhe de mãos",
+        "lighting": "natural consistente nos três, claro",
+        "color_treatment": "paleta quente unificada, acento terracota em cada quadro",
+        "style": "fotografia editorial 35mm",
+        "mood": "ordinário, real, aplicável",
+        "metaphor": "a mesma solução em três rotinas diferentes",
+        "avoid": "sem pessoas posando, sem rosto pra câmera"
+      }
+    },
+    {
+      "n": 8,
+      "funcao": "Direção / CTA preparação",
+      "tem_imagem": false,
+      "image_role": "fundo sólido claro com tipografia hero (sem gradient)",
+      "caminho": "B",
+      "hero_url": null,
+      "image_brief": {
+        "purpose": "foco direcional — uma frase de impacto",
+        "subject": "sem imagem; fundo sólido claro #F1ECE3 com tipografia hero",
+        "composition": "frase central, espaço negativo amplo",
+        "lighting": "n/a",
+        "color_treatment": "fundo creme claro, palavra-chave em terracota",
+        "style": "tipográfico, sem imagem",
+        "mood": "direção, decisão",
+        "metaphor": "n/a",
+        "avoid": "sem gradient (não observado nas refs), sem imagem genérica"
+      }
+    },
+    {
+      "n": 9,
+      "funcao": "Assinatura da marca + CTA final",
+      "tem_imagem": false,
+      "image_role": "lockup tipográfico grande centralizado + CTA curto",
+      "caminho": "B",
+      "hero_url": null,
+      "image_brief": {
+        "purpose": "assinatura — marca como protagonista, espaço negativo",
+        "subject": "sem imagem; brand_has_logo=false → '{brand_name}' como lockup tipográfico grande",
+        "composition": "lockup centralizado opticamente entre 50-56% da altura, CTA abaixo em hierarquia menor",
+        "lighting": "n/a",
+        "color_treatment": "fundo claro, lockup escuro, CTA com palavra-chave terracota",
+        "style": "tipográfico, assinatura",
+        "mood": "quieto, confiante",
+        "metaphor": "n/a",
+        "avoid": "sem parágrafo, sem resumo, sem pergunta retórica, sem número de slide, sem logo pequeno em canto"
+      }
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "_nota": "Contrato de saída da Etapa visual (doc 17 + doc 09). Cada slide carrega os blocos de copy EXATOS (regra: todo o texto vai renderizado dentro da imagem) + o prompt montado. provider=mock consome isto e gera placeholders; provider=openrouter/higgsfield consome o mesmo contrato.",
+  "aspect_ratio_global": "3:4",
+  "resolution": "2k",
+  "quality": "high",
+  "slides": [
+    {
+      "n": 1,
+      "aspect_ratio": "3:4",
+      "text": [
+        "Atendimento que não dorme",
+        "O cliente não some pelo preço. Some pela demora."
+      ],
+      "visual_brief": "Capa: dona de loja no balcão olhando o celular, cliente esperando desfocado; editorial 35mm, luz de fim de tarde, acento terracota; tensão da espera. Full-bleed background.",
+      "prompt": "A portrait Instagram carousel cover slide, aspect ratio 3:4.\n\n[VISUAL BRIEF] Editorial 35mm humanized photography. Light/mid warm register, cream background (#F1ECE3). Terracotta accent (#EC5E26). Left-aligned text, generous negative space at top, content anchored to lower two-thirds. Subtle paper grain. No gradient.\n\nInternal role: COVER. Do NOT draw any page index, carousel counter, sequence marker or visible slide number. Sets the visual identity for the whole carousel. Must be magazine-cover arresting — stop the scroll.\n\n=== EMBEDDED IMAGE (full-bleed background) ===\nSubject: dona de loja de bairro atrás do balcão olhando o celular, cliente desfocado esperando em primeiro plano.\nComposition: plano médio, regra dos terços, dona no terço direito, espaço negativo claro no topo para a headline.\nLighting: luz natural lateral de fim de tarde, sombras suaves e quentes — nunca flat de catálogo.\nColor: cinza-quente dessaturado + ponto saturado terracota (#EC5E26) no avental/sacola.\nStyle: fotografia editorial 35mm, grão fino.\nMood: tensão silenciosa, urgência contida.\nMetaphor: o tempo de resposta correndo enquanto o cliente decide ir embora.\nAvoid: sem interface de celular visível, sem stock corporativo, sem sorriso posado.\n\n=== TEXT CONTENT — render ALL of this text inside the image, exato, sem parafrasear ===\n- Brand bar (topo, pequeno, baixa opacidade): 'POR Teste Local | @teste | 2026'\n- Chapéu: 'Atendimento que não dorme'\n- Headline (maior elemento, condensada bold uppercase): 'O cliente não some pelo preço. Some pela demora.'\n- Destaque em terracota (#EC5E26): 'demora'\n\n=== TYPOGRAPHY LOCK ===\n[em produção copiado verbatim das refs: 2 fontes (display condensada / sans humanista) + tabela fixa de tamanho/peso por papel. Mesmas fontes em todos os slides.]\n\n=== DETAIL SIGNATURE ===\nLinha fina no rodapé: '2026.06.04 · @teste', ~12px, opacidade ~55%.\n\n=== ABSOLUTE NO-GO ===\nSem emojis, ícones, stock photo, 3D/glossy, gradiente genérico, rosto de IA, aperto de mão corporativo, número/contador de slide visível."
+    },
+    {
+      "n": 2,
+      "aspect_ratio": "3:4",
+      "text": [
+        "O PROBLEMA",
+        "Metade das mensagens de cliente chega fora do expediente. Quem responde primeiro leva a venda — e raramente é o pequeno negócio.",
+        "Não é desleixo do dono. É um humano só, tentando vender, produzir e responder ao mesmo tempo."
+      ],
+      "visual_brief": "Hook: celular sobre o balcão à noite, tela acesa, loja fechada ao fundo; editorial 35mm, luz da tela quente; oportunidade escapando.",
+      "prompt": "A portrait Instagram carousel slide, aspect ratio 3:4.\n\n[VISUAL BRIEF] Editorial 35mm humanized photography. Light/mid warm register, cream background (#F1ECE3). Terracotta accent (#EC5E26). Left-aligned, negative space top, content lower two-thirds. Paper grain. No gradient.\n\nInternal role: HOOK. No visible slide number/counter.\n\n=== EMBEDDED IMAGE (foto background com overlay claro) ===\nSubject: celular sobre o balcão à noite com a tela acesa (notificação genérica), loja fechada ao fundo.\nComposition: close baixo no objeto, terço inferior.\nLighting: única fonte quente da tela contra ambiente em penumbra, registro ainda legível.\nColor: neutro quente + brilho terracota da tela.\nStyle: fotografia editorial 35mm.\nMood: abandono, oportunidade escapando.\nAvoid: sem texto de app legível, sem logos de plataformas.\n\n=== TEXT CONTENT — render ALL, exato ===\n- Tag (uppercase, pequena, topo): 'O PROBLEMA'\n- Corpo A: 'Metade das mensagens de cliente chega fora do expediente. Quem responde primeiro leva a venda — e raramente é o pequeno negócio.'\n- Corpo B: 'Não é desleixo do dono. É um humano só, tentando vender, produzir e responder ao mesmo tempo.'\n- Destaque em terracota (#EC5E26): 'primeiro'\n\n=== TYPOGRAPHY LOCK ===\n[verbatim das refs — mesmas 2 fontes/tamanhos de todos os slides.]\n\n=== DETAIL SIGNATURE ===\nRodapé: '2026.06.04 · @teste', ~12px, opacidade ~55%.\n\n=== ABSOLUTE NO-GO ===\nSem emojis, ícones, stock, 3D/glossy, gradiente, rosto de IA, número de slide."
+    },
+    {
+      "n": 3,
+      "aspect_ratio": "3:4",
+      "text": [
+        "POR QUE ACONTECE",
+        "IA no atendimento não é robô frio nem substituto do dono. É uma camada que responde na hora o que se repete.",
+        "Horário, preço, endereço, prazo, disponibilidade: 80% das perguntas são sempre as mesmas."
+      ],
+      "visual_brief": "Mecanismo p1: overhead de mãos organizando pedidos de papel repetidos; still editorial 35mm, luz de janela difusa; padrão e repetição.",
+      "prompt": "A portrait Instagram carousel slide, aspect ratio 3:4.\n\n[VISUAL BRIEF] Editorial 35mm humanized photography. Light/mid warm register, cream background (#F1ECE3). Terracotta accent (#EC5E26). Left-aligned, negative space top. Paper grain. No gradient.\n\nInternal role: MECANISMO P1. No visible slide number/counter.\n\n=== EMBEDDED IMAGE (image box retangular no topo) ===\nSubject: mãos organizando pedidos de papel repetidos sobre mesa de madeira, padrão de repetição visível.\nComposition: overhead 90°, objetos em grade informal no terço superior.\nLighting: difusa natural de janela, claridade alta.\nColor: creme quente, um pedido em destaque terracota.\nStyle: fotografia editorial 35mm, still de objeto.\nMood: padrão, previsibilidade.\nAvoid: sem rosto, sem tela digital.\n\n=== TEXT CONTENT — render ALL, exato ===\n- Tag: 'POR QUE ACONTECE'\n- Corpo A: 'IA no atendimento não é robô frio nem substituto do dono. É uma camada que responde na hora o que se repete.'\n- Corpo B: 'Horário, preço, endereço, prazo, disponibilidade: 80% das perguntas são sempre as mesmas.'\n- Destaque em terracota (#EC5E26): '80%'\n\n=== TYPOGRAPHY LOCK ===\n[verbatim das refs.]\n\n=== DETAIL SIGNATURE ===\nRodapé: '2026.06.04 · @teste', ~12px, opacidade ~55%.\n\n=== ABSOLUTE NO-GO ===\nSem emojis, ícones, stock, 3D/glossy, gradiente, rosto de IA, número de slide."
+    },
+    {
+      "n": 4,
+      "aspect_ratio": "3:4",
+      "text": [
+        "COMO FUNCIONA",
+        "Você ensina a IA uma vez com suas respostas reais — e ela atende no WhatsApp, no Instagram e no site.",
+        "O que ela não sabe, passa pra você com o contexto pronto. O cliente nunca fica no vácuo, e você entra só quando importa de verdade."
+      ],
+      "visual_brief": "Mecanismo p2: dona apontando para caderno de anotações, gesto de ensinar; editorial 35mm, luz lateral clara; transmissão de conhecimento.",
+      "prompt": "A portrait Instagram carousel slide, aspect ratio 3:4.\n\n[VISUAL BRIEF] Editorial 35mm humanized photography. Light/mid warm register, cream background (#F1ECE3). Terracotta accent (#EC5E26). Tipografia grande à esquerda + foto de apoio na metade direita. Paper grain. No gradient.\n\nInternal role: MECANISMO P2. No visible slide number/counter.\n\n=== EMBEDDED IMAGE (foto de apoio em metade do slide) ===\nSubject: dona ensinando, apontando para um caderno de anotações, gesto de transmissão.\nComposition: metade direita, plano médio, espaço à esquerda para tipografia.\nLighting: natural lateral suave, claro.\nColor: neutro quente, acento terracota discreto.\nStyle: fotografia editorial 35mm.\nMood: transmissão, alívio.\nAvoid: sem robô, sem ícone de chatbot.\n\n=== TEXT CONTENT — render ALL, exato ===\n- Tag: 'COMO FUNCIONA'\n- Corpo A: 'Você ensina a IA uma vez com suas respostas reais — e ela atende no WhatsApp, no Instagram e no site.'\n- Corpo B: 'O que ela não sabe, passa pra você com o contexto pronto. O cliente nunca fica no vácuo, e você entra só quando importa de verdade.'\n- Destaque em terracota (#EC5E26): 'uma vez'\n\n=== TYPOGRAPHY LOCK ===\n[verbatim das refs.]\n\n=== DETAIL SIGNATURE ===\nRodapé: '2026.06.04 · @teste', ~12px, opacidade ~55%.\n\n=== ABSOLUTE NO-GO ===\nSem emojis, ícones, stock, 3D/glossy, gradiente, rosto de IA, número de slide."
+    },
+    {
+      "n": 5,
+      "aspect_ratio": "3:4",
+      "text": [
+        "OS NÚMEROS",
+        "Negócios que respondem em até 5 minutos têm cerca de 4x mais chance de fechar do que os que demoram uma hora.",
+        "5 min → 4x mais conversão · 1 hora → o cliente já comprou de outro."
+      ],
+      "visual_brief": "Prova: relógio analógico no balcão ao lado de comanda; still editorial 35mm, luz dura lateral; materialidade do tempo, big stat ao lado.",
+      "prompt": "A portrait Instagram carousel slide, aspect ratio 3:4.\n\n[VISUAL BRIEF] Editorial 35mm humanized photography. Light/mid warm register, cream background (#F1ECE3). Terracotta accent (#EC5E26). Big stat tipográfico ao lado de foto contextual. Paper grain. No gradient.\n\nInternal role: PROVA. No visible slide number/counter.\n\n=== EMBEDDED IMAGE (still ao lado do número grande) ===\nSubject: relógio analógico simples sobre balcão de madeira ao lado de uma comanda.\nComposition: objeto no terço inferior esquerdo, espaço para o número grande à direita.\nLighting: luz dura lateral, sombra definida, registro médio.\nColor: monocromático quente com detalhe terracota no ponteiro.\nStyle: fotografia editorial 35mm, still.\nMood: autoridade, urgência do relógio.\nAvoid: sem gráfico digital, sem dashboard.\n\n=== TEXT CONTENT — render ALL, exato ===\n- Tag: 'OS NÚMEROS'\n- Corpo A: 'Negócios que respondem em até 5 minutos têm cerca de 4x mais chance de fechar do que os que demoram uma hora.'\n- Corpo B (linha/contraste): '5 min → 4x mais conversão · 1 hora → o cliente já comprou de outro.'\n- Destaque em terracota (#EC5E26): '4x'\n\n=== TYPOGRAPHY LOCK ===\n[verbatim das refs.]\n\n=== DETAIL SIGNATURE ===\nRodapé: '2026.06.04 · @teste', ~12px, opacidade ~55%.\n\n=== ABSOLUTE NO-GO ===\nSem emojis, ícones, stock, 3D/glossy, gradiente, rosto de IA, número de slide."
+    },
+    {
+      "n": 6,
+      "aspect_ratio": "3:4",
+      "text": [
+        "A VIRADA",
+        "O ganho real não é responder mais rápido. É parar de perder o cliente que você já tinha atraído.",
+        "Cada anúncio que você paga termina numa conversa. A IA garante que ela aconteça."
+      ],
+      "visual_brief": "Expansão/virada: cliente saindo pela porta visto de dentro, sino em movimento; editorial 35mm, contraluz suave; o que se perde.",
+      "prompt": "A portrait Instagram carousel slide, aspect ratio 3:4.\n\n[VISUAL BRIEF] Editorial 35mm humanized photography. Light/mid warm register, cream background (#F1ECE3). Terracotta accent (#EC5E26). Foto de fundo com overlay claro (NÃO escurecer). Paper grain. No gradient.\n\nInternal role: VIRADA. No visible slide number/counter.\n\n=== EMBEDDED IMAGE (foto de fundo com overlay claro) ===\nSubject: cliente saindo pela porta da loja, visto de dentro, sino da porta em movimento.\nComposition: panorâmica do interior, porta ao centro, profundidade.\nLighting: contraluz suave da rua entrando, claro.\nColor: quente dessaturado, luz da rua terracota-dourada.\nStyle: fotografia editorial 35mm.\nMood: virada, percepção do que se perde.\nAvoid: sem drama excessivo, sem escurecer demais o slide.\n\n=== TEXT CONTENT — render ALL, exato ===\n- Tag: 'A VIRADA'\n- Corpo A: 'O ganho real não é responder mais rápido. É parar de perder o cliente que você já tinha atraído.'\n- Corpo B: 'Cada anúncio que você paga termina numa conversa. A IA garante que ela aconteça.'\n- Destaque em terracota (#EC5E26): 'já tinha atraído'\n\n=== TYPOGRAPHY LOCK ===\n[verbatim das refs.]\n\n=== DETAIL SIGNATURE ===\nRodapé: '2026.06.04 · @teste', ~12px, opacidade ~55%.\n\n=== ABSOLUTE NO-GO ===\nSem emojis, ícones, stock, 3D/glossy, gradiente, rosto de IA, número de slide."
+    },
+    {
+      "n": 7,
+      "aspect_ratio": "3:4",
+      "text": [
+        "NA PRÁTICA",
+        "Salão agenda sozinho. Loja confirma estoque na hora. Restaurante fecha reserva enquanto o dono cozinha.",
+        "Mesma ferramenta, três negócios — sem contratar ninguém."
+      ],
+      "visual_brief": "Aplicação: tríptico de mãos — tesoura de salão / reposição de prateleira / empratar na cozinha; editorial 35mm, 3 cards horizontais.",
+      "prompt": "A portrait Instagram carousel slide, aspect ratio 3:4.\n\n[VISUAL BRIEF] Editorial 35mm humanized photography. Light/mid warm register, cream background (#F1ECE3). Terracotta accent (#EC5E26). Três cards horizontais com mini-imagens. Paper grain. No gradient.\n\nInternal role: APLICAÇÃO. No visible slide number/counter.\n\n=== EMBEDDED IMAGE (3 cards horizontais) ===\nSubject: tríptico de plano-detalhe de mãos — (1) tesoura de salão, (2) reposição de prateleira de loja, (3) empratar na cozinha.\nComposition: três quadros horizontais iguais, um nicho cada.\nLighting: natural consistente nos três, claro.\nColor: paleta quente unificada, acento terracota em cada quadro.\nStyle: fotografia editorial 35mm.\nMood: ordinário, real, aplicável.\nAvoid: sem pessoas posando, sem rosto pra câmera.\n\n=== TEXT CONTENT — render ALL, exato ===\n- Tag: 'NA PRÁTICA'\n- Corpo A: 'Salão agenda sozinho. Loja confirma estoque na hora. Restaurante fecha reserva enquanto o dono cozinha.'\n- Corpo B: 'Mesma ferramenta, três negócios — sem contratar ninguém.'\n- Destaque em terracota (#EC5E26): 'sem contratar'\n\n=== TYPOGRAPHY LOCK ===\n[verbatim das refs.]\n\n=== DETAIL SIGNATURE ===\nRodapé: '2026.06.04 · @teste', ~12px, opacidade ~55%.\n\n=== ABSOLUTE NO-GO ===\nSem emojis, ícones, stock, 3D/glossy, gradiente, rosto de IA, número de slide."
+    },
+    {
+      "n": 8,
+      "aspect_ratio": "3:4",
+      "text": [
+        "A DIREÇÃO",
+        "Comece pelo canal onde você mais perde mensagem. Um só. Hoje.",
+        "Atendimento não é custo. É a última milha da sua venda."
+      ],
+      "visual_brief": "Direção: SEM imagem; fundo sólido claro #F1ECE3 com tipografia hero; frase de impacto; sem gradient.",
+      "prompt": "A portrait Instagram carousel slide, aspect ratio 3:4.\n\n[VISUAL BRIEF] Light/mid warm register, solid cream background (#F1ECE3). Terracotta accent (#EC5E26). Tipografia hero, espaço negativo amplo. Paper grain. NO gradient (não observado nas refs).\n\nInternal role: DIREÇÃO. Slide tipográfico, sem imagem embutida. No visible slide number/counter.\n\n=== EMBEDDED IMAGE ===\nNenhuma. Fundo sólido claro com tipografia hero centrada.\n\n=== TEXT CONTENT — render ALL, exato ===\n- Tag: 'A DIREÇÃO'\n- Corpo A: 'Comece pelo canal onde você mais perde mensagem. Um só. Hoje.'\n- Corpo B (frase de impacto): 'Atendimento não é custo. É a última milha da sua venda.'\n- Destaque em terracota (#EC5E26): 'última milha'\n\n=== TYPOGRAPHY LOCK ===\n[verbatim das refs.]\n\n=== DETAIL SIGNATURE ===\nRodapé: '2026.06.04 · @teste', ~12px, opacidade ~55%.\n\n=== ABSOLUTE NO-GO ===\nSem emojis, ícones, stock, 3D/glossy, gradiente, rosto de IA, número de slide."
+    },
+    {
+      "n": 9,
+      "aspect_ratio": "3:4",
+      "text": [
+        "Comenta ATENDER e recebe o passo a passo.",
+        "@teste"
+      ],
+      "visual_brief": "Assinatura: SEM imagem de conteúdo; brand_has_logo=false → lockup tipográfico grande 'Teste Local' centralizado, CTA abaixo; composição quieta.",
+      "prompt": "A portrait Instagram carousel slide, aspect ratio 3:4.\n\n[VISUAL BRIEF] Light/mid warm register, solid cream background (#F1ECE3). Terracotta accent (#EC5E26). Composição quieta, espaço negativo generoso. Paper grain. No gradient.\n\nInternal role: ASSINATURA + CTA (slide 9). A marca domina a composição. brand_has_logo=false → '{brand_name}' vira lockup tipográfico grande no lugar do logo. NÃO renderizar tag, número, parágrafo, resumo nem pergunta. No visible slide number/counter.\n\n=== EMBEDDED IMAGE ===\nNenhuma imagem de conteúdo. Apenas o lockup tipográfico e o CTA.\n\n=== TEXT CONTENT — render ALL, exato (e SÓ isto) ===\n- Lockup (maior elemento, centralizado opticamente entre 50-56% da altura): 'Teste Local'\n- CTA (hierarquia menor, abaixo do lockup): 'Comenta ATENDER e recebe o passo a passo.'\n- Handle (microtexto): '@teste'\n- Destaque em terracota (#EC5E26): 'ATENDER'\n\n=== TYPOGRAPHY LOCK ===\n[verbatim das refs.]\n\n=== DETAIL SIGNATURE ===\nRodapé: '2026.06.04 · @teste', ~12px, opacidade ~55%.\n\n=== ABSOLUTE NO-GO ===\nSem parágrafo, sem resumo, sem pergunta retórica, sem logo pequeno em canto, sem CTA genérico, sem número/contador de slide."
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "tema": "como pequenos negócios podem usar IA no atendimento",
+  "eixo": "Mercado",
+  "headline": "O cliente não some pelo preço. Some pela demora.",
+  "headline_pattern": "Contraste",
+  "caption": "No atendimento, o pequeno negócio compete em desvantagem: é uma pessoa só contra empresas com equipe de plantão. A IA não chega pra substituir o dono — chega pra responder na hora o que se repete e devolver o tempo dele pro que importa. Aqui vai o caminho prático pra parar de perder cliente na espera, começando por um canal só. Comenta ATENDER que a gente manda o passo a passo.",
+  "slide_count": 9,
+  "slides": [
+    {
+      "n": 1,
+      "funcao": "Capa",
+      "tag": null,
+      "textos": {
+        "texto1": "Atendimento que não dorme",
+        "texto2": "O cliente não some pelo preço. Some pela demora."
+      }
+    },
+    {
+      "n": 2,
+      "funcao": "Hook",
+      "tag": "O PROBLEMA",
+      "textos": {
+        "texto3": "Metade das mensagens de cliente chega fora do expediente. Quem responde primeiro leva a venda — e raramente é o pequeno negócio.",
+        "texto4": "Não é desleixo do dono. É um humano só, tentando vender, produzir e responder ao mesmo tempo."
+      }
+    },
+    {
+      "n": 3,
+      "funcao": "Mecanismo parte 1",
+      "tag": "POR QUE ACONTECE",
+      "textos": {
+        "texto5": "IA no atendimento não é robô frio nem substituto do dono. É uma camada que responde na hora o que se repete.",
+        "texto6": "Horário, preço, endereço, prazo, disponibilidade: 80% das perguntas são sempre as mesmas."
+      }
+    },
+    {
+      "n": 4,
+      "funcao": "Mecanismo parte 2",
+      "tag": "COMO FUNCIONA",
+      "textos": {
+        "texto7": "Você ensina a IA uma vez com suas respostas reais — e ela atende no WhatsApp, no Instagram e no site.",
+        "texto8": "O que ela não sabe, passa pra você com o contexto pronto. O cliente nunca fica no vácuo, e você entra só quando importa de verdade."
+      }
+    },
+    {
+      "n": 5,
+      "funcao": "Prova / Evidência",
+      "tag": "OS NÚMEROS",
+      "textos": {
+        "texto9": "Negócios que respondem em até 5 minutos têm cerca de 4x mais chance de fechar do que os que demoram uma hora.",
+        "texto10": "5 min → 4x mais conversão · 1 hora → o cliente já comprou de outro."
+      }
+    },
+    {
+      "n": 6,
+      "funcao": "Expansão / Virada",
+      "tag": "A VIRADA",
+      "textos": {
+        "texto11": "O ganho real não é responder mais rápido. É parar de perder o cliente que você já tinha atraído.",
+        "texto12": "Cada anúncio que você paga termina numa conversa. A IA garante que ela aconteça."
+      }
+    },
+    {
+      "n": 7,
+      "funcao": "Aplicação prática",
+      "tag": "NA PRÁTICA",
+      "textos": {
+        "texto13": "Salão agenda sozinho. Loja confirma estoque na hora. Restaurante fecha reserva enquanto o dono cozinha.",
+        "texto14": "Mesma ferramenta, três negócios — sem contratar ninguém."
+      }
+    },
+    {
+      "n": 8,
+      "funcao": "Direção / CTA preparação",
+      "tag": "A DIREÇÃO",
+      "textos": {
+        "texto15": "Comece pelo canal onde você mais perde mensagem. Um só. Hoje.",
+        "texto16": "Atendimento não é custo. É a última milha da sua venda."
+      }
+    },
+    {
+      "n": 9,
+      "funcao": "Assinatura da marca + CTA final",
+      "tag": null,
+      "textos": {
+        "texto17": "Comenta ATENDER e recebe o passo a passo.",
+        "texto18": "@teste"
+      }
+    }
+  ],
+  "promessa_check": {
+    "contagens_no_hook_aparecem_no_deck": true,
+    "contradicao_resolvida_no_mecanismo": true,
+    "promessa_cumprida_antes_do_slide_8": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "provider": "mock",
+  "mode": "image",
+  "image_model": null,
+  "video_model": null,
+  "aspect_ratio": "3:4",
+  "quality": "test"
+}

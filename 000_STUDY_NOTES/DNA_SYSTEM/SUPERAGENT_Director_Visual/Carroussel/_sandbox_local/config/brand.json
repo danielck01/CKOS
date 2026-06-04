@@ -1,0 +1,12 @@
+{
+  "brand_name": "Teste Local",
+  "brand_handle": "@teste",
+  "brand_slug": "teste-local",
+  "brand_color_primary": "#EC5E26",
+  "brand_color_dark": "#1B1411",
+  "brand_color_light": "#F1ECE3",
+  "brand_subject": "IA aplicada a pequenos negócios",
+  "brand_audience_term": "empreendedores",
+  "brand_voice_anchor": "Folha de S.Paulo",
+  "brand_has_logo": false
+}

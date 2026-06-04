@@ -1,0 +1,24 @@
+{
+  "subject": "IA aplicada a pequenos negócios",
+  "relevance_threshold": 3,
+  "sources": [
+    { "name": "Sebrae — Inovação e Tecnologia", "url": "https://sebrae.com.br/sites/PortalSebrae/artigos", "lang": "PT", "priority": "alta" },
+    { "name": "MIT Technology Review — AI", "url": "https://www.technologyreview.com/topic/artificial-intelligence/", "lang": "EN", "priority": "alta" },
+    { "name": "OpenAI Blog", "url": "https://openai.com/blog", "lang": "EN", "priority": "média" },
+    { "name": "Anthropic News", "url": "https://www.anthropic.com/news", "lang": "EN", "priority": "média" },
+    { "name": "Pequenas Empresas & Grandes Negócios", "url": "https://revistapegn.globo.com/", "lang": "PT", "priority": "média" }
+  ],
+  "include_themes": [
+    "ferramenta de IA acessível para PME",
+    "automação de atendimento e suporte",
+    "caso de uso real de pequeno negócio",
+    "mudança de preço/disponibilidade que afeta PME",
+    "workflow documentado de atendimento com IA"
+  ],
+  "ignore_themes": [
+    "hot take sem fonte primária",
+    "funding round sem mudança de produto",
+    "opinião sobre futuro da IA sem caso concreto",
+    "notícia já coberta nas últimas 72h"
+  ]
+}

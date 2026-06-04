@@ -1,0 +1,9 @@
+{
+  "_modo": "input_proprio — alternativa ao tema.txt (doc 14). Em Teste 0 o run é guiado por tema.txt; este arquivo demonstra o caminho de conteúdo colado e NÃO é consumido simultaneamente.",
+  "modo": "input_proprio",
+  "tipo": "noticia_colada",
+  "titulo": null,
+  "texto": "<<cole aqui o texto, ideia, briefing, transcrição, post longo ou notícia avulsa>>",
+  "fonte_opcional": null,
+  "url_opcional": null
+}
