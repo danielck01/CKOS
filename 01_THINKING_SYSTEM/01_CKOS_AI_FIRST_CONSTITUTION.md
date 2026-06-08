@@ -48,7 +48,7 @@ Sempre que houver dúvida entre "construir uma tela bonita" e "construir uma ope
 
 # 3. Inputs
 
-- visão estratégica da CKCompany; tese do CKOS; necessidade de whitelabel; aprendizado Goddess × CKCompany; intenção de ter um "Manus próprio"; necessidade de reduzir prompts manuais do Founder; necessidade de aprovação humana em decisões críticas; arquitetura de agents/superagents/subagents/skills/nodes/workflows/memória.
+- visão estratégica da CKCompany; tese do CKOS; necessidade de whitelabel; aprendizado Goddess × CKCompany; intenção de ter um Sistema operacional AI FIRST; necessidade de reduzir prompts manuais do Founder; necessidade de aprovação humana em decisões críticas; arquitetura de agents/superagents/subagents/skills/nodes/workflows/memória.
 
 # 4. Outputs
 

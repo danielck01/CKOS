@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carroussel Review - 2026-06-04</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f1ece3;
+      --ink: #1b1411;
+      --muted: #756b63;
+      --line: #d8cfc4;
+      --accent: #ec5e26;
+      --panel: #fffaf2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 92%, white 8%);
+    }
+
+    .bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 14px 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .meta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      padding: 5px 8px;
+      border-radius: 6px;
+      background: var(--panel);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(280px, 1fr) minmax(320px, 520px);
+      gap: 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 20px 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 14px;
+      align-content: start;
+    }
+
+    button.slide-card {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      overflow: hidden;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    button.slide-card[aria-pressed="true"] {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent);
+    }
+
+    .slide-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      background: var(--bg);
+    }
+
+    .slide-card span {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 9px 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .stage {
+      position: sticky;
+      top: 72px;
+      align-self: start;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 16px;
+    }
+
+    .stage img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: contain;
+      border-radius: 6px;
+      background: var(--bg);
+    }
+
+    .stage-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .review-list {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .review-list li {
+      padding: 4px 0;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+    }
+
+    @media (max-width: 860px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .stage {
+        position: static;
+      }
+
+      .meta {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <h1>Carroussel Review - Teste 1 OpenRouter</h1>
+      <div class="meta" aria-label="Run metadata">
+        <span class="chip">2026-06-04</span>
+        <span class="chip">9 slides</span>
+        <span class="chip">810x1080</span>
+        <span class="chip">local_text_overlay</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid" aria-label="Slides gerados">
+      <button class="slide-card" type="button" data-slide="1" aria-pressed="true">
+        <img src="output/2026-06-04/slide-01.png" alt="Slide 1">
+        <span><strong>Slide 01</strong><em>Capa</em></span>
+      </button>
+      <button class="slide-card" type="button" data-slide="2" aria-pressed="false">
+        <img src="output/2026-06-04/slide-02.png" alt="Slide 2">
+        <span><strong>Slide 02</strong><em>Problema</em></span>
+      </button>
+      <button class="slide-card" type="button" data-slide="3" aria-pressed="false">
+        <img src="output/2026-06-04/slide-03.png" alt="Slide 3">
+        <span><strong>Slide 03</strong><em>Por que</em></span>
+      </button>
+      <button class="slide-card" type="button" data-slide="4" aria-pressed="false">
+        <img src="output/2026-06-04/slide-04.png" alt="Slide 4">
+        <span><strong>Slide 04</strong><em>Como</em></span>
+      </button>
+      <button class="slide-card" type="button" data-slide="5" aria-pressed="false">
+        <img src="output/2026-06-04/slide-05.png" alt="Slide 5">
+        <span><strong>Slide 05</strong><em>Numeros</em></span>
+      </button>
+      <button class="slide-card" type="button" data-slide="6" aria-pressed="false">
+        <img src="output/2026-06-04/slide-06.png" alt="Slide 6">
+        <span><strong>Slide 06</strong><em>Virada</em></span>
+      </button>
+      <button class="slide-card" type="button" data-slide="7" aria-pressed="false">
+        <img src="output/2026-06-04/slide-07.png" alt="Slide 7">
+        <span><strong>Slide 07</strong><em>Pratica</em></span>
+      </button>
+      <button class="slide-card" type="button" data-slide="8" aria-pressed="false">
+        <img src="output/2026-06-04/slide-08.png" alt="Slide 8">
+        <span><strong>Slide 08</strong><em>Direcao</em></span>
+      </button>
+      <button class="slide-card" type="button" data-slide="9" aria-pressed="false">
+        <img src="output/2026-06-04/slide-09.png" alt="Slide 9">
+        <span><strong>Slide 09</strong><em>CTA</em></span>
+      </button>
+    </section>
+
+    <aside class="stage" aria-label="Slide selecionado">
+      <p class="stage-title">
+        <strong id="stage-label">Slide 01</strong>
+        <span id="stage-path">output/2026-06-04/slide-01.png</span>
+      </p>
+      <img id="stage-image" src="output/2026-06-04/slide-01.png" alt="Slide selecionado">
+      <ul class="review-list">
+        <li>PMO: verificar copy exata, legibilidade e cortes.</li>
+        <li>Founder: aprovar direcao visual ou pedir alteracoes por slide.</li>
+        <li>Depois de alteracao: rodar `python runner.py --date 2026-06-04 --slide N`.</li>
+      </ul>
+    </aside>
+  </main>
+
+  <script>
+    const cards = Array.from(document.querySelectorAll(".slide-card"));
+    const stageImage = document.getElementById("stage-image");
+    const stageLabel = document.getElementById("stage-label");
+    const stagePath = document.getElementById("stage-path");
+
+    for (const card of cards) {
+      card.addEventListener("click", () => {
+        for (const item of cards) {
+          item.setAttribute("aria-pressed", "false");
+        }
+        card.setAttribute("aria-pressed", "true");
+        const img = card.querySelector("img");
+        const slide = String(card.dataset.slide).padStart(2, "0");
+        stageImage.src = img.getAttribute("src");
+        stageImage.alt = `Slide ${slide} selecionado`;
+        stageLabel.textContent = `Slide ${slide}`;
+        stagePath.textContent = img.getAttribute("src");
+      });
+    }
+  </script>
+</body>
+</html>

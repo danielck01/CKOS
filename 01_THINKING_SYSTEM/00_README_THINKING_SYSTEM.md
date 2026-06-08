@@ -12,7 +12,7 @@ reviewers:
 approval_required:
   - none
 purpose: README auxiliar de navegação da fase 01.
-inputs: Docs canônicos 01-05.
+inputs: Docs canônicos 01-06.
 outputs: Guia de leitura do Thinking System.
 framework: Documento auxiliar.
 edge_cases: Não aplicável.
@@ -37,6 +37,7 @@ A camada conceitual do CKOS: o que o sistema é, quais objetos manipula, como ag
 3. `03_AGENT_OPERATING_MODEL.md` — superagents/agents/subagents, handoffs, runs, hierarquia.
 4. `04_AUTONOMY_AND_APPROVALS.md` — 7 níveis de autonomia, approval gates, matriz de risco.
 5. `05_MEMORY_AND_CONTEXT_ARCHITECTURE.md` — camadas de memória, RAG, trust hierarchy, context packet.
+6. `06_CREATIVE_DNA_SYSTEM.md` — objeto vivo de Creative DNA, maturidade DNA-0..DNA-vivo, aplicação, auditoria e calibração.
 
 ## Naming (freeze v2 aplicado)
 

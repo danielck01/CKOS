@@ -1,8 +1,20 @@
 {
-  "provider": "mock",
+  "provider": "mock_html",
   "mode": "image",
-  "image_model": null,
+  "image_model": "mock_html",
   "video_model": null,
+  "modalities": ["image", "text"],
   "aspect_ratio": "3:4",
-  "quality": "test"
+  "image_config": {
+    "aspect_ratio": "3:4",
+    "image_size": "2K"
+  },
+  "target_width": 810,
+  "target_height": 1080,
+  "normalize_output": true,
+  "local_text_overlay": true,
+  "quality": "test0-mock-html",
+  "timeout_seconds": 180,
+  "http_referer": "https://ckos.local",
+  "x_title": "CKOS Carroussel Sandbox"
 }
