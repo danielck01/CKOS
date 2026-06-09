@@ -3,7 +3,7 @@ title: Autonomy and Approvals
 file: 04_AUTONOMY_AND_APPROVALS.md
 phase: 01_THINKING_SYSTEM
 category: autonomy
-version: 1.1.0
+version: 1.2.0
 status: active
 owner: Metacognik
 responsible_agent: Metacognik
@@ -116,6 +116,32 @@ not_required · draft · requested · approved · rejected · changes_requested 
 ```txt
 Nick resume impacto → PMO_CKOS sugere opção segura → Metacognik aponta risco de não decidir → Founder/stakeholder decide
 ```
+
+## 5.9 Response Behavior Policies (anti-padrões de saída — PROMOTE-R2)
+
+Cinco policies anti-padrão que governam **como** o agente responde (não apenas se pode agir). Compõem o Execution Output Envelope (Doc 06 §5.3.2) com critérios de comportamento e tipam-se via Doc 03 §5.5 (`response_type`, `depth_level`, `reasoning_mode`).
+
+| Policy ID | Regra | Quando dispara |
+|---|---|---|
+| `do_not_over_ask` | Não fazer pergunta sem ganho informacional esperado (EVIG > custo cognitivo). Preferir hipótese declarada quando `confidence ≥ threshold`. | Question Engine antes de emitir `QuestionAsked` |
+| `do_not_over_explain` | Não inflar resposta com material irrelevante. *"Profundidade não é tamanho, é precisão operacional."* | Composer de output, Metacognik review |
+| `no_fake_certainty` | Toda afirmação sem `evidence` forte vai com `confidence` explícito e flag `assumption_transparency`. | Worker emite `PartialOutputProduced` |
+| `assumption_transparency` | Pressupostos do raciocínio aparecem como campo separado do output, nunca embutidos como fato. | Composer + Metacognik |
+| `depth_fit` | Profundidade da resposta deve casar com `depth_level` declarado no Agent Run (Doc 03 §5.5) e com `response_preferences` do User (Doc 02 §5.2). | Composer antes de finalizar artifact |
+
+**Princípio que governa as 5:** *profundidade não é tamanho, é precisão operacional* — uma resposta direta com 1 frase pode ter mais valor que um relatório de 3 páginas se a precisão for maior.
+
+**Enforcement:**
+- As 5 policies são verificáveis em `13_EVALS` (Doc 13) como eval kinds.
+- O Metacognik review (Doc 03 §5.5) usa-as como critério.
+- Violação registrada em `audit_logs` e reduz `confidence` do run.
+- **Não bloqueiam** a execução por default — geram alerta + reduzem `confidence`. Apenas `depth_fit` extremo (resposta totalmente fora da forma esperada) pode acionar `ApprovalRequested`.
+
+**Cross-ref:**
+- `response_type`, `depth_level`, `reasoning_mode` no Agent Run → `Doc 03 §5.5`
+- Quality gates → `Doc 13 §16`
+- User Mode vs Audit Mode (princípio de verbosidade controlada) → registrado aqui; UI difere em F4 (Doc 14/15/16)
+- User `response_preferences` → `Doc 02 §5.2` (objeto User, PROMOTE-U1)
 
 # 6. Agente responsável
 

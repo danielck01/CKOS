@@ -3,7 +3,7 @@ title: Memory and Context Architecture
 file: 05_MEMORY_AND_CONTEXT_ARCHITECTURE.md
 phase: 01_THINKING_SYSTEM
 category: memory
-version: 1.1.0
+version: 1.2.0
 status: active
 owner: Cognik
 responsible_agent: Cognik
@@ -96,6 +96,7 @@ Conflito → Metacognik aciona revisão.
 ```yaml
 memory_id:
 project_id:
+user_id:           # novo — PROMOTE-U2: memória escopada por usuário, persistente entre projetos (AQ-IO-3 resolvida)
 workspace_id:
 type:
 source_object:
@@ -110,6 +111,27 @@ valid_until:
 related_nodes:
 related_decisions:
 ```
+
+### 5.6.1 Escopo de memória: project, workspace, user (PROMOTE-U2)
+
+A partir do PATCH 2, o `memory_object` admite **três dimensões de escopo simultâneas**, cada uma opcional dependendo do tipo da memória:
+
+| Campo | Quando preencher | Lifecycle |
+|---|---|---|
+| `project_id` | memória ligada a um projeto específico (briefing vivo, decisões do projeto, artifacts) | dura enquanto o projeto está ativo + retenção pós-arquivamento conforme `12_SECURITY` |
+| `workspace_id` | memória organizacional (políticas do workspace, identidade da marca, stakeholders comuns) | dura enquanto o workspace existir |
+| `user_id` | memória do usuário **entre projetos** (preferências de resposta, autonomy preferences, tribos scored, User Operating DNA refs, padrões de decisão observados) | dura enquanto o User existir; sobrevive ao arquivamento de projetos |
+
+**Regras de combinação:**
+- Memória pode ter **um, dois ou os três escopos** preenchidos. Exemplos:
+  - `{project_id, workspace_id}` — memória clássica de projeto (comportamento atual antes do PATCH 2)
+  - `{user_id, workspace_id}` — preferências do usuário dentro de uma organização
+  - `{user_id}` — preferência cross-workspace do usuário (rara; geralmente Founder-only)
+- **Permission filter (`12_SECURITY`)** continua sendo aplicado: um usuário não enxerga memória `user_id` de outro usuário, mesmo no mesmo workspace, salvo se `permission_level` autorizar (default: deny).
+- **Trust hierarchy (§5.5)** permanece: memória escopada `user_id` não tem prioridade especial — segue a mesma ordem (approved decision > signed contract > structured DB > etc.).
+- **Esquecimento e expiração (§5.8)**: memória `user_id` tem retenção independente do ciclo de vida de projetos. Limpeza por solicitação explícita do usuário (LGPD) ou por `valid_until`.
+
+Materialização física (índices `user_id`, RLS, namespace de vetor) é especificada em `11_DATA_MODEL` como patch candidate posterior — esta seção define apenas a **política**.
 
 ## 5.7 Context packet
 

@@ -3,7 +3,7 @@ title: Agent Operating Model
 file: 03_AGENT_OPERATING_MODEL.md
 phase: 01_THINKING_SYSTEM
 category: agents
-version: 1.2.0
+version: 1.3.0
 status: active
 owner: PMO_CKOS
 responsible_agent: PMO_CKOS
@@ -104,6 +104,9 @@ skill:
 trigger:
 input:
 output:
+response_type:     # novo — PROMOTE-R1: diagnóstica | estratégica | decisão | operacional | criativa | técnica | learning | ROI
+depth_level:       # novo — PROMOTE-R1: direta | estruturada | estratégica | profunda
+reasoning_mode:    # novo — PROMOTE-R1: fast | deep | skeptical | exploratory
 confidence:
 risks:
 gaps:

@@ -3,7 +3,7 @@ title: Architecture Patch Report — Runtime System Coherence
 file: ARCHITECTURE_PATCH_REPORT.md
 phase: ROOT
 category: governance_report
-version: 1.10.3
+version: 1.10.4
 status: active
 owner: PMO_CKOS
 responsible_agent: metacognik
@@ -2239,3 +2239,61 @@ Não tocados (HOLD-GATE-5 ou taxonomia, decisão Founder+Metacognik):
 **PATCH 1 (Execution Envelope) aplicado ao canônico. `released_with_required_external_audit`.**
 
 Próximo passo: opcional fan-in Founder + Metacognik para sign-off final. AQ-W1-ENVELOPE resolvida e materializada. Libera continuação L3 Wave 2 (Data Models, Tools/Connectors) e GATE 5 (decisão Founder + 4 AQs trava-início: AQ-IO-1, AQ-G5-02, AQ-G5-05, AQ-G5-09).
+
+---
+
+# 31. PATCH 2 User-in + Response-out — Canonical Patch Applied — 2026-06-09
+
+**Session ID:** `S-USER-APPLY2-FRESH-20260609-001`
+
+**Task ID:** `WAVE1_PATCH2_USER_IN_RESPONSE_OUT_APPLY_20260609`
+
+**Checkout lock:** `LOCK-USER-APPLY2-FRESH-20260609-001`
+
+**Checkout release:** `REL-USER-APPLY2-FRESH-20260609-001`
+
+**Trigger:** Two-key gate cleared on 2026-06-09 — Founder GATE 5 = GO + AQ-IO-1 = `user` ✅ (`000_ROADMAPS/22_CONSOLIDATION/L3_WAVE1/GATE5_FOUNDER_DECISION_PACKAGE.md §8`) + Metacognik APROVA ✅ (`000_ROADMAPS/22_CONSOLIDATION/L3_WAVE1/PATCH2_METACOGNIK_REVIEW.md`, 8/8 PASS, 4/4 GO, 0 patches-leves). Sessão de aplicação pré-montada em `000_ROADMAPS/22_CONSOLIDATION/L3_WAVE1/S-APPLY_PATCH2_CANONICAL.md`. Executor é uma sessão fresca (não-autora claude_opus_4_7, não-auditora Windsurf) per separação-de-papéis.
+
+**Escopo:** canonical_patch documental sobre Doc 02, Doc 03, Doc 04, Doc 05; sem backend, UI, API, database migration, runtime worker, real agents, MCP server, webhook, JSON n8n ou automação runtime; sem tocar item MÉDIA do F1 candidate (U3/U4/U5/R3/R4/R5 — defer PATCH 3); sem criar `/CKOS_USER_SYSTEM/` ou pastas similares; sem mover/arquivar/renomear `000_UPGRADE/`.
+
+## 31.1 Arquivos alterados (canônico)
+
+| Doc | Patch | Versão anterior | Versão atual | Mudança |
+|-----|-------|:---------------:|:------------:|---------|
+| `01_THINKING_SYSTEM/02_AI_FIRST_OBJECT_MODEL.md` | A (PROMOTE-U1) | 1.1.0 | **1.2.0** | §5.1 +User no índice; §5.2 +definição User como objeto 1ª classe (campos canônicos, distinção User≠Stakeholder, relação `Stakeholder.user_id → User.user_id`) |
+| `01_THINKING_SYSTEM/05_MEMORY_AND_CONTEXT_ARCHITECTURE.md` | B (PROMOTE-U2) | 1.1.0 | **1.2.0** | §5.6 YAML +`user_id` no memory_object; §5.6.1 nova explicação dos 3 escopos (project/workspace/user) com regras de combinação, permission filter, trust hierarchy, esquecimento |
+| `01_THINKING_SYSTEM/03_AGENT_OPERATING_MODEL.md` | C (PROMOTE-R1) | 1.2.0 | **1.3.0** | §5.5 Agent Run +3 campos: `response_type`, `depth_level`, `reasoning_mode` (tipam a forma do output, não substituem output) |
+| `01_THINKING_SYSTEM/04_AUTONOMY_AND_APPROVALS.md` | D (PROMOTE-R2) | 1.1.0 | **1.2.0** | §5.9 nova Response Behavior Policies (5 anti-padrões: do_not_over_ask, do_not_over_explain, no_fake_certainty, assumption_transparency, depth_fit) com enforcement em Doc 13 |
+
+## 31.2 Arquivos alterados (governance)
+
+- `ARCHITECTURE_PATCH_REPORT.md` (este — v1.10.3 → v1.10.4; §31 registrada)
+- `000_ROADMAPS/SESSION_REGISTRY.md` (1 sessão + 1 lock + release)
+
+## 31.3 Resolução de AQ-IO-2 e AQ-IO-3
+
+**AQ-IO-2 (User é objeto novo de 1ª classe ou promoção/extensão do Stakeholder?):** Resolvida por **objeto novo** com relação explícita. PATCH A define User como identidade operacional persistente entre projetos; Stakeholder é papel projeto-escopado. Um User pode ser múltiplos Stakeholders em projetos diferentes. Relação: `Stakeholder.user_id → User.user_id` (referência). Não fragmenta; apenas nomeia o que já existia implicitamente.
+
+**AQ-IO-3 (Memória user_id é nova camada de escopo no Doc 05, ou identity store separado?):** Resolvida por **nova camada de escopo no Doc 05**. PATCH B adiciona `user_id` como 4ª dimensão de escopo no `memory_object` (ao lado de `project_id`/`workspace_id`). É mecânico, não estrutural. Criar identity store separado refabricaria fragmentação (1:35 risk). Princípio #5 — nomear o que falta, não criar sistema novo.
+
+## 31.4 Itens fora do escopo desta aplicação (MÉDIA do F1 candidate, defer PATCH 3)
+
+Não tocados (decisão Founder+Metacognik via GATE 5 + Metacognik review):
+
+- U3 (aprendizado 4 níveis: declarado→observado→inferido→validado) — depende de telemetria que ainda não existe
+- U4 (tribos como modos dinâmicos `f(comportamento, intenção, projeto, feedback)`) — depende de F1-S6 (memória rodando)
+- U5 (onboarding engine adaptativa) — abstrato sem F1-S1/S2 rodando
+- R3 (gate de lacuna em 3 níveis) — entra com Question Engine de F1-S2
+- R4 (Response Contract V1 — 9 pontos) — precisa evals existentes (Doc 13)
+- R5 (User Mode vs Audit Mode) — princípio registrado; UI difere em F4
+
+## 31.5 Risco e rollback
+
+- **P1 (Thinking System core 02/03/04/05):** mitigado por escopo cirúrgico (4 docs, 4 patches aditivos), reuso de estruturas existentes, zero formato novo. PATCH A adiciona 1 objeto + 1 entrada no índice; PATCH B adiciona 1 campo + 1 sub-seção; PATCH C adiciona 3 campos em bloco YAML; PATCH D adiciona 1 sub-seção. Todos aditivos, todos reversíveis.
+- **Reversibilidade:** baseline git `c3786c2` (commit PMO synthesis); cada PATCH é bloco isolado; rollback trivial via `git revert` ou edição inversa.
+
+## 31.6 Status
+
+**PATCH 2 (User-in + Response-out) aplicado ao canônico. `released_with_required_external_audit`.**
+
+Próximo passo: fan-in final / sign-off Founder+Metacognik; libera F1 Sprint 1 (S1 carrega user_id + IntentReceived). Doc 11 precisará de patch suggestions futuras para tabela User + índice user_id em memories. Doc 27 (Work Orders) pode precisar carregar user_id. Isso é trabalho futuro, não bloqueador.

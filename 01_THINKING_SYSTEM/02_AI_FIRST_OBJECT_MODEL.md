@@ -3,7 +3,7 @@ title: AI First Object Model
 file: 02_AI_FIRST_OBJECT_MODEL.md
 phase: 01_THINKING_SYSTEM
 category: object_model
-version: 1.1.0
+version: 1.2.0
 status: active
 owner: PMO_CKOS
 responsible_agent: Cognik
@@ -51,7 +51,7 @@ Taxonomia de objetos; relações; estados operacionais; lifecycle de nodes; depe
 ## 5.1 Objetos principais
 
 ```txt
-Workspace · Project · Stakeholder · Briefing · Signal · Node · Capability · Agent · Skill
+User · Workspace · Project · Stakeholder · Briefing · Signal · Node · Capability · Agent · Skill
 Workflow · Run · Insight · Hypothesis · Risk · Gap · Evidence · Decision · Approval
 Artifact · Memory · Prompt · Integration · Metric · Event
 ```
@@ -59,6 +59,7 @@ Artifact · Memory · Prompt · Integration · Metric · Event
 ## 5.2 Definições
 
 - **Workspace**: container de organização/cliente/operação.
+- **User**: pessoa que opera ou consome o CKOS — objeto de 1ª classe, vivo e versionado. **Campos canônicos:** `user_id, display_name, role, workspace_ids[], primary_stakeholder_id?, operating_dna_ref?, tribes_scored?, autonomy_preferences, response_preferences, confidence, created_at, updated_at`. **Distinção:** `User` é a **identidade operacional persistente entre projetos**; `Stakeholder` é o **papel projeto-escopado** (founder, owner, reviewer, client...) que um `User` pode assumir. Um `User` pode ser múltiplos `Stakeholders` em projetos diferentes. **Relação:** `Stakeholder.user_id → User.user_id` (referência). (PROMOTE-U1, AQ-IO-2 resolvida: `User` é objeto novo de 1ª classe, não extensão do `Stakeholder`.)
 - **Project**: unidade operacional (branding, campanha, pesquisa, produto, proposta, evento, e-commerce, sistema).
 - **Stakeholder**: founder, owner, sponsor, reviewer, operator, client, external partner, agent group.
 - **Briefing**: objeto vivo (não formulário). Campos: `objective, context, constraints, audience, stakeholders, known_data, missing_data, current_hypotheses, active_nodes, confidence_score`.
