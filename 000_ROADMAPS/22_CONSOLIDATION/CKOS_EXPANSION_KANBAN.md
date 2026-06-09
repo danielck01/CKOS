@@ -45,11 +45,11 @@ title: CKOS Expansion Kanban
     - **L3-Onda 1 EXECUTADA + FAN-IN ✅** `L3_WAVE1/WAVE1_FANIN_AUDIT_FOR_FOUNDER.md` — 5 sessões rodaram (2 Claude + 2 Codex + 1 Windsurf); Windsurf re-verificado na fonte. **Achado meta:** todo o espelho UPGRADE (Agents+Skills+Transformers+Policies) é scaffold/boilerplate; único net-new estrutural durável = **Execution Envelope** `{confidence, risks, next_actions}`. **31 itens crus → 2 GO** (PATCH 1 = Execution Envelope S1+T1+S2) · 0 policies · resto HOLD-GATE-5/taxonomia. 18 AQs → **3 perguntas-mãe + GATE 5**. **→ Founder: go/hold + aprovar PATCH 1**. TR-DATAMODELS + TR-CORERUNTIME = GATE-5-atados
   - **L4:** DNA vault + SUPERAGENT (benchmark externo — mapear estudo de tradução do DNA antes) + dups UI/UX
   - **Mecanismo validado:** git mv preserva links (wikilinks por nome) + commit por lote reversível
-- [ ] GATE 5 — Spec do Backend MVP thin-slice (arquivo 03) #F0 #gate **[SPEC PRONTA + FAN-IN ✅ — EM ESPERA até consolidação]**
-  - **Arquivo:** `03_BACKEND_MVP_THIN_SLICE_PLAN.md` (Codex2 criou; fan-in Claude ✅ 2026-06-02)
-  - **Fan-in:** 16 seções, backend puro, event log central, RLS/tenant desde S1, 9 AQs. Doc 12 + secret handling adicionados no fan-in.
-  - **Pendência única:** decisão Founder (aprovar = fecha F0, abre F1; é gate, não auto-aprovável)
-  - **Pacote de decisão:** `GATE5_FOUNDER_DECISION_PACKAGE.md` (go/no-go, **10 AQs** — AQ-IO-1 user-vs-project add 2026-06-04, grupo 🔴 trava-início)
+- [x] GATE 5 — Decidido **GO + user-first** pelo Founder em **2026-06-09** #F0 #gate ✅
+  - **Arquivo:** `03_BACKEND_MVP_THIN_SLICE_PLAN.md` (Codex2 criou; fan-in Claude ✅ 2026-06-02) + §18 patch leve user-first (PMO 2026-06-09)
+  - **Decisão registrada:** `GATE5_FOUNDER_DECISION_PACKAGE.md` §8 (status = `decided_go_user_first`)
+  - **4 AQs trava-início respondidas:** AQ-IO-1 = `user` · AQ-G5-02 = pg-boss · AQ-G5-05 = OpenRouter único + Claude 4.7 Opus + GPT-5.5 (fallback mútuo, não separados) · AQ-G5-09 = Supabase Vault + secret_refs
+  - **Próximo passo mecânico:** PATCH 2 canonical_patch candidate (U1/U2/R1/R2) → 2ª chave Metacognik → APPLY → Sprint 1 começa
 - [ ] Doc 11 RAG schema — patch CANDIDATE (proposta, não aplicação) #F0 #runtime
   - **Depende de:** arquivo 03 (GATE 5) — sem ele vira over-engineering
   - **Prompt pronto:** `000_ROADMAPS/12_PROMPTS/08_PROMPT_CODEX_DOC11_RAG_SCHEMA_PATCH_CANDIDATE.md`
@@ -67,8 +67,12 @@ title: CKOS Expansion Kanban
 
 ## 🟡 Curto — F1 Runtime Cognitivo MVP
 
-> Abre após GATE 5 aprovado pelo Founder (spec = arquivo 03, vive em F0).
-- [ ] S1 — Intent Resolver + Context State + output simples #F1 #runtime
+> **ABERTA 2026-06-09** após GATE 5 = GO (Founder). Sprint 1 começa **após PATCH 2** ser aplicado ao canônico (cadeia: candidate → Metacognik APROVA → APPLY → S1).
+- [ ] **PATCH 2 canonical_patch (User-in + Response-out)** — pré-condição ao Sprint 1 #F1 #FX #runtime
+  - **Escopo (ALTA):** U1 (User objeto 1ª classe → Doc 02), U2 (memória `user_id` → Doc 05), R1 (response_type/depth_level/reasoning_mode → Doc 03 Agent Run), R2 (5 anti-pattern policies → Doc 04)
+  - **Defer P3 (MÉDIA):** U3/U4/U5/R3/R4/R5 — entram em PATCH 3 conforme F1-Sprints 2-3 revelarem necessidade
+  - **Files:** `L3_WAVE1/PATCH2_USER_IN_RESPONSE_OUT_CANDIDATE.md` + `L3_WAVE1/S-APPLY_PATCH2_CANONICAL.md` (criados 2026-06-09; aguardando Metacognik)
+- [ ] S1 — Intent Resolver + Context State + output simples (carrega `user_id` desde ingress) #F1 #runtime
 - [ ] S2 — Question Engine + score de clareza + lacunas/risco #F1 #runtime
 - [ ] S3 — Registry agentes/skills + policy checker + approval gates #F1 #runtime #agentes
 - [ ] S4 — Event Log (sem ele, vira chat bonito) #F1 #runtime #blocker

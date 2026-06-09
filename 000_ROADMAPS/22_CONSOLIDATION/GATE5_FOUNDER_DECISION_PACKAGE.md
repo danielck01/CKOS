@@ -3,17 +3,22 @@ title: GATE 5 — Pacote de Decisão do Founder
 file: GATE5_FOUNDER_DECISION_PACKAGE.md
 phase: 000_ROADMAPS
 category: gate_decision
-status: awaiting_founder_decision
+status: decided_go_user_first
+decision_date: 2026-06-09
+decided_by: founder
 owner: pmo_ckos
 created_at: 2026-06-02
 updated_at: 2026-06-09
 session_id: S-P1-GATE5PKG-CLAUDE-20260602-006
 update_session: S-USER-PMO-CLAUDE-20260609-001
+decision_record_session: S-USER-PMO-CLAUDE-20260609-001
 decides: GATE 5 (abre F1 / runtime)
 base_file: 03_BACKEND_MVP_THIN_SLICE_PLAN.md
 related_synthesis:
   - 000_STUDY_NOTES/02_RESEARCH_SYNTHESIS/ck_memory.md
   - 000_ROADMAPS/22_CONSOLIDATION/F1_RUNTIME_IO_CONTRACTS_RECONCILIATION_CANDIDATE.md
+opens: F1 (Runtime Cognitivo MVP)
+next_canonical_patch: 000_ROADMAPS/22_CONSOLIDATION/L3_WAVE1/PATCH2_USER_IN_RESPONSE_OUT_CANDIDATE.md
 ---
 
 # GATE 5 — Pacote de Decisão (go / no-go)
@@ -72,9 +77,9 @@ Agrupadas por **quando** travam. Você não precisa responder todas hoje — só
 
 ## 6. Sua decisão
 
-- [ ] **GO** — autorizo F1; responderei as 4 AQs de início antes do Sprint 1.
-- [ ] **GO parcial** — autorizo só o Sprint 1 (event ingress + event log) e reavalio.
-- [ ] **NO-GO** — segurar; motivo: __________.
+- [x] **GO** — autorizo F1; respondo as 4 AQs de início abaixo (decidido 2026-06-09).
+- [ ] ~~GO parcial — autorizo só o Sprint 1 (event ingress + event log) e reavalio.~~
+- [ ] ~~NO-GO — segurar.~~
 
 > Lembrete: nenhuma ferramenta de IA declara gate aprovado. Esta decisão é sua, registrada com data no SESSION_REGISTRY.
 
@@ -144,3 +149,50 @@ Ao responder `user`, ele passa a:
 - S6 (memória + ROI) escopar tanto `project_id` quanto `user_id`
 
 **Não exige reescrever o arquivo 03.** Exige um **patch leve** (próxima sessão) sequenciando `user_id` antes de `project_id` nos contratos de evento e referenciando o patch candidate U1/U2 do `F1_RUNTIME_IO_CONTRACTS_RECONCILIATION_CANDIDATE.md`.
+
+---
+
+## 8. Decisão Founder registrada (2026-06-09)
+
+> **Status:** GATE 5 = ✅ **GO** · Founder virou a chave em 2026-06-09 · sessão de registro: `S-USER-PMO-CLAUDE-20260609-001`.
+
+### 8.1 Respostas oficiais às 4 AQs trava-início
+
+| AQ | Decisão Founder | Observação |
+|---|---|---|
+| **AQ-IO-1** | ✅ **`user`** — o S1 carrega `user_id` desde o ingress | Confirma tese *user-first*; molda S1/S2; sequencia PATCH 2 |
+| **AQ-G5-02** | ✅ **pg-boss** (primeira escolha) com Supabase Queues como alternativa caso queira manter 100% ecosystem | Postgres-native, zero infra extra; Temporal fica em radar para F6 |
+| **AQ-G5-05** | ✅ **OpenRouter único como gateway** → modelos primários **Claude 4.7 Opus + GPT-5.5**, fallback mútuo via o mesmo gateway (não separados) | GPT-4 marcado como obsoleto pelo Founder em 2026-06-09 |
+| **AQ-G5-09** | ✅ **Supabase Vault + `secret_refs`** (já modelado em Doc 11 §12.1 + Doc 12 §5.15) | Cobertura para chave OpenRouter + futuras chaves MCP/Apify/OAuth |
+
+### 8.2 O que GATE 5 = GO libera
+
+1. **F1 Runtime Cognitivo MVP** está oficialmente aberto.
+2. **PATCH 2 canonical_patch candidate** (User-in + Response-out — itens ALTA U1/U2 + R1/R2) deve ser pré-montado em sessão separada antes de aplicar (mesmo padrão da cadeia PATCH 1: candidate → 2ª chave Metacognik → APPLY).
+3. **Patch leve no `03_BACKEND_MVP_THIN_SLICE_PLAN.md`** sequenciando `user_id` antes de `project_id` nos contratos S1 (adicionado §18 — não reescreve o resto).
+4. **F1 Sprint 1** começa **somente após PATCH 2 aplicado** ao canônico — não antes. Ordem mecânica: PATCH 2 candidate → Metacognik APROVA → APPLY → Sprint 1.
+
+### 8.3 O que GATE 5 = GO **NÃO** libera
+
+- Pasta `/CKOS_USER_SYSTEM/` ou Response Engine docs 01-07 (refabrica fragmentação 1:35)
+- Schemas SQL novos (Doc 11 ainda gated)
+- Cognitive Atmosphere / Glass / wallpaper / widgets (F4)
+- Banco de 100 smart questions (prematuro)
+- Self-evolving runtime, Builder Subagents autônomos, marketplace (F6+)
+
+### 8.4 Cadeia de duas chaves para PATCH 2
+
+| Chave | Quem | Sobre o quê | Estado |
+|---|---|---|---|
+| 1ª | **Founder** | autorização GATE 5 = GO + AQ-IO-1 = `user` + 3 AQs técnicas | ✅ dada 2026-06-09 |
+| 2ª | **Metacognik** | review apply-gate do texto exato do PATCH 2 candidate | ⏳ pendente (sessão a abrir após PATCH 2 candidate ser escrita) |
+
+### 8.5 Próximos passos imediatos (PMO)
+
+1. ✅ Atualizar `CKOS_EXPANSION_KANBAN.md`: GATE 5 = concluído; F1 = aberta.
+2. ✅ Patch leve `03_BACKEND_MVP_THIN_SLICE_PLAN.md` §18 com sequenciamento user-first.
+3. ✅ Escrever `L3_WAVE1/PATCH2_USER_IN_RESPONSE_OUT_CANDIDATE.md` apply-ready (U1/U2 + R1/R2).
+4. ✅ Escrever `L3_WAVE1/S-APPLY_PATCH2_CANONICAL.md` (sessão de aplicação pré-montada, gated na 2ª chave).
+5. (Futuro) Metacognik review apply-gate do PATCH 2.
+6. (Futuro) Executor fresco aplica PATCH 2 ao canônico (Doc 02/03/04/05).
+7. (Futuro) Sprint 1 começa.

@@ -299,3 +299,64 @@ Project Kernel -> Briefing Intake -> Notes/Documents -> Event Log
 Esta refinacao melhora §9/§14 e vale quando o GATE 5 for aprovado. **Nao altera o status: F1 segue em espera ate a consolidacao avancar.**
 
 Checkout release esperado desta sessao: arquivo 03 criado, registry atualizado, GATE 5 preparado para fan-in, sem aprovacao Founder e sem implementacao.
+
+---
+
+# 18. Pós-GATE 5 (Founder 2026-06-09): sequenciamento user-first
+
+> **Patch leve adicionado pela sessão `S-USER-PMO-CLAUDE-20260609-001` após GATE 5 = GO + AQ-IO-1 = `user`.** Não reescreve §1-§17; documenta como o slice é sequenciado a partir de identidade do usuário, não de projeto.
+
+## 18.1 Decisão âncora (AQ-IO-1 = `user`)
+
+O thin-slice começa em `user identity + 1ª intenção`. O `project_id` é opcional na primeira intenção; pode ser criado/inferido a posteriori conforme a intenção justificar. Isso molda a forma dos contratos de evento abaixo.
+
+## 18.2 Eventos S1 sequenciados a partir do usuário
+
+```txt
+1. IntentSubmitted{
+     user_id        REQUIRED   # quem está falando — identidade resolvida no ingress
+     intent_text    REQUIRED   # a 1ª intenção bruta
+     project_id     OPTIONAL   # ausente na 1ª intenção do user; pode nascer dela
+     context_ref    OPTIONAL   # qualquer hint (briefing existente, conversa anterior, etc.)
+     workspace_id   REQUIRED   # tenant boundary — mantido como em Doc 10 §5.2
+     occurred_at    REQUIRED
+     correlation_id REQUIRED
+   }
+
+2. IntentResolved{
+     user_id, intent, confidence, candidate_object_types  # 'project'|'briefing'|'task'|...
+     user_dna_ref?  # se PROMOTE-U1 já aplicado, referência ao User Operating DNA
+   }
+
+3. ContextAssembled{
+     user_id, user_memory_refs[]   # PROMOTE-U2 — memória escopada user_id
+     project_memory_refs[]         # se project_id existir
+     ...
+   }
+```
+
+Diferença em relação a §4/§8: o ingress não exige `project_id`. Não se inventa projeto sintético só para preencher schema — se a 1ª intenção do user não tem projeto, o `WorkOrderScoped` registra essa fronteira e Cognik decide se o output desta intenção JUSTIFICA criar um project_id (e nesse caso emite `ProjectInferred{user_id, project_id, source_intent_id}`).
+
+## 18.3 Pré-condição mecânica para Sprint 1
+
+Sprint 1 (S1) **não** começa até que o **PATCH 2 canonical_patch** seja aplicado ao canônico, especificamente:
+
+- **U1** — `User` como objeto de 1ª classe no Doc 02 (hoje só existe `Stakeholder` plano)
+- **U2** — memória escopada `user_id` no Doc 05 (hoje `memory_object` é só `project_id`+`workspace_id`)
+
+Sem U1+U2 aplicados, S1 carrega `user_id` sem ter onde modelar o objeto User nem onde escopar a memória. Funcional, mas viola Princípio #5 (anti-fragmentação) — criaria o objeto no código sem casa canônica.
+
+R1 (response typing) e R2 (anti-pattern policies) entram no mesmo PATCH 2 por economia de sessão, mas tecnicamente o S1 pode rodar com apenas U1+U2; R1/R2 são endurecimento de S2/S3.
+
+## 18.4 Patch candidate
+
+Texto literal apply-ready em `000_ROADMAPS/22_CONSOLIDATION/L3_WAVE1/PATCH2_USER_IN_RESPONSE_OUT_CANDIDATE.md` (criado 2026-06-09). Cadeia de duas chaves: Founder ✅ (GATE 5 = GO em 2026-06-09) + Metacognik ⏳ (review apply-gate).
+
+## 18.5 O que continua não muda
+
+- §3 backend-antes-de-UI permanece intacto
+- §5 componentes mínimos do runtime sem alteração (já incluem `intent_router`, `policy_engine`, `event_store`, `memory_writer`, `cost_guard`)
+- §6 os 4 agentes MVP (Cognik, PM/Builder, Metacognik-Risk, ROI) sem alteração
+- §13 critérios de pronto do GATE 5 — todos satisfeitos (Founder approvou)
+- §14 ordem recomendada de sprints — preserva: S1 ingress → S4 event log → S2/S3 → S5 → S6
+- §17 dogfooding e refinacao Codex/Founder permanece
