@@ -3,7 +3,7 @@ title: Architecture Patch Report — Runtime System Coherence
 file: ARCHITECTURE_PATCH_REPORT.md
 phase: ROOT
 category: governance_report
-version: 1.10.2
+version: 1.10.3
 status: active
 owner: PMO_CKOS
 responsible_agent: metacognik
@@ -2184,3 +2184,58 @@ Doc 28 define arquitetura documental para:
 **Doc 28 created as canonical draft documentary architecture, released_with_required_external_audit.**
 
 Next step: Fan-in Claude: confirmar integridade do Doc 28 e declarar GATE 3 ✅.
+
+---
+
+# 30. PATCH 1 Execution Envelope — Canonical Patch Applied — 2026-06-09
+
+**Session ID:** `S-P1-L3-APPLY1-CLAUDE-20260609-001`
+
+**Task ID:** `WAVE1_PATCH1_EXECUTION_ENVELOPE_APPLY_20260609`
+
+**Checkout lock:** `LOCK-P1-L3-APPLY1-CLAUDE-20260609-001`
+
+**Checkout release:** `REL-P1-L3-APPLY1-CLAUDE-20260609-001`
+
+**Trigger:** Two-key gate cleared on 2026-06-04 — Founder triagem GO ✅ (`000_ROADMAPS/22_CONSOLIDATION/L3_WAVE1/WAVE1_FANIN_AUDIT_FOR_FOUNDER.md`) + Metacognik APROVA ✅ (`000_ROADMAPS/22_CONSOLIDATION/L3_WAVE1/PATCH1_METACOGNIK_REVIEW.md`, PATCH D = GO incluído). Sessão de aplicação pré-montada em `000_ROADMAPS/22_CONSOLIDATION/L3_WAVE1/S-APPLY_PATCH1_CANONICAL.md`. Executor é uma sessão fresca (não-autora, não-auditora) per separação-de-papéis.
+
+**Escopo:** canonical_patch documental sobre Doc 06, Doc 09 e Doc 03; sem backend, UI, API, database migration, runtime worker, real agents, MCP server, webhook, JSON n8n ou automação runtime; sem tocar item HOLD do fan-in audit; sem mover/arquivar/renomear `000_UPGRADE/`.
+
+## 30.1 Arquivos alterados (canônico)
+
+| Doc | Patch | Versão anterior | Versão atual | Mudança |
+|-----|-------|:---------------:|:------------:|---------|
+| `02_EXECUTION_SYSTEM/06_SKILLS_REGISTRY.md` | A + B | 1.1.0 | **1.2.0** | §5.3.1 Skill Execution I/O Contract + §5.3.2 Execution Output Envelope; §14 e §15 acréscimo do critério "resultado alimenta consumidor downstream" |
+| `02_EXECUTION_SYSTEM/09_TRANSFORMERS_AND_PIPELINES.md` | C | 1.1.0 | **1.2.0** | §5.5 Transformer registry +5 campos obrigatórios: `output_envelope`, `validation`, `error_policy`, `fallback_manual`, `idempotency_semantics` |
+| `01_THINKING_SYSTEM/03_AGENT_OPERATING_MODEL.md` | D | 1.1.0 | **1.2.0** | §5.5 Agent Run +`next_actions` (alinha Execution Output Envelope idêntico nos 3 docs) |
+
+## 30.2 Arquivos alterados (governance)
+
+- `ARCHITECTURE_PATCH_REPORT.md` (este — v1.10.2 → v1.10.3; §30 registrada)
+- `000_ROADMAPS/SESSION_REGISTRY.md` (1 sessão + 1 lock + release)
+
+## 30.3 Resolução de AQ-W1-ENVELOPE
+
+Resolução aplicada por **reuso de campos canônicos** do Agent Run (Doc 03 §5.5: `confidence`, `risks`, `gaps`, `evidence`, `idempotency_key`). Único campo net-new = `next_actions`. Envelope `{ result, confidence, risks, gaps, next_actions }` agora idêntico nos 3 docs (03/06/09). Zero formato paralelo criado; respeita Constituição §1 (não cria nome de skill/transformer/agente novo, só nomeia forma e critério).
+
+## 30.4 Itens fora do escopo desta aplicação (HOLD do fan-in)
+
+Não tocados (HOLD-GATE-5 ou taxonomia, decisão Founder+Metacognik):
+
+- T2 `briefing_to_task` (Doc 09)
+- S3a/S3b intent/context (Doc 06)
+- Clusters ROI/learning/context
+- Catálogo F2 (agentes/skills sem owner/eval)
+- 11 policies do `000_UPGRADE/07`
+- Mover/arquivar `000_UPGRADE/04|07|08`
+
+## 30.5 Risco e rollback
+
+- **P1 (core Execution System):** mitigado por escopo cirúrgico (3 docs, 4 blocos), reuso de campos canônicos do Agent Run, zero formato novo.
+- **Reversibilidade:** baseline git `b3fc69f`; cada PATCH é bloco isolado; rollback trivial via `git revert` ou edição inversa.
+
+## 30.6 Status
+
+**PATCH 1 (Execution Envelope) aplicado ao canônico. `released_with_required_external_audit`.**
+
+Próximo passo: opcional fan-in Founder + Metacognik para sign-off final. AQ-W1-ENVELOPE resolvida e materializada. Libera continuação L3 Wave 2 (Data Models, Tools/Connectors) e GATE 5 (decisão Founder + 4 AQs trava-início: AQ-IO-1, AQ-G5-02, AQ-G5-05, AQ-G5-09).

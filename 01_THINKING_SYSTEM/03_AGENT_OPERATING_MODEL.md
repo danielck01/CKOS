@@ -3,7 +3,7 @@ title: Agent Operating Model
 file: 03_AGENT_OPERATING_MODEL.md
 phase: 01_THINKING_SYSTEM
 category: agents
-version: 1.1.0
+version: 1.2.0
 status: active
 owner: PMO_CKOS
 responsible_agent: PMO_CKOS
@@ -107,6 +107,7 @@ output:
 confidence:
 risks:
 gaps:
+next_actions:      # novo — alinha o Execution Output Envelope (Doc 06 §5.3.2)
 evidence:
 cost:
 model:

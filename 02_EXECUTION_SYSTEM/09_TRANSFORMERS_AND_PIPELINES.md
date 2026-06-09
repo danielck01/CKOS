@@ -3,7 +3,7 @@ title: Transformers and Pipelines
 file: 09_TRANSFORMERS_AND_PIPELINES.md
 phase: 02_EXECUTION_SYSTEM
 category: transformers
-version: 1.1.0
+version: 1.2.0
 status: active
 owner: Cognik
 responsible_agent: Cognik
@@ -98,6 +98,11 @@ related_workflow:
 risk_level:
 approval_required:
 metrics:
+output_envelope:        # { confidence, gaps, next_actions } — ver Doc 06 §5.3.2 Execution Output Envelope
+validation:             # como valida input e output (obrigatório — ausente no MVP atual)
+error_policy:           # comportamento em erro (obrigatório — ausente no MVP atual)
+fallback_manual:        # caminho manual quando falha (já exigido pelo §14 — agora explícito no registry)
+idempotency_semantics:  # chave/semântica de idempotência (alinha Doc 03 idempotency_key + Doc 10)
 ```
 
 ## 5.6 Transformers prioritários MVP

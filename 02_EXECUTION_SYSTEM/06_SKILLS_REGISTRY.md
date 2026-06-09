@@ -3,7 +3,7 @@ title: Skills Registry
 file: 06_SKILLS_REGISTRY.md
 phase: 02_EXECUTION_SYSTEM
 category: skills
-version: 1.1.0
+version: 1.2.0
 status: active
 owner: PMO_CKOS
 responsible_agent: PMO_CKOS
@@ -97,6 +97,29 @@ related_transformers:
 eval_ref:        # novo — golden set / rubric em 13_EVALS
 ```
 
+### 5.3.1 Contrato mínimo de execução (Skill Execution I/O Contract)
+
+O template acima nomeia `required_inputs`/`outputs`; este contrato dá a **forma** mínima deles. Toda skill declara:
+
+```yaml
+input:
+  context_state:   # contexto corrente (ver Doc 05 Context Packet)
+  goal:            # objetivo da invocação
+  constraints:     # limites/policies aplicáveis (ver Doc 04 + Doc 12)
+  evidence:        # evidência/fontes disponíveis (ver Doc 18)
+output:            # Execution Output Envelope — ver §5.3.2
+```
+
+### 5.3.2 Execution Output Envelope (forma de saída canônica)
+
+Envelope de saída **único**, compartilhado por skills, transformers (Doc 09 §5.5) e runs (Doc 03 §5.5):
+
+`{ result, confidence, risks, gaps, next_actions }`
+
+- `confidence`, `risks`, `gaps` são a mesma família dos campos do **Agent Run** (Doc 03 §5.5); `next_actions` é o acréscimo.
+- Toda unidade executável emite este envelope. Skills enfatizam `risks`; transformers enfatizam `gaps`; ambos sempre `confidence` + `next_actions`.
+- Não substitui o template (§5.3); é a **forma** que `outputs` nomeia. Proíbe formatos de saída paralelos.
+
 ## 5.4 Skills prioritárias para MVP
 
 - **`briefing-intelligence`** — conversa inicial → briefing vivo. Resp.: Nick + Cognik. Review: Metacognik. Outputs: briefing vivo, lacunas, hipóteses, nodes sugeridos, perguntas adaptativas, confidence score.
@@ -168,11 +191,11 @@ Skill sem output verificável; skill dependente de prompt genérico; skill sem o
 
 # 14. Critérios de aprovação
 
-Skill aprovada se tem output verificável, owner, "quando não usar", risco definido, conexão a workflow, prompts base e eval_ref.
+Skill aprovada se tem output verificável, owner, "quando não usar", risco definido, conexão a workflow, prompts base, eval_ref e **resultado que alimenta um consumidor downstream** (agente, tarefa, proposta, workflow ou decisão).
 
 # 15. Critérios de reprovação
 
-Reprovada se: sem output verificável; depende de prompt genérico; sem owner; sem "quando não usar"; sem risco; sem workflow; sem registro de aprendizado.
+Reprovada se: sem output verificável; depende de prompt genérico; sem owner; sem "quando não usar"; sem risco; sem workflow; sem registro de aprendizado; **ou cujo output não alimenta nenhum consumidor downstream (relatório morto).**
 
 # 16. Related notes
 
