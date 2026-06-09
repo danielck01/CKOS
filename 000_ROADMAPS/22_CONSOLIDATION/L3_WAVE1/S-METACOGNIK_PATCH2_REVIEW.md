@@ -17,10 +17,12 @@ companion_of: PATCH2_USER_IN_RESPONSE_OUT_CANDIDATE.md
 two_key_context: "Founder = 1ª chave ✅ (GATE 5 = GO + AQ-IO-1 = `user`, 2026-06-09). Esta sessão decide a 2ª chave (Metacognik) sobre o TEXTO."
 separation_of_duties: >
   Sessão SEPARADA e independente. O autor do PATCH 2 (claude_opus_4_7, S-USER-PMO-CLAUDE-20260609-001)
-  NÃO revisa o próprio patch. Esta sessão deve rodar com contexto fresco (chat novo, sem memória da sessão
-  autora). Idealmente um modelo distinto (claude_opus_4_8 ou GPT-5.5 via OpenRouter) para máxima
-  separação de papéis. Read-only: NÃO aplica, NÃO edita canônico 01-28, NÃO edita o PATCH 2 candidate
-  nem o F1 candidate. Retorna veredito + findings.
+  NÃO revisa o próprio patch. Esta sessão deve rodar em **executor diferente** (Windsurf é a opção
+  natural — Claude Code aqui está em quota crítica), com contexto fresco (chat novo, sem memória da
+  sessão autora). Nota: o gateway OpenRouter é do RUNTIME CKOS (onde agents/skills rodam), não dos
+  executores de doc-building. Windsurf usa seu próprio modelo (Claude/GPT/etc.) — não importa qual,
+  desde que seja sessão fresh fora do claude_opus_4_7 autor. Read-only: NÃO aplica, NÃO edita canônico
+  01-28, NÃO edita o PATCH 2 candidate nem o F1 candidate. Retorna veredito + findings.
 tags: [session-task, metacognik, apply-gate, review, patch2, user-system, response-engine, l3-wave1, two-key, post-gate-5]
 ---
 
@@ -47,7 +49,8 @@ ROLE: Metacognik reviewer (read-only), 2ª chave do apply-gate do PATCH 2. SESSI
 CONTEXT: Founder já deu a 1ª chave (GATE 5 = GO + AQ-IO-1 = `user`, 2026-06-09).
          Você decide a 2ª chave sobre o TEXTO do PATCH 2.
 SEPARATION: o autor do PATCH 2 = claude_opus_4_7 (S-USER-PMO-CLAUDE-20260609-001). Você NÃO é ele.
-         Idealmente rode em modelo distinto (claude_opus_4_8 ou GPT-5.5) e chat fresh.
+         Executor recomendado: Windsurf em chat fresh (Claude Code do autor está em quota crítica).
+         OpenRouter é gateway do runtime CKOS, NÃO dos executores de doc-building — ignore.
 
 READ (nesta ordem):
   - L3_WAVE1/PATCH2_USER_IN_RESPONSE_OUT_CANDIDATE.md            (o alvo — blocos A/B/C/D + resolução de AQ-IO-2/3)
@@ -150,7 +153,7 @@ separation: NÃO pode ser claude_opus_4_7 (autor do PATCH 2)
 ## F. Fluxo da 2ª chave
 
 ```txt
-1. Founder cola a seção A num chat fresh (idealmente modelo distinto: claude_opus_4_8 ou GPT-5.5 via OpenRouter)
+1. Founder cola a seção A num chat fresh **em Windsurf** (Claude Code do autor em quota crítica; OpenRouter é runtime, não doc-building)
 2. Metacognik roda → produz L3_WAVE1/PATCH2_METACOGNIK_REVIEW.md com:
    - veredito (APROVA / APROVA-COM-PATCHES-LEVES / REPROVA)
    - findings 1-8
