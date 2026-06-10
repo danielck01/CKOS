@@ -3,7 +3,7 @@ title: Command Center Architecture
 file: 15_COMMAND_CENTER_ARCHITECTURE.md
 phase: 04_PRODUCT_SYSTEM
 category: product_architecture
-version: 1.2.1
+version: 1.3.0
 status: draft
 owner: PMO_CKOS
 responsible_agent: Nick
@@ -150,7 +150,7 @@ Mapeamento direto a doc 10 §5.2. O Command Center é responsável pelos passos 
 
 ```txt
 [CC]  1.  Usuário expressa intenção → Command Center emite
-              IntentSubmitted{text, project_id, user_id, section, mode?, slash_command?, mentioned_agent?}
+              IntentSubmitted{intent_text, user_id, project_id?, context_ref?, section?, mode?, slash_command?, mentioned_agent?}
 
        2.  intent_router classifica (transformer: intent_to_object)
               → IntentResolved{intent_type, object_candidates, confidence, mode_detected}

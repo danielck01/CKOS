@@ -3,7 +3,7 @@ title: Architecture Patch Report — Runtime System Coherence
 file: ARCHITECTURE_PATCH_REPORT.md
 phase: ROOT
 category: governance_report
-version: 1.10.4
+version: 1.10.5
 status: active
 owner: PMO_CKOS
 responsible_agent: metacognik
@@ -2297,3 +2297,55 @@ Não tocados (decisão Founder+Metacognik via GATE 5 + Metacognik review):
 **PATCH 2 (User-in + Response-out) aplicado ao canônico. `released_with_required_external_audit`.**
 
 Próximo passo: fan-in final / sign-off Founder+Metacognik; libera F1 Sprint 1 (S1 carrega user_id + IntentReceived). Doc 11 precisará de patch suggestions futuras para tabela User + índice user_id em memories. Doc 27 (Work Orders) pode precisar carregar user_id. Isso é trabalho futuro, não bloqueador.
+
+---
+
+# 32. PATCH 2.5 IntentSubmitted reconciliation — Canonical Patch Applied — 2026-06-09
+
+**Session ID:** `S-APPLY2_5-FRESH-20260609-001`
+
+**Task ID:** `PATCH2_5_INTENT_SUBMITTED_RECONCILIATION_APPLY_20260609`
+
+**Checkout lock:** `LOCK-APPLY2_5-FRESH-20260609-001`
+
+**Checkout release:** `REL-APPLY2_5-FRESH-20260609-001`
+
+**Trigger:** Two-key gate cleared on 2026-06-09 — Founder GATE 5 = GO + AQ-IO-1 = `user` ✅ (commit 1b13f2c) + Metacognik APROVA-COM-PATCHES-LEVES ✅ (commit 87bb035, PATCH2_5_METACOGNIK_REVIEW.md, 8/8 PASS, 1 PATCH-LEVE OBRIGATÓRIO PL-01). Sessão de aplicação é Windsurf fresco (não-autora claude_opus_4_7, não-auditora Claude fresh) per separação-de-papéis.
+
+**Escopo:** canonical_patch documental sobre Doc 10 e Doc 15; sem backend, UI, API, database migration, runtime worker, real agents, MCP server, webhook, JSON n8n ou automação runtime; sem tocar F-01/F-02/F-03 (defer PATCH 3); sem tocar Doc 11 `users` enrichment (defer PATCH 3); sem mover/arquivar/renomear `000_UPGRADE/`.
+
+## 32.1 Arquivos alterados (canônico)
+
+| Doc | Patch | Versão anterior | Versão atual | Mudança |
+|-----|-------|:---------------:|:------------:|---------|
+| `03_RUNTIME_SYSTEM/10_SYSTEM_RUNTIME_ARCHITECTURE.md` | E.1 + E.2 | 1.1.1 | **1.2.0** | §5.2 linha 78: substituição de `CommandBar emite IntentSubmitted{text, project_id, user_id, section}` por `Ingress (CommandBar | backend API | webhook) emite IntentSubmitted{intent_text, user_id, project_id?, context_ref?, section?}`; §5.2 nota após linha 92: inserção de nota explicativa user-first ingress |
+| `04_PRODUCT_SYSTEM/15_COMMAND_CENTER_ARCHITECTURE.md` | PL-01 | 1.2.1 | **1.3.0** | §5.1 linha 153: substituição de `IntentSubmitted{text, project_id, user_id, section, mode?, slash_command?, mentioned_agent?}` por `IntentSubmitted{intent_text, user_id, project_id?, context_ref?, section?, mode?, slash_command?, mentioned_agent?}` |
+
+## 32.2 Arquivos alterados (governance)
+
+- `ARCHITECTURE_PATCH_REPORT.md` (este — v1.10.4 → v1.10.5; §32 registrada)
+- `000_ROADMAPS/SESSION_REGISTRY.md` (1 sessão + 1 lock + release)
+
+## 32.3 Resolução de divergência §18.2 user-first ↔ Doc 10 §5.2 ↔ Doc 15 §5.1
+
+Resolução aplicada por **reconciliação estrutural** entre backend MVP plan §18.2 (user-first event spec) e canônicos Doc 10/Doc 15. PATCH E.1/E.2 em Doc 10 tornam `project_id` opcional na 1ª intenção, renomeiam `text` → `intent_text`, adicionam `context_ref?` e ampliam origens de ingress para incluir backend API/webhook (não apenas CommandBar UI). PATCH PL-01 em Doc 15 alinha o schema literal de IntentSubmitted com a nova forma de Doc 10, preservando extensões UI-specific (`mode?`, `slash_command?`, `mentioned_agent?`). Zero fragmentação; contrato único entre Runtime e Product.
+
+## 32.4 Itens fora do escopo desta aplicação (defer PATCH 3)
+
+Não tocados (decisão Metacognik via PATCH2_5_METACOGNIK_REVIEW.md):
+
+- F-01 (Agent/Scheduler ingress em Doc 10 §5.1) — omitidos do exemplo E.1 por foco user-first; merece clarificação futura
+- F-02 (RLS cláusula project_id NULL em Doc 12 §5.6) — caso novo destravado pelo PATCH 2.5 precisa cláusula explícita
+- F-03 (consolidar duplicação project_id envelope vs payload em Doc 10) — herança do canônico anterior; PATCH 2.5 não regride
+- Doc 11 `users` enrichment (campos PATCH 2: operating_dna_ref?, tribes_scored?, etc.) — defer PATCH 3
+
+## 32.5 Risco e rollback
+
+- **P1 (Runtime Architecture core Doc 10 + Product System Doc 15):** mitigado por escopo cirúrgico (1 substituição Doc 10 + 1 inserção Doc 10 + 1 substituição Doc 15), aditivo semântico, reversibilidade git baseline 5d1d969 (PATCH 2 aplicado) / 724bfb9 (este candidate).
+- **Reversibilidade:** baseline git `5d1d969`; cada PATCH é bloco isolado; rollback trivial via `git revert` ou edição inversa.
+
+## 32.6 Status
+
+**PATCH 2.5 (IntentSubmitted reconciliation) aplicado ao canônico. `released_with_required_external_audit`.**
+
+Próximo passo: F1 Sprint 1 charter pode ser escrito como artefato standalone, citando Doc 10 §5.2 (já reconciliado) + Doc 15 §5.1 (já alinhado) como fonte canônica única do contrato IntentSubmitted. F-01/F-02/F-03 e Doc 11 users enrichment entram em PATCH 3 sem urgência.

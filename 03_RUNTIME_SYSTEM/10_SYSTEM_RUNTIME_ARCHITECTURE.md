@@ -3,7 +3,7 @@ title: System Runtime Architecture
 file: 10_SYSTEM_RUNTIME_ARCHITECTURE.md
 phase: 03_RUNTIME_SYSTEM
 category: runtime
-version: 1.1.1
+version: 1.2.0
 status: draft
 owner: PMO_CKOS
 responsible_agent: Builder Lead
@@ -75,7 +75,7 @@ Modelo de execução; especificação de event bus/log, workflow engine, agent/m
 ## 5.2 Fluxo canônico: da intenção à execução rastreável
 
 ```txt
-1.  CommandBar emite IntentSubmitted{text, project_id, user_id, section}
+1.  Ingress (CommandBar | backend API | webhook) emite IntentSubmitted{intent_text, user_id, project_id?, context_ref?, section?}
 2.  Intent Resolver classifica (usa transformer intent_to_object) → IntentResolved{intent, object_candidates, confidence}
 3.  Context Assembler monta Context Packet (memória curta/média/longa via 11) → ContextAssembled
 4.  Policy/Permission Engine (12) valida usuário×workspace×projeto×ação → PermissionGranted | PermissionDenied
@@ -90,6 +90,8 @@ Modelo de execução; especificação de event bus/log, workflow engine, agent/m
 13. Memory Writer grava decisões/aprendizados → MemoryUpdated
 14. Projectors atualizam read models → UI recebe NextBestAction via SSE
 ```
+
+> **Nota — user-first ingress (PATCH 2.5, post-GATE 5):** `user_id` é REQUIRED (PATCH 2 PROMOTE-U1 — ver `01_THINKING_SYSTEM/02_AI_FIRST_OBJECT_MODEL.md §5.2`); `project_id` é OPCIONAL na 1ª intenção do usuário e pode ser inferido a posteriori via `ProjectInferred{user_id, project_id, source_intent_id}` quando a intenção justificar (ver `000_ROADMAPS/22_CONSOLIDATION/03_BACKEND_MVP_THIN_SLICE_PLAN.md §18.2`). `intent_text` (renomeado de `text` para clareza); `context_ref?` aponta para briefing/conversa anterior se existir. **Source não é exclusivo de UI:** CommandBar permanece a origem canônica via Doc 14-16 (Product System), mas backend ingress (API, webhook, scheduled trigger) é igualmente válido — aderente a `§3` backend-antes-de-UI e ao F1-Sprint 1. Envelope fields (`workspace_id`, `correlation_id`, `occurred_at`, `actor`) seguem `§5.3` Event Log — não precisam ser repetidos no payload.
 
 Cada seta acima é **um evento no event log**. Logo, qualquer execução é reconstruível, auditável e reproduzível (run replay — ver `13`).
 
