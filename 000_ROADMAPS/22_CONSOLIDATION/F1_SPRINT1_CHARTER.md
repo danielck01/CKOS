@@ -5,10 +5,12 @@ layer: auxiliary
 doc_type: pmo_sprint_charter
 phase: 000_ROADMAPS
 category: consolidation
-status: founder_approved_awaiting_metacognik
-version: 0.2.0
+status: metacognik_approved_ajustes_applied
+version: 0.3.0
 created_at: 2026-06-10
 founder_decisions_at: 2026-06-10
+metacognik_audit_at: 2026-06-10
+ajustes_applied_at: 2026-06-10
 owner: pmo_ckos
 responsible_agent: claude_opus_4_7
 session_id: S-F1S1-CHARTER-CLAUDE-20260610-001
@@ -75,6 +77,11 @@ Sprint 1 entrega **um endpoint de ingress backend que aceita uma intenção, per
 | 4 | **Context Assembler básico** (monta `ContextAssembled{user_id, user_memory_refs[], project_memory_refs[]?}`) — só memória curta MVP | Doc 10 §5.2 passo 3 + Doc 05 §5.6.1 (escopo user_id já canônico) |
 | 5 | **1 output simples rastreável** (resposta texto, sem render UI; só JSON com `correlation_id` + payload) | Doc 10 §5.2 passo 8 (`PartialOutputProduced`) — modo simplificado |
 | 6 | **Tracing end-to-end** por `correlation_id` único da intenção até o output | Doc 10 §5.3 + §13 EVALS observability |
+| 7 | **DB migrations** para `events`, `users`, `user_profiles`, `context_packs` (schemas conforme Doc 11 §4/§7/§13) — *deliverable operacional que sustenta os 6 cognitivos acima* | Doc 11 §4 (`users`/`user_profiles` linhas 139-148), §7 (`events` linhas 217-232), §13 (`context_packs` linha 439) |
+| 8 | **Healthcheck endpoint** `GET /health` (200 OK + DB ping) — exigido por Fly.io/Railway para roteamento | implícito do tech stack §4 (Fly.io/Railway) |
+| 9 | **Error handling mínimo do Intent Resolver** — falha OpenRouter (timeout/429/5xx) emite evento `IntentResolutionFailed{correlation_id, error_kind, retry_count}` ao invés de explodir; trace replay (Doc 10 §5.26) continua coerente em modo falha | Doc 10 §5.6 (Run Scheduler retry/timeout/dead-letter) — modo simplificado para S1 |
+
+> **Nota AJUSTE-02 (Metacognik audit 2026-06-10):** deliverables 7-9 são **operacionais** — sustentam os 6 cognitivos acima sem alterar o veredito §0 ("intent → 3 events + 1 output"). DB migrations materializam o event log (#2), healthcheck atende ao deploy stack (#1), error handling preserva o tracing (#6) em modo de falha LLM. Sem eles, o exit criterion §5 não é composivel.
 
 ### 2.2 NÃO ENTRA (motivos explícitos — defer para sprints posteriores)
 
@@ -125,6 +132,27 @@ PartialOutputProduced (simplificado)  → texto/JSON com correlation_id; sem str
 - `event_id` (uuid v7), `workspace_id`, `project_id?`, `type`, `payload jsonb`, `actor`, `causation_id`, `correlation_id`, `occurred_at`
 
 > **NÃO repita** os campos do envelope dentro do payload de cada evento (PATCH 2.5 fechou essa divergência). Implementação que escrever `correlation_id` dentro do `payload jsonb` regride o PATCH 2.5.
+
+> **Reconciliação envelope conceitual ↔ físico (AJUSTE-03, Metacognik audit 2026-06-10):** Doc 10 §5.3 define o envelope **conceitual** com nomes legíveis; Doc 11 §7 (linhas 217-232) define o schema **físico** da tabela `events` com nomes ligeiramente diferentes + 6 campos operacionais extras. Mapeamento:
+>
+> | Conceitual (Doc 10 §5.3) | Físico (Doc 11 §7) | Notas |
+> |---|---|---|
+> | `event_id` | `id uuid(v7)` | rename + tipo explícito |
+> | `type` | `event_type text` | rename |
+> | `actor` | `actor_type enum(user\|agent\|system)` + `actor_id uuid` | desnormalizado |
+> | `occurred_at` | `created_at timestamptz` | rename (semântica: momento do append) |
+> | `workspace_id` | `workspace_id` | idem |
+> | `project_id?` | `project_id` (NULL permitido) | nullable; F-02 RLS defer PATCH 3 |
+> | `causation_id` | `causation_id uuid` | idem |
+> | `correlation_id` | `correlation_id uuid` | idem |
+> | `payload` | `payload jsonb` | idem |
+> | (n/a) | `tenant_id` (= `org_id`) | extra — exigido por RLS Doc 12 §5.6.1 |
+> | (n/a) | `aggregate_type` + `aggregate_id` | extra — partição + streams lógicos Doc 11 §7 linha 235 |
+> | (n/a) | `idempotency_key text unique` | extra — Doc 11 §7 linha 232 + Doc 10 §5.6 |
+> | (n/a) | `metadata jsonb` | extra — campo livre para telemetria/tracing |
+> | (n/a) | `risk_level enum(low\|medium\|high)` | extra — usado por approval gate (defer S3) |
+>
+> S1 implementa o schema **físico** (Doc 11 §7) com todos os campos; `risk_level` e `aggregate_*` ficam com valores default (`"low"` + `aggregate_type='workflow'` + `aggregate_id = correlation_id`) até S3/S5 ativarem o uso real. `idempotency_key = hash(correlation_id + step + input_digest)` per Doc 10 §5.6.
 
 **Detalhamento da forma user-first** (cobertura adicional):
 - `03_BACKEND_MVP_THIN_SLICE_PLAN.md §18.2` — schema com REQUIRED/OPTIONAL explícito; é a referência para o reviewer/implementador entender intent
@@ -203,11 +231,21 @@ Quem implementa S1? Padrão de cadeia de dispatch (per [[feedback-dispatch-chain
 
 **Recomendação PMO:** (a) Codex ou (c) Claude Code — implementação de runtime é tarefa de raciocínio (não-trivial) — fora do nicho "APPLY mecânico" do Windsurf.
 
+**AQ-S1-05 — Auth do endpoint de ingress (TRAVA-INÍCIO — promovida 2026-06-10 por Metacognik audit AJUSTE-01)**
+
+Exit criterion §5 step 1 diz "POST `/intent` ... **autenticado**". Sem auth definida, o teste do exit criterion é incompossível. Decidir antes do dispatch.
+
+| Opção | Recomendação PMO | Implicação S1 |
+|---|---|---|
+| (a) **Mock JWT bearer literal** (header `Authorization: Bearer test-user-jwt-{user_id}`) — sem backend de auth real | **(recomendação PMO)** | Mais simples; e2e roda via `curl`; auth real fica S2/S3 |
+| (b) Supabase Auth JWT real (signup mínimo + token) | mais completo mas adiciona setup | bate em compliance/PII (Doc 12) cedo demais |
+| (c) API key estática por workspace | meio-termo | precisa de gerenciamento secret — vault desnecessário em S1 |
+
+**Recomendação PMO:** (a) mock JWT — alinhado ao princípio backend-antes-de-UI e ao escopo cirúrgico do S1; auth real entra com S3 (policy/approval) quando Doc 12 §5.6.1 RLS começar a importar de fato.
+
 ### 🟡 Não-trava — decidir durante S1 ou logo após
 
 **AQ-S1-04 — Janela temporal:** S1 tem deadline? Em quantos dias/semanas? Vai serializado com S2/S3 ou paralelizado?
-
-**AQ-S1-05 — Auth do endpoint de ingress:** Supabase Auth (JWT)? OAuth? API key? Mínimo viável pra S1.
 
 **AQ-S1-06 — Doc 11 patch suggestion S1 emergencial:** S1 vai descobrir gaps reais em Doc 11 (ex: `events.correlation_id` index, `context_packs.intent_id` FK)? Se sim, registramos como `F1S1_DOC11_PATCH_FINDINGS.md` durante o sprint para virar PATCH 3 candidate depois.
 
@@ -230,19 +268,35 @@ Já listadas em §2.2 — repetidas aqui apenas pra reforço: F-01/F-02/F-03 (PA
        → Veredito: APROVA / APROVA-COM-AJUSTES / REPROVA
        → NÃO é 2ª chave de canonical_patch (não há texto canônico nesta sessão)
 
-3. Após Founder responder AQ-S1-01/02/03 + Metacognik APROVA:
-       → PMO escreve dispatch de implementação
-         (arquivo `S-F1S1-IMPLEMENTATION-DISPATCH.md` ou similar)
-       → Especifica: repo, executor, stack, eventos a implementar, tests, exit criterion
+3. Após Founder responder AQ-S1-01/02/03 + Metacognik APROVA-COM-AJUSTES + AJUSTES aplicados:
+       → PMO escreve dispatch de implementação em SESSÃO SEPARADA desta e da autora
+         (arquivo `S-F1S1-IMPLEMENTATION-DISPATCH.md`)
+       → Especifica: repo, executor, stack, eventos a implementar, tests, exit criterion,
+         decisão final de auth (AQ-S1-05 promovida — mock JWT bearer recomendado),
+         orçamento LLM (AQ-S1-07 nova — fixar limite mensal/teste),
+         ferramental de migrations (AQ-S1-08 nova — Drizzle/Prisma/raw decidir),
+         `secret_refs.owner_type` para OpenRouter (def-01 — fixar `provider`)
 
-4. Executor (Codex ou Claude fresh) roda S1
-       → Em sessão separada e em repo separado (per AQ-S1-01 resposta)
-       → Reporta progresso via commits + relatórios de PR
-       → Doc 11 patch findings emergem aqui (registrados em arquivo paralelo)
+3.5. (NOVO, AJUSTE-04 atualizado pós-`gh` install 2026-06-10) Criação do repo `CKOS_RUNTIME`
+       → Founder confirma parâmetros (nome final, visibility private/public, descrição)
+       → PMO executa `gh repo create danielck01/<NAME> --<VISIBILITY> --description "..." --add-readme`
+         (gh CLI instalado e autenticado em 2026-06-10 — per [[reference-github-repo]])
+       → PMO reporta URL do repo criado + branch default ao Founder para validação
+       → URL é registrada no `S-F1S1-IMPLEMENTATION-DISPATCH.md` como `runtime_repo_url`
+
+4. Executor (Codex OU Claude fresh — per AQ-S1-03) roda S1
+       → Em sessão separada e em repo separado (clona `CKOS_RUNTIME` do step 3.5)
+       → Reporta progresso via commits no `CKOS_RUNTIME` + relatórios de PR (GitHub)
+       → Doc 11 patch findings emergem aqui (registrados em
+         `000_ROADMAPS/22_CONSOLIDATION/F1S1_DOC11_PATCH_FINDINGS.md` no doc repo,
+         per AQ-S1-06)
 
 5. Verificação de exit criterion
-       → Testes end-to-end demonstram 1 intent → 3 events + 1 output, rastreado por correlation_id
-       → Quality gate Sprint Done passa
+       → Executor self-test: roda os 4 passos do §5 deste charter + reporta output JSON
+         no `S-F1S1-IMPLEMENTATION-DISPATCH.md` (anexo)
+       → PMO valida: lê trace replay (3 eventos com mesmo correlation_id + 1 output
+         não-genérico) + confirma quality gate §5
+       → Founder assina Sprint Done (atualiza Kanban: S1 → ✅)
 
 6. Sprint Done → atualizar kanban → iniciar S4 (Event Log hardening) ou S2 (Question Engine)
        conforme §14 do backend plan
@@ -312,6 +366,48 @@ Founder revisou o charter em 2026-06-10 e respondeu **"Aceito todas as recomenda
 ### Próximo passo confirmado
 
 Charter agora vai para **Metacognik completeness audit** (Claude fresh, mesmo pattern PATCH 2.5) — sessão `S-F1S1-CHARTER-METAREV-CLAUDE-20260610-001`. Após APROVA, PMO escreve `S-F1S1-IMPLEMENTATION-DISPATCH.md` (já com AQs trava-início respondidas, conforme acima).
+
+---
+
+## 9.5 Metacognik Audit + AJUSTES Applied (2026-06-10, charter v0.3.0)
+
+Metacognik completeness audit (Claude fresh, sessão `S-F1S1-CHARTER-METAREV-CLAUDE-20260610-001`) executou 8 checks contra o charter v0.2.0 (commit `3548821`) e emitiu **APROVA-COM-AJUSTES** (commit `26fba60`). Forma A escolhida pelo PMO: 4 AJUSTES obrigatórios aplicados in-place no charter (v0.2.0 → v0.3.0). Charter agora é fonte-de-verdade auto-contida para dispatch de implementação.
+
+### AJUSTES aplicados
+
+| Ajuste | § afetado | Resumo |
+|---|---|---|
+| **AJUSTE-01** | §6 | AQ-S1-05 (auth) promovida de 🟡 não-trava para 🔴 trava-início com 3 opções + recomendação PMO = mock JWT bearer literal |
+| **AJUSTE-02** | §2.1 | +3 deliverables operacionais (#7 DB migrations, #8 healthcheck `/health`, #9 error handling Intent Resolver com `IntentResolutionFailed` event) — sustentam os 6 cognitivos sem alterar veredito §0 |
+| **AJUSTE-03** | §3 | Tabela de reconciliação envelope **conceitual** (Doc 10 §5.3) ↔ **físico** (Doc 11 §7) com 9 campos canônicos + 6 extras (tenant_id, aggregate_*, idempotency_key, metadata, risk_level) — orienta implementer a usar schema físico de Doc 11 §7 |
+| **AJUSTE-04** | §7 | Steps 3-5 reescritos com **step 3.5 NOVO** (criação do repo `CKOS_RUNTIME` via `gh` CLI — atualizado pós-install em 2026-06-10) + step 5 explicita verificadores (PMO valida trace + Founder assina Sprint Done) |
+
+### Modificação operacional vs review original
+
+AJUSTE-04 do review especificava "Founder cria repo CKOS_RUNTIME via web UI (gh CLI ausente)". Em **2026-06-10 durante esta sessão**, o `gh` CLI foi instalado e autenticado (Founder rodou `gh auth login` como `danielck01`, escopos `repo`+`workflow`+`read:org`+`gist`). O step 3.5 foi atualizado para refletir essa nova capacidade: Founder confirma parâmetros (nome, visibility, descrição), PMO executa `gh repo create` — preserva o **espírito** do AJUSTE-04 (Founder ownership das decisões) sem a fricção da web UI. Memória [[reference-github-repo]] atualizada.
+
+### 6 deferíveis não-bloqueantes (do review §5)
+
+Não aplicados nesta revisão; entram no dispatch de implementação OU em PATCH 3:
+
+- **def-01** (`secret_refs.owner_type='provider'` para OpenRouter) → fixar no dispatch
+- **def-02** (RLS policy `events.project_id IS NULL`) → PATCH 3 (Doc 12 §5.6 update; herdado de F-02 PATCH 2.5)
+- **def-03** (orçamento custo LLM CI/e2e) → fixar no dispatch como nova AQ-S1-07
+- **def-04** (monitoring além de log + correlation_id) → emergente durante S1
+- **def-05** (explicitar `PolicyChecked`/`RunStarted` skipados em §2.2) → nota leve em §2.2 OU no dispatch
+- **def-06** (cosmético `project_id?` vs `project_id` literal) → PATCH 3 (F-03)
+
+### AQs novas surgidas do audit (para o dispatch incorporar)
+
+- **AQ-S1-07** — Orçamento LLM (limite mensal de OpenRouter em CI/dev/e2e)
+- **AQ-S1-08** — Ferramental de migrations (Drizzle, Prisma, Kysely, raw SQL, Supabase migrations) — Doc 11 §7 `events` tem partição por `aggregate_type` + range por `created_at`, não trivial em alguns ORMs
+- **AQ-S1-09** — gh CLI ownership do executor da implementação (executor terá `gh` no ambiente dele ou usa GitHub web nos PRs? — não-bloqueante mas vale fixar)
+
+### Próximo passo (pós-AJUSTES aplicados)
+
+1. **PMO escreve `S-F1S1-IMPLEMENTATION-DISPATCH.md`** (sessão SEPARADA desta e da autora-original do charter) — orquestra Codex OU Claude fresh em `CKOS_RUNTIME`
+2. **Em paralelo:** Founder confirma nome/visibility do repo → PMO executa `gh repo create`
+3. **Executor inicia S1** após dispatch + repo prontos
 
 ---
 
