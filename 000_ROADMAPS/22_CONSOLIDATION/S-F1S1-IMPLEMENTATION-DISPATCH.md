@@ -862,26 +862,77 @@ WHEN DONE:
 
 ---
 
-## 17. Anexo (executor preenche ao terminar)
+## 17. Anexo (executor preenchido)
 
 ```yaml
-# A ser preenchido pelo executor no PR de finalização
-implementation_session_id: S-F1S1-IMPL-EXEC-<DATE>-001
-executor_agent: <codex | claude_code_fresh>
-ckos_runtime_main_branch_sha: <SHA>
-deployed_at: <fly.io | railway>
-deployed_url: https://<host>/
-e2e_test_output:
-  correlation_id: <UUID>
-  events:
-    - { event_type: IntentSubmitted, payload: {...}, created_at: ... }
-    - { event_type: IntentResolved, payload: {...}, created_at: ... }
-    - { event_type: ContextAssembled, payload: {...}, created_at: ... }
-    - { event_type: PartialOutputProduced, payload: {...}, created_at: ... }
-  output_text_length: <N>
-  total_cost_usd: <N>
-  duration_ms: <N>
-doc_11_findings_count: <N>
+implementation_session_id: S-F1S1-IMPL-EXEC-20260610-001
+executor_agent: claude_code_fresh (Claude Fable 5 — sessão fresca, ≠ claude_opus_4_7 Dispatcher)
+ckos_runtime_main_branch_sha: 1171384   # tip of main após PR #12 merge (12 PRs todos mergeados)
+ckos_runtime_url: https://github.com/danielck01/CKOS_RUNTIME
+deployed_at: pendente   # artefatos prontos (Dockerfile + fly.toml + docs/DEPLOY.md); bloqueio = FLY_API_TOKEN + SUPABASE_DB_URL com Founder
+deployed_url: pendente
+e2e_test_output:    # execução real contra OpenRouter (não-mockada) em 2026-06-10 21:01 UTC-3
+  correlation_id: 200db875-f206-4b97-a8a2-8a791d84b426
+  events_workflow:    # 4 eventos do exit criterion §14 — todos com mesmo correlation_id e actor_id=user_id
+    - { event_type: IntentSubmitted,       id: 019eb432-acb0-7467-b630-e62af79a984e, created_at: 2026-06-11T01:01:20.797Z }
+    - { event_type: IntentResolved,        id: 019eb432-bf19-7c2d-b9b4-1b783b14888c, created_at: 2026-06-11T01:01:25.478Z }
+    - { event_type: ContextAssembled,      id: 019eb432-c34e-7b29-9c46-8ec81117454a, created_at: 2026-06-11T01:01:26.536Z }
+    - { event_type: PartialOutputProduced, id: 019eb432-f36c-7b10-b42c-f4cc645923d7, created_at: 2026-06-11T01:01:38.492Z }
+  events_cost:        # 4 eventos LLMCost (2 calls × {Estimated, Actual})
+    - { event_type: LLMCostEstimated, call_id: ecfddcd6-...-357b, model: anthropic/claude-opus-4.7,        estimated_cost_usd: 0.027315 }
+    - { event_type: LLMCostActual,    call_id: ecfddcd6-...-357b, model: anthropic/claude-4.7-opus-20260416, actual_cost_usd:    0.00508,  tokens_in: 521, tokens_out: 99 }
+    - { event_type: LLMCostEstimated, call_id: 57641968-...-8c01, model: anthropic/claude-opus-4.7,        estimated_cost_usd: 0.048255 }
+    - { event_type: LLMCostActual,    call_id: 57641968-...-8c01, model: anthropic/claude-4.7-opus-20260416, actual_cost_usd:    0.014315, tokens_in: 388, tokens_out: 495 }
+  intent_text: "Quero analisar o briefing do Projeto X e identificar os 3 maiores riscos"
+  resolved:
+    intent_type: analyze
+    confidence: 0.9
+    response_type: diagnostica
+    depth_level: estruturada
+    reasoning_mode: skeptical
+    candidate_object_types: [briefing, signal]
+  output_text_length: 1216
+  output_quality: nao_generico   # aplica assumption_transparency + no_fake_certainty (Doc 04 §5.9) — recusou inventar riscos sem briefing real, pediu o conteúdo
+  total_cost_usd: 0.019395       # bem abaixo do cap $0.05/e2e
+  duration_ms: 21488             # POST → PartialOutputProduced no trace
+quality_gate_checks:
+  - "[x] 4 eventos workflow persistidos com envelope completo (charter §5)"
+  - "[x] PartialOutputProduced.payload_text > 50 chars (1216 chars) e is_final=true"
+  - "[x] correlation_id idêntico em todos 4 eventos workflow (+ 4 LLMCost)"
+  - "[x] user_id rastreado fim-a-fim (actor_id=user_id em todos os 8 eventos)"
+  - "[x] append-only invariant testada (integration tests; trigger UPDATE/DELETE bloqueia)"
+  - "[x] trace replay manual via GET /trace/:correlation_id (5 fontes em ContextAssembled — user_profile + 4 event_log refs)"
+  - "[x] healthcheck /health responde 200 OK em <100ms (smoke 4-43ms)"
+  - "[x] error handling: e2e simulando OpenRouter 5xx → IntentResolutionFailed{retry_count:3, fallback_used:true} (verificação ao vivo Slice 7)"
+  - "[ ] deploy live em Fly.io ou Railway — pendente FLY_API_TOKEN + Supabase URLs com Founder; artefatos prontos (Dockerfile + fly.toml + docs/DEPLOY.md em CKOS_RUNTIME)"
+  - "[x] LLM cost guard funcional: hard cap $0.50/call, hard stop mensal 100%, e2e CI usa mock → custo $0"
+  - "[x] Doc 11 patch findings: 0 — schema canônico §7 implementado integralmente; ajuste pontual do slug OpenRouter foi env var, não Doc 11"
+  - "[ ] PMO valida trace replay + 4 eventos + output não-genérico (esta sessão ou sessão PMO fresh)"
+  - "[ ] Founder assina Sprint Done + atualiza Kanban (S1 → ✅) + dispara dispatch S4"
+test_suite_status:
+  unit: "48/48 passing (~7s)"
+  integration: "3/3 passing contra Postgres 15.13 (~3.7s)"
+  e2e_mocked: "1/1 passing contra mock OpenRouter (~6s, custo $0)"
+  ci: "GitHub Actions verde em PR #11 (com label e2e-ok) e PR #12 (sem e2e)"
+ckos_runtime_pr_history:
+  - "PR #1  Slice 1: DB schema + migrations"
+  - "PR #2  Slice 2: mock JWT auth middleware"
+  - "PR #3  Slice 3: POST /intent + event publisher"
+  - "PR #4  Slice 4: Intent Resolver + transformer + LLM cost guard"
+  - "PR #5  Slice 5: Context Assembler básico + context_packs row"
+  - "PR #6  Slice 6: output producer + PartialOutputProduced + quality guard"
+  - "PR #7  Slice 7: error handling + IntentResolutionFailed + retries 1s/5s/30s"
+  - "PR #8  Slice 8: healthcheck GET /health"
+  - "PR #9  Slice 9: integration tests + e2e (exit criterion CI-mode mockado)"
+  - "PR #10 Slice 10: Fly.io deploy artifacts"
+  - "PR #11 Slice 11: GitHub Actions CI"
+  - "PR #12 Slice 12: README"
+spec_deviations_documented:
+  - "openai SDK (pacote `openai`): dispatch §16 listava `@anthropic-ai/openai-sdk` (não existe no npm); §2 stack table descrevia 'OpenAI SDK com baseURL=openrouter' — implementado como o pacote canônico `openai`"
+  - "OpenRouter model slug: dispatch §7.2 listava 'anthropic/claude-4.7-opus' (não existe no catálogo); slug real do Claude 4.7 Opus é 'anthropic/claude-opus-4.7' (verificado via GET /api/v1/models em 2026-06-10) — corrigido em env.ts (env var, não patch ao canônico)"
+  - "Postgres user-space em vez de Docker Compose: máquina do executor tem Smart App Control bloqueando binários nativos baixados (rollup nativo + initdb.exe); resolvido com `@rollup/wasm-node` override e Postgres 15.13 user-space rodando no WSL Ubuntu 24.04. Mesmo Postgres 15 do dispatch §2 — semântica idêntica. Documentado em README.md."
+  - "RLS workaround S1 sem FORCE: app-side filter por workspace_id + actor_id em GET /trace (def-02 confirma F-02 defer); RLS real com Supabase roles entra em S3 com auth real"
+doc_11_findings_count: 0
 ready_for_pmo_verification: true
 ```
 
