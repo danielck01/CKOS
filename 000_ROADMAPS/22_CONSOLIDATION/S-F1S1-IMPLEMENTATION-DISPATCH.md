@@ -904,11 +904,39 @@ quality_gate_checks:
   - "[x] trace replay manual via GET /trace/:correlation_id (5 fontes em ContextAssembled — user_profile + 4 event_log refs)"
   - "[x] healthcheck /health responde 200 OK em <100ms (smoke 4-43ms)"
   - "[x] error handling: e2e simulando OpenRouter 5xx → IntentResolutionFailed{retry_count:3, fallback_used:true} (verificação ao vivo Slice 7)"
-  - "[ ] deploy live em Fly.io ou Railway — pendente FLY_API_TOKEN + Supabase URLs com Founder; artefatos prontos (Dockerfile + fly.toml + docs/DEPLOY.md em CKOS_RUNTIME)"
+  - "[x] deploy live em Fly.io (app `ckos-runtime`, região `gru`, https://ckos-runtime.fly.dev) com Supabase Session Pooler aws-1-sa-east-1 em 2026-06-11 — ver `production_deploy` abaixo"
   - "[x] LLM cost guard funcional: hard cap $0.50/call, hard stop mensal 100%, e2e CI usa mock → custo $0"
   - "[x] Doc 11 patch findings: 0 — schema canônico §7 implementado integralmente; ajuste pontual do slug OpenRouter foi env var, não Doc 11"
-  - "[ ] PMO valida trace replay + 4 eventos + output não-genérico (esta sessão ou sessão PMO fresh)"
+  - "[x] PMO valida trace replay + 4 eventos + output não-genérico — validação PMO 2026-06-11 contra deploy live em GRU, correlation_id=b75238fd-0a41-4d1e-8c3f-300fb342723f (8 eventos, output 1408 chars, custo $0.0221)"
   - "[ ] Founder assina Sprint Done + atualiza Kanban (S1 → ✅) + dispara dispatch S4"
+production_deploy:    # validação ao vivo PMO 2026-06-11 — fecha gates 9 e 12 do quality gate
+  deployed_at: 2026-06-11T15:55Z   # UTC
+  platform: fly.io
+  app_name: ckos-runtime
+  region: gru   # São Paulo
+  url: https://ckos-runtime.fly.dev
+  org: its-ckcompany
+  machine_id: 2876d1dc699028
+  image_size_mb: 88
+  db_endpoint: aws-1-sa-east-1.pooler.supabase.com:5432   # Session Pooler IPv4 (Direct/db.* é IPv6 only no free tier)
+  db_role: postgres.dplcbmwsfrsphsxrfkav   # tenant-scoped username (Supavisor)
+  healthcheck_smoke_ms: 8   # GET /health → 200 OK {db:connected, queue:running}
+  e2e_live:
+    correlation_id: b75238fd-0a41-4d1e-8c3f-300fb342723f
+    events_count: 8   # 4 workflow + 4 LLMCost
+    events_order: [IntentSubmitted, LLMCostEstimated, LLMCostActual, IntentResolved, ContextAssembled, LLMCostEstimated, LLMCostActual, PartialOutputProduced]
+    intent_text: "Quero analisar o briefing do Projeto X e identificar os 3 maiores riscos"
+    intent_type: analyze
+    confidence: 0.9
+    output_text_length: 1408   # > 50 chars + não-genérico
+    total_cost_usd: 0.022100   # resolver 0.005155 + output 0.016945 — bem abaixo do cap $0.05/e2e
+    pipeline_duration_ms: ~22000   # POST 202 (7574ms) + queue + 2 LLM calls + persistência
+    model_used: anthropic/claude-4.7-opus-20260416   # canonical alias para anthropic/claude-opus-4.7
+  pmo_validation_session: S-F1S1-PMO-VERIFY-CLAUDE-20260611-001
+  spec_deviations_added:
+    - "Dockerfile: tsx adicionado via `pnpm add tsx@4.20.3 --save-prod` (não `npm install --no-save tsx@4` — npm 10.8.2 tem bug com --no-save em deps com binaries)"
+    - "Dockerfile: COPY src ./src no runtime stage — tsx precisa do source TS para resolver imports tipo `../src/config/env.js`. Future cleanup: compilar scripts/migrate.ts pra JS no build stage e rodar com node puro, eliminando tsx do runtime (reduz imagem)"
+    - "Supabase pooler subdomain `aws-1-sa-east-1` (não `aws-0-` que tentei primeiro) — Supabase migrou o prefixo recentemente. Bom data ponto para PATCH 3 nota em Doc 26 ou nova reference memory"
 test_suite_status:
   unit: "48/48 passing (~7s)"
   integration: "3/3 passing contra Postgres 15.13 (~3.7s)"

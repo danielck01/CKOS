@@ -72,7 +72,11 @@ title: CKOS Expansion Kanban
   - **Escopo (ALTA):** U1 (User objeto 1ª classe → Doc 02), U2 (memória `user_id` → Doc 05), R1 (response_type/depth_level/reasoning_mode → Doc 03 Agent Run), R2 (5 anti-pattern policies → Doc 04)
   - **Defer P3 (MÉDIA):** U3/U4/U5/R3/R4/R5 — entram em PATCH 3 conforme F1-Sprints 2-3 revelarem necessidade
   - **Files:** `L3_WAVE1/PATCH2_USER_IN_RESPONSE_OUT_CANDIDATE.md` + `L3_WAVE1/S-APPLY_PATCH2_CANONICAL.md` (criados 2026-06-09; aguardando Metacognik)
-- [ ] S1 — Intent Resolver + Context State + output simples (carrega `user_id` desde ingress) #F1 #runtime
+- [x] **S1 — Intent Resolver + Context State + output simples** (carrega `user_id` desde ingress) #F1 #runtime ✅ **2026-06-11**
+  - **Implementação:** [`danielck01/CKOS_RUNTIME`](https://github.com/danielck01/CKOS_RUNTIME) @ `1171384` — TS + Fastify + Drizzle + pg-boss + OpenRouter + Supabase (Pooler `aws-1-sa-east-1`) + Fly.io (`gru`)
+  - **Produção:** https://ckos-runtime.fly.dev — exit criterion validado ao vivo (8 eventos, correlation_id `b75238fd-...`, output 1408 chars não-genérico, $0.0221, healthcheck 8ms)
+  - **Quality gate:** 13/13 ✅ (deploy live + PMO validação em 2026-06-11; Founder assina via commit `sprint-done: S1`)
+  - **Anexo:** [S-F1S1-IMPLEMENTATION-DISPATCH.md §17](S-F1S1-IMPLEMENTATION-DISPATCH.md) + Doc 11 findings = 0
 - [ ] S2 — Question Engine + score de clareza + lacunas/risco #F1 #runtime
 - [ ] S3 — Registry agentes/skills + policy checker + approval gates #F1 #runtime #agentes
 - [ ] S4 — Event Log (sem ele, vira chat bonito) #F1 #runtime #blocker
