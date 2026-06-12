@@ -5,10 +5,14 @@ layer: auxiliary
 doc_type: pmo_sprint_charter
 phase: 000_ROADMAPS
 category: consolidation
-status: founder_approved_awaiting_metacognik
-version: 0.2.0
+status: metacognik_approved_ajustes_applied_ready_for_dispatch
+version: 0.3.0
 created_at: 2026-06-11
 founder_decisions_at: 2026-06-11
+metacognik_review_at: 2026-06-12
+metacognik_review: L3_WAVE1/F1S4_CHARTER_METACOGNIK_REVIEW.md   # APROVA-COM-AJUSTES — 5 AJUSTES Forma A aplicados nesta versão
+ajustes_applied_at: 2026-06-12
+ajustes_session: S-F1S4-CHARTER-AJUSTES-CLAUDE-20260612-001
 owner: pmo_ckos
 responsible_agent: claude_opus_4_7
 session_id: S-F1S4-CHARTER-CLAUDE-20260611-001
@@ -20,7 +24,7 @@ derives_from:
   - 03_RUNTIME_SYSTEM/10_SYSTEM_RUNTIME_ARCHITECTURE.md §5.3       # Event Bus + Event Log conceitual
   - 03_RUNTIME_SYSTEM/10_SYSTEM_RUNTIME_ARCHITECTURE.md §5.6       # Run Scheduler, Queue, Retry, Timeout, Idempotency
   - 03_RUNTIME_SYSTEM/10_SYSTEM_RUNTIME_ARCHITECTURE.md §5.26      # Run Replay
-  - 03_RUNTIME_SYSTEM/11_DATA_MODEL_AND_PERSISTENCE.md §7          # events table físico + partition hint línea 235
+  - 03_RUNTIME_SYSTEM/11_DATA_MODEL_AND_PERSISTENCE.md §7          # events table físico + partition hint linhas 214-217
 companion_of:
   - F1_SPRINT1_CHARTER.md
   - S-F1S1-IMPLEMENTATION-DISPATCH.md
@@ -75,12 +79,12 @@ Sprint 4 entrega **um event log production-grade**: idempotência fim-a-fim com 
 | 1 | **Idempotência no ingress** — header `X-Idempotency-Key` (UUID v4) no `POST /intent`: 2ª chamada com mesmo key + mesmo workspace dentro de janela (AQ-S4-02) retorna 200 com `correlation_id` original, NÃO cria evento duplicado | Doc 10 §5.6 (Idempotency) |
 | 2 | **Idempotency table** dedicada `ingress_idempotency(key, workspace_id, correlation_id, request_hash, created_at)` com índice unique + cleanup job pg-boss | Doc 11 §7 (eventos invariants) — extensão operacional |
 | 3 | **Replay endpoint robusto** `GET /events/replay/:correlation_id?ordering=causal\|temporal` — `causal` percorre `causation_id` chain (topological); `temporal` mantém comportamento atual de S1 | Doc 10 §5.26 (Run Replay) |
-| 4 | **Partição da tabela `events`** — `PARTITION BY LIST (aggregate_type)` + sub-partição `RANGE (created_at)` mensal. Migração: criar tabela nova `events_partitioned`, copiar dados S1 (poucos), swap via rename + view backward-compat | Doc 11 §7 línea 235 |
-| 5 | **Telemetria append-only** — counter Postgres `events_append_attempts_blocked_total{op}` exposto via endpoint `GET /metrics` (Prometheus text format); incrementa toda vez que trigger bloqueia UPDATE/DELETE | Doc 13 §16 quality gates — preparação |
+| 4 | **Partição da tabela `events`** — `PARTITION BY LIST (aggregate_type)` + sub-partição `RANGE (created_at)` mensal. Migração: criar tabela nova `events_partitioned`, copiar dados S1 (poucos), swap via rename + view backward-compat | Doc 11 §7 linhas 214-217 |
+| 5 | **Telemetria append-only** — counter Postgres persistente (tabela `ops_counters(name text pk, value bigint)`) `events_append_attempts_blocked_total{op}` exposto via `GET /metrics` (Prometheus text format). **Mecanismo obrigatório:** o trigger append-only é reescrito para `RETURN NULL` (skip silencioso da row — invariante preservado) + `RAISE WARNING` + increment do counter. NÃO usar `RAISE EXCEPTION`: exceção aborta a transação e desfaz o próprio increment (counter eternamente 0). Regression: testes S1 que esperem exceção em UPDATE/DELETE passam a esperar 0 rows affected + dados intactos | Doc 13 §16 quality gates — preparação |
 | 6 | **Performance baseline test** — script `pnpm bench:events` insere 1000 eventos concorrentes (100 workers × 10 events), mede P50/P95/P99 insert latency + throughput events/s. Documentado em `docs/EVENT_LOG.md` | Doc 13 §16 — baseline pra alertar regressão |
 | 7 | **Concorrência tests** — `tests/integration/idempotency_concurrent.test.ts`: 50 POSTs paralelos com mesmo idempotency_key → exatamente 1 event publicado; sem deadlock | Doc 10 §5.6 + Doc 13 §16 |
 | 8 | **`docs/EVENT_LOG.md`** no CKOS_RUNTIME — invariantes (append-only, idempotency, ordering, partition), schema com 6 campos extras explicados, replay semantics, performance baseline, troubleshooting | self-documentação operacional |
-| 9 | **Migration safety net** — testar migration de partição em branch separada do Supabase (`pnpm db:migrate:dry-run` simula EXPLAIN), documentar rollback no `docs/MIGRATIONS.md` | Doc 11 §7 + Doc 12 §5.X (data governance) |
+| 9 | **Migration safety net** — Supabase free tier NÃO tem branching (feature Pro+): a migration completa (create partitioned → copy → recriar triggers/índices → swap rename + view) é ensaiada em Postgres 15 local (mesmo ambiente de testes do S1) e/ou em 2º projeto Supabase free descartável; `pnpm db:migrate:dry-run` = transação `BEGIN … ROLLBACK` em ambiente de ensaio (EXPLAIN não simula DDL); **recriar o trigger append-only (mecanismo AJUSTE-01) + índices na nova parent particionada é parte do deliverable** (não migram na cópia; PG15 clona triggers da parent pras partições); em produção a migration roda com **app parado** (`fly machine stop` — janela de minutos aceita: 1 usuário, auto_stop já ativo; zero-downtime é over-engineering em S4); rollback documentado em `docs/MIGRATIONS.md` | Doc 11 §7 + Doc 12 §5.X (data governance) |
 
 ### 2.2 NÃO ENTRA (defer — motivos explícitos)
 
@@ -119,6 +123,19 @@ Sprint 4 entrega **um event log production-grade**: idempotência fim-a-fim com 
 - **Idempotency semantics** → Doc 10 §5.6 (Run Scheduler, Queue, Retry, Timeout, Idempotency) — S1 já tem `idempotency_key` no envelope; S4 estende pra ingress
 - **Run Replay** → Doc 10 §5.26 — S1 implementou via timestamp; S4 adiciona ordering causal
 
+> **Constraint × partição (restrição Postgres que o S4 DEVE tratar):** PK e UNIQUE em tabela particionada
+> precisam incluir as partition keys. Em `events_partitioned` LIST(aggregate_type)+RANGE(created_at):
+> PK vira `(id, aggregate_type, created_at)` e o índice único do Doc 11 §7 linha 232 vira
+> `(idempotency_key, aggregate_type, created_at)` — a unicidade GLOBAL de `idempotency_key` deixa de ser
+> garantida por índice (retry com mesmo hash mas `created_at` distinto NÃO é bloqueado). Mitigação S4:
+> (i) guarda app-side no event publisher — "consulta event log antes de aplicar" já é canônica em
+> Doc 10 §5.6; (ii) `ingress_idempotency` cobre o caminho de ingress. Este conflito (Doc 11 §7 linha 232
+> unique × linhas 214-217 partição) é finding canônico → F1S4_DOC11_PATCH_FINDINGS → PATCH 3 candidate
+> (caminho AQ-S4-04, pattern AQ-S1-06).
+>
+> **DEFAULT partition obrigatória:** a partição LIST DEVE incluir `DEFAULT` — sem ela, INSERT de qualquer
+> `aggregate_type` novo (S3/S5 introduzem event types novos) quebra em produção.
+
 ### 3.1 Nova tabela operacional (extensão, não-canônica)
 
 > **`ingress_idempotency`** — fora do canônico Doc 11 (que cobre só objetos de negócio). É infra operacional do runtime, equivalente a uma cache table.
@@ -150,6 +167,16 @@ GET /events/replay/:correlation_id?ordering=temporal  (default — backward-comp
 
 Implementação `causal`: query recursive CTE seguindo `causation_id`. Para S4 com `aggregate_id = correlation_id` (charter S1 §3 AJUSTE-03 nota), causação é linear na maior parte; CTE recursivo handles ciclos defensivamente (LIMIT 100 hops).
 
+Semântica causal (fechada): roots = eventos com `causation_id IS NULL`, ordenados por `created_at` ASC;
+cada evento aparece DEPOIS do seu causador (ordem topológica do DAG — Doc 10 §5.3 "árvore causal");
+desempate por `created_at` ASC. Side-chains (ex.: os 4 LLMCost de S1) são INCLUÍDOS como filhos do
+evento que os causou — não excluídos, não flag separada (replay de auditoria precisa de custo e modelos,
+Doc 10 §5.26). O valor real de `causation_id` dos LLMCost em S1 (NULL? aponta pro causador?) é dado a
+CONFIRMAR pelo executor no anexo do dispatch — não assumir.
+
+Nota de rota: `GET /events/replay/:correlation_id` é rota NOVA de S4 (S1 expõe apenas `GET /trace/:correlation_id`,
+que permanece intocada — regression no check 5). `ordering=temporal` replica a semântica do `/trace` de S1.
+
 ---
 
 ## 4. Tech stack — sem mudanças em relação a S1
@@ -173,20 +200,20 @@ S4 NÃO introduz novas dependências. Reusa stack já em produção (charter S1 
 
 ## 5. Exit criterion (binário)
 
-> **Event log production-grade pode ser stress-testado e replayed em ordem causal sem perder eventos nem criar duplicatas** — testável por 3 checks objetivos:
+> **Event log production-grade pode ser stress-testado e replayed em ordem causal sem perder eventos nem criar duplicatas** — testável por **6 checks objetivos**:
 
 1. **Idempotência:** `tests/integration/idempotency_concurrent.test.ts` envia 50 POST `/intent` paralelos com mesmo `X-Idempotency-Key` + mesmo `request_hash` → exatamente **1 evento `IntentSubmitted`** persistido, mesma `correlation_id` retornada nas 50 respostas
-2. **Replay causal:** dado um `correlation_id` com 8 eventos S1, `GET /events/replay/:correlation_id?ordering=causal` retorna lista em ordem topológica `causation_id` chain (verifica que `event[i].causation_id === event[i-1].id` para `i > 0` quando há cadeia linear)
+2. **Replay causal:** dado um `correlation_id` com 8 eventos S1, `GET /events/replay/:correlation_id?ordering=causal` retorna TODOS os eventos do correlation_id em ordem topológica: roots (`causation_id` NULL) primeiro; para todo evento cujo causador está na lista, o causador aparece ANTES dele; desempate `created_at` ASC. (A checagem linear `event[i].causation_id === event[i-1].id` vale apenas pra sub-cadeia workflow de 4 eventos; os 4 LLMCost são side-chain — a invariante topológica é o critério binário.)
 3. **Performance baseline:** `pnpm bench:events` reporta P95 insert latency < 100ms (target conservador pro free tier Supabase + Fly GRU); throughput ≥ 50 events/s sustentável por 60s (sem timeout, sem deadlock)
-4. **Append-only telemetria:** stress test que tenta `UPDATE events SET ... ; DELETE FROM events WHERE ...` 100 vezes → `GET /metrics` mostra `events_append_attempts_blocked_total{op="UPDATE"} = 100, op="DELETE" = 100`
-5. **Partition migration:** migration aplicada em produção (Supabase) com S1 events copiados pra partições corretas; query `SELECT * FROM events WHERE workspace_id = ?` retorna mesmos 8 eventos validados em S1 (correlation_id `b75238fd-0a41-4d1e-8c3f-300fb342723f`) — zero perda
+4. **Append-only telemetria:** stress test que tenta `UPDATE events SET ... ; DELETE FROM events WHERE ...` 100 vezes (autocommit) → 0 rows alteradas/deletadas (dump byte-idêntico antes/depois) E `GET /metrics` mostra `events_append_attempts_blocked_total{op="UPDATE"} = 100, op="DELETE" = 100`; counter sobrevive a restart da Fly machine (tabela Postgres, não memória de processo)
+5. **Partition migration:** migration aplicada em produção (Supabase) com S1 events copiados pra partições corretas; query `SELECT * FROM events WHERE workspace_id = ?` E endpoint S1 `GET /trace/:correlation_id` (HTTP, auth S1) retornam os mesmos 8 eventos validados em S1 (correlation_id `b75238fd-0a41-4d1e-8c3f-300fb342723f`), payload byte-idêntico (comparar dump ordenado por `id` antes/depois do swap) — zero perda, zero mutação
 6. **`docs/EVENT_LOG.md`** existe no CKOS_RUNTIME documentando invariantes + schema + replay semantics + performance baseline + troubleshooting
 
 **Quality gate Sprint Done:**
-- 5 checks acima ✅
+- **6 checks** acima ✅
 - CI verde (extensão dos workflows do S1)
 - Deploy live em https://ckos-runtime.fly.dev mantém healthcheck 200 + S1 `/intent` continua funcionando idêntico (regression test)
-- Doc 11 patch findings registrados (esperado: 1 — formalizar partition strategy na Doc 11 §7 línea 235)
+- Doc 11 patch findings registrados (esperado: 1 — formalizar partition strategy na Doc 11 §7 linhas 214-217)
 - PMO valida via execução real de stress test contra deploy
 - Founder assina via commit `sprint-done: S4`
 
@@ -202,9 +229,9 @@ S4 NÃO introduz novas dependências. Reusa stack já em produção (charter S1 
 |---|---|---|
 | (a) **LIST(aggregate_type) + RANGE(created_at month)** — recomendação PMO | Permite drop de partições inteiras (ex: dropar `LLMCost` antigos sem tocar workflow events); planning paralelo nas sub-partições | Mais complexo; precisa CREATE PARTITION pra cada combinação |
 | (b) RANGE(created_at month) apenas | Mais simples; suficiente pra MVP | Não isola `LLMCost` de eventos de workflow; archival mais grosseiro |
-| (c) Sem partição (deixar table flat) | Zero complexidade | Não escala >1M rows; viola Doc 11 §7 línea 235 |
+| (c) Sem partição (deixar table flat) | Zero complexidade | Não escala >1M rows; viola Doc 11 §7 linhas 214-217 |
 
-**Recomendação PMO:** (a) — alinhada com Doc 11 §7 línea 235 "partição por `aggregate_type` + range por `created_at`". Custo inicial baixo (5 partições — uma por tipo); paga em alguns meses quando LLMCost dominar volume.
+**Recomendação PMO:** (a) — alinhada com Doc 11 §7 linhas 214-217 "partição por `aggregate_type` + range por `created_at`". Custo inicial baixo (5 partições — uma por tipo); paga em alguns meses quando LLMCost dominar volume.
 
 **AQ-S4-02 — Janela de idempotência: 24h / 7d / 30d / infinito?**
 
@@ -233,11 +260,11 @@ Justificativa: Fly shared-cpu-1x + Supabase free tier (pooler limit ~60 conexõe
 
 ### 🟡 Não-trava (decidir durante S4 ou logo após)
 
-**AQ-S4-04 — Doc 11 §7 línea 235 formaliza partition strategy ANTES ou DEPOIS do S4?**
+**AQ-S4-04 — Doc 11 §7 linhas 214-217 formaliza partition strategy ANTES ou DEPOIS do S4?**
 
 Opção (a): PATCH 3 leve no Doc 11 antes — formaliza canônico, S4 vira aplicação literal.
 Opção (b): S4 implementa; descoberta vira PATCH 3 candidate gerado pelo executor (AQ-S1-06 pattern).
-Opção (c): Não formalizar agora — Doc 11 §7 línea 235 já tem hint "partição + streams lógicos", suficiente como spec.
+Opção (c): Não formalizar agora — Doc 11 §7 linhas 214-217 já tem hint "partição + streams lógicos", suficiente como spec.
 
 Recomendação PMO: (b) — segue o pattern AQ-S1-06 que funcionou em S1 (zero findings); executor reporta se a hint do Doc 11 foi suficiente ou se precisa expansão.
 
@@ -266,7 +293,7 @@ Já listadas em §2.2 — repetidas pra reforço: outbox pattern (S5), novos eve
          performance targets factíveis no stack S1 production
        → Veredito: APROVA / APROVA-COM-AJUSTES / REPROVA
 
-3. Se APROVA-COM-AJUSTES: Forma A (patch leve no charter v0.1.0→v0.2.0) — preferido per S1 precedent.
+3. Se APROVA-COM-AJUSTES: Forma A (patch leve no charter v0.2.0→v0.3.0) — preferido per S1 precedent.
    Se APROVA: pular pra step 4.
 
 4. Após Founder responder AQ-S4-01/02/03 + Metacognik APROVA:
@@ -291,7 +318,7 @@ Já listadas em §2.2 — repetidas pra reforço: outbox pattern (S5), novos eve
        → Reporta progresso via PRs com label `s4-*` em CKOS_RUNTIME
 
 6. Verificação de exit criterion
-       → Executor self-test: roda 5 checks do §5 deste charter contra deploy live
+       → Executor self-test: roda os **6 checks** do §5 deste charter contra deploy live
          (ainda https://ckos-runtime.fly.dev — redeploy, não novo app)
        → Reporta JSON output no anexo do dispatch
        → PMO valida: stress test ao vivo + replay causal + telemetria metrics + bench numbers
@@ -314,7 +341,7 @@ context_summary:
   - "Kanban F1 indica S4 antes de S2/S3 (backend plan §14: Event Log estabilizado cedo)"
   - "Event log production-grade significa idempotência fim-a-fim + replay causal + partição + telemetria + baseline performance"
   - "Stack S1 reusado integralmente (TS + Fastify + Drizzle + pg-boss + Supabase Pooler + Fly GRU) — zero novas deps"
-  - "Doc 11 §7 línea 235 já tem hint de partição; AQ-S4-04 decide formalizar antes ou após"
+  - "Doc 11 §7 linhas 214-217 já tem hint de partição; AQ-S4-04 decide formalizar antes ou após"
 outputs:
   - "F1_SPRINT4_CHARTER.md (este): 9 deliverables IN, ~11 itens OUT, 6 AQs (3 trava-início), exit criterion binário 5 checks"
 open_questions:
@@ -344,10 +371,10 @@ Founder revisou o charter em 2026-06-11 e respondeu **"aceito 3 recs"** às AQs 
 
 ### AQ-S4-01 — Partition strategy: **(a) LIST(aggregate_type) + RANGE(created_at month)**
 
-- Alinhada com Doc 11 §7 línea 235 ("partição por `aggregate_type` + range por `created_at`")
+- Alinhada com Doc 11 §7 linhas 214-217 ("partição por `aggregate_type` + range por `created_at`")
 - 5 partições iniciais (uma por aggregate_type ativo) + sub-partições mensais
 - Permite drop isolado de partições `LLMCost` antigas sem tocar workflow events
-- Migration testada em branch Supabase antes de produção (deliverable #9 safety net)
+- Migration ensaiada em Postgres 15 local e/ou 2º projeto Supabase free antes de produção (deliverable #9 safety net — free tier não tem branching)
 
 ### AQ-S4-02 — Janela de idempotência: **(a) 24 horas**
 
@@ -370,6 +397,26 @@ Founder revisou o charter em 2026-06-11 e respondeu **"aceito 3 recs"** às AQs 
 ### Próximo passo confirmado
 
 Charter vai para **Metacognik completeness audit** (Claude Code fresh, mesmo pattern S1) — sessão `S-F1S4-CHARTER-METAREV-CLAUDE-20260611-001`. Após APROVA (com ou sem AJUSTES), PMO escreve `S-F1S4-IMPLEMENTATION-DISPATCH.md` com decisões acima embutidas.
+
+---
+
+## 10. Metacognik Audit + AJUSTES aplicados (2026-06-12)
+
+Audit de completeness rodou em Claude Code fresh (sessão `S-F1S4-CHARTER-METAREV-CLAUDE-20260611-001`, separada da autora). **Veredito: APROVA-COM-AJUSTES** — review completo em [`L3_WAVE1/F1S4_CHARTER_METACOGNIK_REVIEW.md`](L3_WAVE1/F1S4_CHARTER_METACOGNIK_REVIEW.md) (8 checks + respostas B1-B8 + go/no-go por componente).
+
+**Os 5 AJUSTES (Forma A) aplicados nesta versão (v0.2.0 → v0.3.0)** pela sessão `S-F1S4-CHARTER-AJUSTES-CLAUDE-20260612-001`:
+
+| # | AJUSTE | O que corrigiu | Onde |
+|---|---|---|---|
+| 01 | Telemetria à prova de rollback | Trigger com `RAISE EXCEPTION` aborta a transação e desfaz o próprio increment do counter (check 4 falharia por design). Mecanismo correto: `RETURN NULL` + `RAISE WARNING` + counter persistente `ops_counters` | §2.1 #5 + §5 check 4 |
+| 02 | Constraint × partição + DEFAULT | PK/UNIQUE em particionada exigem partition keys — unicidade global de `idempotency_key` deixa de ser por índice (mitigação app-side Doc 10 §5.6); DEFAULT partition obrigatória; finding canônico Doc 11 §7 linha 232 × linhas 214-217 → PATCH 3 | §3 nota nova |
+| 03 | Migration safety real | Supabase free tier não tem branching (Pro+); ensaio em PG15 local/2º projeto free; triggers recriados como deliverable (não migram na cópia); app parado na janela; `GET /trace` regression no check 5 | §2.1 #9 + §5 check 5 + §9 |
+| 04 | Replay causal topológico | Checagem linear era incompatível com os 8 eventos reais de S1 (4 LLMCost são side-chain); invariante topológica do DAG é o critério binário; `causation_id` real dos LLMCost = dado a confirmar pelo executor | §3.2 + §5 check 2 |
+| 05 | Contagem + anchors | Exit criterion "3/5 checks" → **6 checks** (3 lugares); anchor "línea 235" → "linhas 214-217" (9 ocorrências); versões §7 step 3 | múltiplos |
+
+**7 defers não-bloqueantes (def-01..def-07)** ficam como cláusulas do `S-F1S4-IMPLEMENTATION-DISPATCH.md`: auth `/metrics` mock JWT (def-01), fórmula `request_hash` (def-02), pool `max:20` + bench in-process (def-03), workspace dedicado de bench (def-04), ~25 `fk→events` pós-partição → PATCH 3 (def-05), anchor Doc 13 §16 aceito como preparação (def-06), lista de partições LIST iniciais + DEFAULT (def-07).
+
+> Nota de traceability: os blocos §8 (BRA Packet + CHECKOUT RELEASE) são registro histórico da sessão autora v0.2.0 e preservam as contagens/claims daquela data ("5 checks", "branch Supabase") — não foram editados, per escopo Forma A do review §5.
 
 ---
 
